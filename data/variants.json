@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "id": "variant-1akjsdq",
+      "image": "/images/variants/variant-1.png",
+      "color": "Pink",
+      "size": "XL",
+      "stock": 30,
+      "sku": "12738198732",
+      "isFavorite": true
+    },
+    {
+      "id": "variant-2y12iwn",
+      "image": "/images/variants/variant-2.png",
+      "color": "Brown",
+      "size": "M",
+      "stock": 28,
+      "sku": "19301912312",
+      "isFavorite": false
+    },
+    {
+      "id": 545.466230788422,
+      "image": "/images/variants/variant-3.png",
+      "color": "Red",
+      "size": "L",
+      "stock": "40",
+      "sku": "12318392831",
+      "isFavorite": true
+    },
+    {
+      "id": 303.6919790933745,
+      "image": "/images/variants/variant-4.png",
+      "color": "Green",
+      "size": "XS",
+      "stock": "89",
+      "sku": "12371837218",
+      "isFavorite": false
+    },
+    {
+      "id": 921.475299544712,
+      "image": "/images/variants/variant-1.png",
+      "color": "Blue",
+      "size": "S",
+      "stock": "29",
+      "sku": "21938139210",
+      "isFavorite": false
+    }
+  ]
+}
