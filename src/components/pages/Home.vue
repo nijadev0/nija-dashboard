@@ -15,7 +15,7 @@ import DashboardLayout from '$components/templates/DashboardLayout.vue'
       </Body>
 
       <div class="max-w-fit">
-        <Button type="goto" size="medium" go-to="/sandbox/button"> Klik disini </Button>
+        <Button type="goto" size="medium" go-to="/sandbox/button"> Klik Disini </Button>
       </div>
     </div>
   </DashboardLayout>
