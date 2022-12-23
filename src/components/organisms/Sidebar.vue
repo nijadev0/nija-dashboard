@@ -19,12 +19,12 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
   <aside
     class="Sidebar min-h-screen w-full max-w-[240px] border-r border-netral-20 bg-white px-5 py-8 shadow-sm"
   >
-    <div class="Logo mb-10 flex items-center gap-2 pl-3">
+    <div class="Logo mb-8 flex items-center gap-2 pl-3 2xl:mb-10">
       <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
       <Body size="xxl" weight="medium"> Nija Kit </Body>
     </div>
 
-    <div class="Menu flex flex-col gap-3">
+    <div class="Menu flex flex-col gap-2.5 2xl:gap-3">
       <!-- Dashboard -->
       <SideMenu variant="default">
         <HouseSimple class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />

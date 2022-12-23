@@ -16,7 +16,7 @@ const body = cva(`Body text-inherit ${className}`, {
     size: {
       xxl: 'text-xl leading-7',
       xl: 'text-lg leading-6',
-      lg: 'text-base leading-[22px]',
+      lg: 'text-sm 2xl:text-base leading-5 2xl:leading-[22px]',
       md: '2xl:text-sm 2xl:leading-5 text-[13px] leading-4',
       sm: 'text-xs leading-4',
     },

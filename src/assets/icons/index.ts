@@ -15,6 +15,8 @@ import Storefront from './StorefrontIcon.vue'
 import UserCircle from './UserCircleIcon.vue'
 import MagnifyingGlass from './MagnifyingGlassIcon.vue'
 import BellSimple from './BellSimpleIcon.vue'
+import SortAscending from './SortAscendingIcon.vue'
+import Funnel from './FunnelIcon.vue'
 
 export {
   Circle,
@@ -34,4 +36,6 @@ export {
   UserCircle,
   MagnifyingGlass,
   BellSimple,
+  SortAscending,
+  Funnel,
 }

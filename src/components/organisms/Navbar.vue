@@ -8,8 +8,8 @@ import Body from '$components/atoms/Body.vue'
 
 <template>
   <!-- Navbar -->
-  <header class="Navbar w-full border-b border-netral-20 bg-white px-8">
-    <div class="Wrapper mx-auto flex w-full items-center justify-between py-3 shadow-sm">
+  <header class="Navbar w-full border-b border-netral-20 bg-white px-8 py-3 shadow-sm">
+    <div class="Wrapper mx-auto flex w-full items-center justify-between">
       <!-- Search -->
       <nav class="Search relative">
         <input
@@ -46,7 +46,7 @@ import Body from '$components/atoms/Body.vue'
         <div class="User flex items-center">
           <Avatar size="small" />
 
-          <div class="ml-2 mr-7">
+          <div class="ml-2 mr-7 space-y-1">
             <Body size="md" weight="medium" class="text-netral-80"> Marvin McKinney </Body>
             <Body size="sm" weight="regular" class="text-netral-50"> Super Admin </Body>
           </div>

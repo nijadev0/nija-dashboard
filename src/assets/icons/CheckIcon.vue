@@ -1,12 +1,5 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    class="h-6 w-6"
-  >
-    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M27 9.00061L13 23L6 16.0006" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
 </template>

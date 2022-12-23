@@ -3,9 +3,11 @@ import { cva } from 'cva'
 
 interface ButtonProps {
   type?: 'click' | 'link' | 'goto' | 'submit'
-  variant?: 'primary' | 'error'
+  variant?: 'primary' | 'error' | 'plain'
   size?: 'big' | 'medium' | 'small'
   modifier?:
+    | 'defaultPlain'
+    | 'outlinePlain'
     | 'defaultPrimary'
     | 'outlinePrimary'
     | 'nudePrimary'
@@ -23,15 +25,20 @@ const button = cva(
   {
     variants: {
       variant: {
+        plain: 'bg-netral-20',
         primary: 'bg-primary-main',
         error: 'bg-error-main',
       },
       size: {
         big: 'p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
-        medium: 'p-3  text-[15px] 2xl:text-base gap-2 rounded-large',
-        small: 'p-2  text-[13px] 2xl:text-sm gap-1 rounded-md',
+        medium: 'p-3 text-[15px] 2xl:text-base gap-2 rounded-large',
+        small: 'p-2 text-[13px] 2xl:text-sm gap-1 rounded-md',
       },
       modifier: {
+        defaultPlain:
+          'text-netral-100 hover:bg-netral-30 active:ring-netral-80 active:bg-netral-30 stroke-netral-70',
+        outlinePlain:
+          'bg-transparent ring-1 ring-current hover:bg-netral-20 hover:ring-netral-60 active:ring-netral-80 active:ring-2 stroke-netral-80',
         defaultPrimary:
           'text-white hover:bg-primary-hover active:ring-primary-border active:bg-primary-pressed stroke-white',
         outlinePrimary:
@@ -47,6 +54,42 @@ const button = cva(
       },
     },
     compoundVariants: [
+      {
+        variant: 'plain',
+        modifier: 'defaultPlain',
+        size: 'big',
+        class: 'text-netral-100',
+      },
+      {
+        variant: 'plain',
+        modifier: 'outlinePlain',
+        size: 'big',
+        class: 'text-netral-100',
+      },
+      {
+        variant: 'plain',
+        modifier: 'defaultPlain',
+        size: 'medium',
+        class: 'text-white',
+      },
+      {
+        variant: 'plain',
+        modifier: 'outlinePlain',
+        size: 'medium',
+        class: 'text-netral-100',
+      },
+      {
+        variant: 'plain',
+        modifier: 'defaultPlain',
+        size: 'small',
+        class: 'text-netral-100',
+      },
+      {
+        variant: 'plain',
+        modifier: 'outlinePlain',
+        size: 'small',
+        class: 'text-netral-100',
+      },
       {
         variant: 'primary',
         modifier: 'defaultPrimary',
