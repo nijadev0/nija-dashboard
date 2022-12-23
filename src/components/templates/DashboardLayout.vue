@@ -3,7 +3,7 @@ import Heading from '$components/atoms/Heading.vue'
 import Navbar from '$components/organisms/Navbar.vue'
 import SideBar from '$components/organisms/Sidebar.vue'
 
-const { title } = defineProps<{ title: string }>()
+const { title = 'Test' } = defineProps<{ title?: string }>()
 </script>
 
 <template>
