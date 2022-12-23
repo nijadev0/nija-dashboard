@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '$components/pages/Home.vue'
+import Home2 from '$components/pages/Home2.vue'
 
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: Home,
+    },
+    {
+      path: '/products/2',
+      name: 'Home2',
+      component: Home2,
     },
     /**
      * ========================================

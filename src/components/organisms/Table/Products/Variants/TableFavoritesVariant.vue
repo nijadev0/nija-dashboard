@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import Body from '$components/atoms/Body.vue'
+
 import HeartIcon from '$assets/icons/HeartIcon.vue'
-import Text from '$components/atoms/Text.vue'
 
 interface TableAllVariantProps {
   tHead: String[]
@@ -20,7 +21,7 @@ const { tHead, favorites, favoriteVariant } = defineProps<TableAllVariantProps>(
             v-for="head in tHead"
             class="px-8 py-5 text-left uppercase text-netral-50 first:pl-10"
           >
-            <Text variant="body" size="md" weight="medium"> {{ head }} </Text>
+            <Body size="md" weight="medium"> {{ head }} </Body>
           </th>
         </tr>
       </thead>

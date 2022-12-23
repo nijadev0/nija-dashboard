@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* For Debugging, please uncomment this code below */
   /* * {
     @apply border border-red-500;
   } */
+
   body {
     @apply relative font-jakarta text-netral-100 antialiased;
   }

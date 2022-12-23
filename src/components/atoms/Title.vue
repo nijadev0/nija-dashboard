@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Text from '$components/atoms/Text.vue'
+import Body from './Body.vue'
 
 interface Title {
   variant?: 'default' | 'critical' | 'warning' | 'success' | 'info'
@@ -23,8 +23,8 @@ const { variant = 'base', size } = defineProps<Title>()
       }"
     />
 
-    <Text variant="body" :size="size === 'big' ? 'xxl' : 'xl'" weight="semibold">
+    <Body :size="size === 'big' ? 'xxl' : 'xl'" weight="semibold">
       <slot />
-    </Text>
+    </Body>
   </div>
 </template>

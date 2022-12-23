@@ -1,13 +1,22 @@
 <script setup lang="ts">
+import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
+import Heading from '$components/atoms/Heading.vue'
+import DashboardLayout from '$components/templates/DashboardLayout.vue'
 </script>
 
 <template>
-  <div class="container mx-auto my-16 max-w-screen-xl">
-    <h1 class="mb-4 text-4xl">Haloooooo</h1>
-    <p class="mb-8">Pingin lihat dokumentasi?</p>
-    <div class="max-w-fit">
-      <Button type="goto" go-to="/sandbox/button"> Klik disini </Button>
+  <DashboardLayout>
+    <div class="container mx-auto my-16 max-w-screen-xl rounded-large bg-white py-16">
+      <Heading size="sm" weight="medium" class="mb-2"> Nija Kit Dashboard </Heading>
+
+      <Body size="lg" weight="regular" class="mb-6 text-netral-60">
+        Pingin lihat dokumentasi?
+      </Body>
+
+      <div class="max-w-fit">
+        <Button type="goto" size="medium" go-to="/sandbox/button"> Klik disini </Button>
+      </div>
     </div>
-  </div>
+  </DashboardLayout>
 </template>

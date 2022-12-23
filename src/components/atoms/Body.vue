@@ -7,26 +7,8 @@ interface TextProps {
   weight?: 'bold' | 'semibold' | 'medium' | 'regular'
   className?: string
 }
-const { variant, weight, className } = defineProps<TextProps>()
 
-// Heading
-const heading = cva(`Heading text-inherit ${className}`, {
-  variants: {
-    size: {
-      xxl: 'text-7xl leading-[80px]',
-      xl: 'text-[64px] leading-[76px]',
-      lg: 'text-[46px] leading-[54px]',
-      md: 'text-[36px] leading-[44px]',
-      sm: 'text-2xl leading-[30px]',
-    },
-    weight: {
-      bold: 'font-bold',
-      semibold: 'font-semibold',
-      medium: 'font-medium',
-      regular: 'font-regular',
-    },
-  },
-})
+const { weight, className } = defineProps<TextProps>()
 
 // Body
 const body = cva(`Body text-inherit ${className}`, {
@@ -47,13 +29,8 @@ const body = cva(`Body text-inherit ${className}`, {
   },
 })
 </script>
-
 <template>
-  <h3 v-if="variant === 'heading'" :class="heading({ size, weight })">
-    <slot />
-  </h3>
-
-  <p v-if="variant === 'body'" :class="body({ size, weight })">
+  <p :class="`${body({ size, weight })}`">
     <slot />
   </p>
 </template>

@@ -27,9 +27,9 @@ const button = cva(
         error: 'bg-error-main',
       },
       size: {
-        big: 'p-4 text-base gap-3 rounded-large',
-        medium: 'p-3 text-base gap-2 rounded-large',
-        small: 'p-2 text-sm gap-1 rounded-md',
+        big: 'p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
+        medium: 'p-3  text-[15px] 2xl:text-base gap-2 rounded-large',
+        small: 'p-2  text-[13px] 2xl:text-sm gap-1 rounded-md',
       },
       modifier: {
         defaultPrimary:

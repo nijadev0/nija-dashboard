@@ -1,47 +1,112 @@
 <script lang="ts" setup>
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-
-import Text from '$components/atoms/Text.vue'
+import Body from '$components/atoms/Body.vue'
 import SideMenu from '$components/moleculs/SideMenu.vue'
-import { HouseSimple, Users } from '$assets/icons'
+
+import {
+  HouseSimple,
+  Users,
+  Package,
+  Receipt,
+  Tag,
+  AppWindow,
+  Storefront,
+  UserCircle,
+} from '$assets/icons'
+import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
 </script>
 
 <template>
-  <aside class="Sidebar min-h-screen w-full max-w-[240px] px-[18px] py-6">
-    <div class="Logo mb-10 flex gap-3">
+  <aside
+    class="Sidebar min-h-screen w-full max-w-[240px] border-r border-netral-20 bg-white px-5 py-8 shadow-sm"
+  >
+    <div class="Logo mb-10 flex items-center gap-2 pl-3">
       <img src="/nija.svg" alt="Nija Logo" class="h-8 w-8" />
-      <Text variant="body" size="xxl" weight="medium"> Nija Kit </Text>
+      <Body size="xxl" weight="medium"> Nija Kit </Body>
     </div>
 
     <div class="Menu flex flex-col gap-3">
+      <!-- Dashboard -->
       <SideMenu variant="default">
         <HouseSimple class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-        <Text variant="body" size="md" weight="medium"> Dashboard </Text>
+        <Body size="md" weight="medium"> Dashboard </Body>
       </SideMenu>
 
-      <Disclosure>
-        <DisclosureButton class="SidebarExpandButton">
-          <SideMenu variant="expand">
-            <Users class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-            <Text variant="body" size="md" weight="medium"> Customers</Text>
-          </SideMenu>
-        </DisclosureButton>
+      <!-- Customers -->
+      <SideMenuExpand>
+        <template #expand>
+          <Users class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+          <Body size="md" weight="medium"> Customers </Body>
+        </template>
 
-        <DisclosurePanel
-          class="SidebarExpandPanel relative flex w-full flex-col items-end justify-end gap-3"
-        >
-          <div class="absolute top-0 left-5 h-full w-px bg-netral-30" />
+        <template #sub>
           <SideMenu variant="sub">
-            <Text variant="body" size="md" weight="medium"> Label </Text>
+            <Body size="md" weight="medium"> Users </Body>
           </SideMenu>
-          <SideMenu variant="sub">
-            <Text variant="body" size="md" weight="medium"> Label </Text>
-          </SideMenu>
-        </DisclosurePanel>
-      </Disclosure>
 
+          <SideMenu variant="sub">
+            <Body size="md" weight="medium"> Buyers </Body>
+          </SideMenu>
+        </template>
+      </SideMenuExpand>
+
+      <!-- Customers -->
+      <SideMenuExpand>
+        <template #expand>
+          <Package class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+          <Body size="md" weight="medium"> Products </Body>
+        </template>
+
+        <template #sub>
+          <SideMenu variant="sub">
+            <Body size="md" weight="medium"> List Products </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub">
+            <Body size="md" weight="medium"> Categories </Body>
+          </SideMenu>
+        </template>
+      </SideMenuExpand>
+
+      <!-- Transacations -->
+      <SideMenuExpand>
+        <template #expand>
+          <Receipt class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+          <Body size="md" weight="medium"> Transactions </Body>
+        </template>
+
+        <template #sub>
+          <SideMenu variant="sub">
+            <Body size="md" weight="medium"> Transactions </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub">
+            <Body size="md" weight="medium"> Returns </Body>
+          </SideMenu>
+        </template>
+      </SideMenuExpand>
+
+      <!-- Flash Sale -->
       <SideMenu variant="default">
-        <Text variant="body" size="md" weight="medium"> Label </Text>
+        <Tag class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+        <Body size="md" weight="medium"> Flash Sale </Body>
+      </SideMenu>
+
+      <!-- Banner -->
+      <SideMenu variant="default">
+        <AppWindow class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+        <Body size="md" weight="medium"> Banner </Body>
+      </SideMenu>
+
+      <!-- Outlet -->
+      <SideMenu variant="default">
+        <Storefront class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+        <Body size="md" weight="medium"> Outlet </Body>
+      </SideMenu>
+
+      <!-- User Role -->
+      <SideMenu variant="default">
+        <UserCircle class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+        <Body size="md" weight="medium"> User Role </Body>
       </SideMenu>
     </div>
   </aside>

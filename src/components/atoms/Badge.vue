@@ -19,8 +19,8 @@ const { variant } = defineProps<Status>()
       'bg-netral-30 text-netral-80': variant === 'neutral',
     }"
   >
-    <Text variant="body" size="md" weight="medium">
+    <Body size="md" weight="medium">
       <slot />
-    </Text>
+    </Body>
   </div>
 </template>
