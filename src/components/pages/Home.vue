@@ -7,7 +7,7 @@ import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <div class="container mx-auto my-16 max-w-screen-xl rounded-large bg-white py-16">
+    <div class="my-16 rounded-large bg-white px-8 py-16">
       <Heading size="sm" weight="medium" class="mb-2"> Nija Kit Dashboard </Heading>
 
       <Body size="lg" weight="regular" class="mb-6 text-netral-60">
