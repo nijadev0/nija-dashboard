@@ -13,7 +13,7 @@ const { variant, href } = defineProps<SideMenuProps>()
   <!-- Side Menu : Main (Expand) -->
   <button
     v-if="variant === 'expand'"
-    class="SideMenu Expand flex w-full min-w-[192px] justify-between rounded-large p-3"
+    class="SideMenu Expand flex w-full min-w-[180px] justify-between rounded-large p-3 2xl:min-w-[192px]"
   >
     <div class="Menu flex items-center gap-3">
       <slot />
@@ -26,7 +26,7 @@ const { variant, href } = defineProps<SideMenuProps>()
   <button
     v-if="variant === 'default'"
     @click="$router.push(`${href}`)"
-    class="SideMenu Default flex min-w-[192px] items-center gap-3 rounded-large p-3 text-netral-50 hover:bg-netral-20 focus:text-primary-main"
+    class="SideMenu Default flex min-w-[180px] items-center gap-3 rounded-large p-3 text-netral-50 hover:bg-netral-20 focus:text-primary-main 2xl:min-w-[192px]"
   >
     <slot />
   </button>

@@ -6,7 +6,7 @@ import { CaretDown } from '$assets/icons'
 <template>
   <Disclosure>
     <DisclosureButton
-      class="SideMenu Expand flex w-full min-w-[192px] justify-between rounded-large p-3 text-netral-50 hover:bg-netral-20 aria-expanded:text-primary-main"
+      class="SideMenu Expand flex w-full min-w-[180px] justify-between rounded-large p-3 text-netral-50 hover:bg-netral-20 aria-expanded:text-primary-main 2xl:min-w-[192px]"
     >
       <div class="Menu flex items-center gap-3">
         <slot name="expand" />

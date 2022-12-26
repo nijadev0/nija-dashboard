@@ -1,43 +1,90 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
+import { Dialog, DialogPanel, DialogTitle, DialogDescription } from '@headlessui/vue'
 
 import Button from '$components/atoms/Button.vue'
 import Title from '$components/atoms/Title.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
-import { SortAscending, Funnel, Check, Trash, Heart, PencilSquare } from '$assets/icons'
+import { SortAscending, Funnel, Check, XMark } from '$assets/icons'
 import Body from '$components/atoms/Body.vue'
+import Pagination from '$components/organisms/Pagination.vue'
+import PageAction from '$components/organisms/PageAction.vue'
+import Modal from '$components/organisms/Modal.vue'
 
-const enabledCheckbox = ref(false)
+const isEnabledCheckbox = ref(false)
 
-const tHead = [
-  '1',
-  'Name',
-  'Email Address',
-  'Complete Address',
-  'Created At',
-  'Last Activity',
-  'Actions',
+const usersData = [
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
+  {
+    name: 'Annette Black',
+    email: 'annette1@mail.com',
+    address: '3517 W. Gray St. Utica, Pennsylvania 57867',
+    createAt: 'Toledo',
+    date: 'April 28, 2016',
+  },
+  {
+    name: 'Dianne Russell',
+    email: 'rdianne@mail.com',
+    address: '8502 Preston Rd. Inglewood, Maine 98380',
+    createAt: 'Naperville',
+    date: 'November 16, 2014',
+  },
+  {
+    name: 'Devon Lane',
+    email: 'delane@mail.com',
+    address: '2464 Royal Ln. Mesa, New Jersey 45463',
+    createAt: 'Fairfield',
+    date: 'March 23, 2013',
+  },
+  {
+    name: 'Marvin McKinney',
+    email: 'marvin5@mail.com',
+    address: '3891 Ranchview Dr. Richardson, California 62639',
+    createAt: 'Austin',
+    date: 'November 16, 2014',
+  },
+  {
+    name: 'Jerome Bell',
+    email: 'belljer@mail.com',
+    address: '8502 Preston Rd. Inglewood, Maine 98380',
+    createAt: 'Orange',
+    date: 'March 23, 2013',
+  },
 ]
 
-const enabled = ref(false)
+const isOpenModalDelete = ref(false)
+
+function setIsOpenModalDelete() {
+  isOpenModalDelete.value = true
+}
+
+function closeModalDelete() {
+  isOpenModalDelete.value = false
+}
 </script>
 
 <template>
   <DashboardLayout title="Customers">
-    <div class="Customers min-h-[480px] w-full rounded-large bg-white p-6">
+    <div class="Customers min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
       <!-- Heading -->
       <div class="Heading mb-8 flex w-full items-center justify-between">
         <Title variant="default"> Users </Title>
 
         <div class="flex gap-2">
-          <Button variant="plain" modifier="defaultPlain" size="medium" type="click">
+          <Button type="click" variant="plain" modifier="defaultPlain" size="medium">
             Sort
             <SortAscending class="h-4 w-4 stroke-[4px] text-netral-80" />
           </Button>
 
-          <Button variant="plain" modifier="defaultPlain" size="medium" type="click">
+          <Button type="click" variant="plain" modifier="defaultPlain" size="medium">
             Filters
             <Funnel class="h-4 w-4 stroke-[4px] text-netral-80" />
           </Button>
@@ -50,19 +97,24 @@ const enabled = ref(false)
         <div class="relative w-full overflow-x-auto">
           <table class="w-full table-auto">
             <!-- Table Users: Head -->
-            <thead class="w-full rounded-large bg-[#FAFAFA]">
+            <thead class="w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
                 <th class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
-                  <Switch v-model="enabled" class="Checkbox flex items-center gap-2 outline-none">
+                  <Switch
+                    v-model="isEnabledCheckbox"
+                    class="Checkbox flex items-center gap-2 outline-none"
+                  >
                     <div
-                      class="Wrapper relative flex h-5 w-5 items-center justify-between gap-2.5 rounded-md border outline-none"
+                      class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        enabled ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isEnabledCheckbox
+                          ? 'border-primary-border bg-primary-main'
+                          : 'border-netral-60'
                       "
                     >
                       <Check
-                        class="Icon absolute z-10 h-full w-full stroke-2 text-white"
-                        :class="enabled ? 'block' : 'hidden'"
+                        class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
+                        :class="isEnabledCheckbox ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -101,49 +153,55 @@ const enabled = ref(false)
             </thead>
 
             <!-- Table Users: Body -->
-
             <tbody class="relative w-full">
-              <tr>
+              <tr v-for="user in usersData" class="border-b border-netral-20 last:border-netral-30">
                 <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
-                  <Switch v-model="enabled" class="Checkbox flex items-center gap-2 outline-none">
+                  <Switch
+                    v-model="isEnabledCheckbox"
+                    class="Checkbox flex items-center gap-2 outline-none"
+                  >
                     <div
-                      class="Wrapper relative flex h-5 w-5 items-center justify-between gap-2.5 rounded-md border outline-none"
+                      class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        enabled ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isEnabledCheckbox
+                          ? 'border-primary-border bg-primary-main'
+                          : 'border-netral-60'
                       "
                     >
                       <Check
-                        class="Icon absolute z-10 h-full w-full stroke-2 text-white"
-                        :class="enabled ? 'block' : 'hidden'"
+                        class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
+                        :class="isEnabledCheckbox ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
                 </td>
 
                 <td class="min-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> Samanta Legend </Body>
+                  <Body size="lg" weight="medium"> {{ user.name }} </Body>
                 </td>
 
-                <td class="min-w-[160px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> Annette Black </Body>
+                <td class="min-w-[160px] py-6 px-6 text-left text-netral-80 first:pl-3">
+                  <Body size="lg" weight="medium"> {{ user.email }} </Body>
                 </td>
 
                 <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
-                    2972 Westheimer Rd. Santa Ana, Illinois 85486
+                    {{ user.address }}
                   </Body>
                 </td>
 
                 <td class="max-w-[130px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> Sep 19, 2010 </Body>
+                  <Body size="lg" weight="medium"> {{ user.createAt }} </Body>
                 </td>
 
                 <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> May 6, 2012 </Body>
+                  <Body size="lg" weight="medium"> {{ user.date }} </Body>
                 </td>
 
                 <td class="w-px py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> Detail </Body>
+                  <button class="text-primary-main">
+                    <Body size="lg" weight="semibold"> Detail </Body>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -151,7 +209,64 @@ const enabled = ref(false)
         </div>
       </section>
 
-      <!-- Pagination -->
+      <!-- Pagination : Home -->
+      <Pagination />
     </div>
+
+    <!-- Page Action : Home -->
+    <template #PageAction>
+      <PageAction
+        v-if="isEnabledCheckbox"
+        :isSelected="isEnabledCheckbox"
+        :closeModal="setIsOpenModalDelete"
+        variant="DeleteOnly"
+      />
+    </template>
+
+    <!-- Modal Delete : Home -->
+    <template #Modal>
+      <Dialog
+        :open="isOpenModalDelete"
+        @close="closeModalDelete"
+        class="fixed inset-0 z-[60] h-screen w-full bg-netral-100/50"
+      >
+        <div class="-mt-12 flex h-full w-full items-center justify-center">
+          <DialogPanel class="max-w-md rounded-large bg-white p-6 2xl:max-w-lg">
+            <DialogTitle class="mb-4 flex items-center justify-between">
+              <Title variant="critical" size="small"> Delete User </Title>
+
+              <XMark class="h-5 w-5 stroke-[2.5px] text-netral-50 2xl:h-6 2xl:w-6" />
+            </DialogTitle>
+
+            <DialogDescription class="mb-8 text-sm 2xl:mb-16">
+              Are you sure want to delete this user? user which already deleted can not be
+              recovered.
+            </DialogDescription>
+
+            <div class="flex w-full justify-end gap-3">
+              <Button
+                type="click"
+                variant="plain"
+                size="medium"
+                modifier="nudePlain"
+                :on-click="closeModalDelete"
+              >
+                Cancel
+              </Button>
+
+              <Button
+                type="click"
+                variant="error"
+                size="medium"
+                modifier="defaultError"
+                :on-click="closeModalDelete"
+              >
+                Submit
+              </Button>
+            </div>
+          </DialogPanel>
+        </div>
+      </Dialog>
+    </template>
   </DashboardLayout>
 </template>

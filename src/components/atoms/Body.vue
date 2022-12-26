@@ -5,19 +5,19 @@ interface TextProps {
   variant?: 'heading' | 'body'
   size?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm'
   weight?: 'bold' | 'semibold' | 'medium' | 'regular'
-  className?: string
+  // className?: string
 }
 
-const { weight, className } = defineProps<TextProps>()
+const { weight } = defineProps<TextProps>()
 
 // Body
-const body = cva(`Body text-inherit ${className}`, {
+const body = cva(`Body text-inherit`, {
   variants: {
     size: {
       xxl: 'text-xl leading-7',
-      xl: 'text-lg leading-6',
-      lg: 'text-sm 2xl:text-base leading-5 2xl:leading-[22px]',
-      md: '2xl:text-sm 2xl:leading-5 text-[13px] leading-4',
+      xl: '2xl:text-lg 2xl:leading-6 leading-5 text-base',
+      lg: 'text-[13px] leading-5 2xl:text-base 2xl:leading-[22px]',
+      md: 'text-xs leading-4 2xl:text-sm 2xl:leading-5',
       sm: 'text-xs leading-4',
     },
     weight: {

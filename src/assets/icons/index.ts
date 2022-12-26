@@ -3,8 +3,11 @@ import Heart from './HeartIcon.vue'
 import Trash from './TrashIcon.vue'
 import ArrowPath from './ArrowPathIcon.vue'
 import Check from './CheckIcon.vue'
+import Checks from './ChecksIcon.vue'
 import PencilSquare from './PencilSquareIcon.vue'
 import CaretDown from './CaretDownIcon.vue'
+import CaretLeft from './CaretLeftIcon.vue'
+import CaretRight from './CaretRightIcon.vue'
 import HouseSimple from './HouseSimpleIcon.vue'
 import Users from './UsersIcon.vue'
 import Package from './PackageIcon.vue'
@@ -17,6 +20,7 @@ import MagnifyingGlass from './MagnifyingGlassIcon.vue'
 import BellSimple from './BellSimpleIcon.vue'
 import SortAscending from './SortAscendingIcon.vue'
 import Funnel from './FunnelIcon.vue'
+import XMark from './XMarkIcon.vue'
 
 export {
   Circle,
@@ -24,8 +28,11 @@ export {
   Trash,
   ArrowPath,
   Check,
+  Checks,
   PencilSquare,
   CaretDown,
+  CaretLeft,
+  CaretRight,
   HouseSimple,
   Users,
   Package,
@@ -38,4 +45,5 @@ export {
   BellSimple,
   SortAscending,
   Funnel,
+  XMark,
 }

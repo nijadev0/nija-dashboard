@@ -14,6 +14,7 @@ interface ButtonProps {
     | 'defaultError'
     | 'outlineError'
     | 'nudeError'
+    | 'nudePlain'
   onClick?: any
   goTo?: any
   linkHref?: any
@@ -30,8 +31,8 @@ const button = cva(
         error: 'bg-error-main',
       },
       size: {
-        big: 'p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
-        medium: 'p-3 text-[15px] 2xl:text-base gap-2 rounded-large',
+        big: 'p-3 2xl:p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
+        medium: 'p-2 2xl:p-3 text-[13px] 2xl:text-base gap-2 rounded-md 2xl:rounded-large',
         small: 'p-2 text-[13px] 2xl:text-sm gap-1 rounded-md',
       },
       modifier: {
@@ -45,6 +46,8 @@ const button = cva(
           'bg-transparent ring-1 ring-current hover:bg-primary-surface hover:ring-transparent active:ring-primary-border active:ring-2 stroke-primary-main',
         nudePrimary:
           'border-transparent bg-transparent hover:text-primary-hover active:ring-primary-surface stroke-primary-main',
+        nudePlain:
+          'border-transparent bg-transparent hover:text-netral-80 active:ring-netral-80 stroke-netral-80',
         defaultError:
           'text-white hover:bg-error-hover active:ring-error-border active:bg-error-pressed stroke-white',
         outlineError:
@@ -70,7 +73,7 @@ const button = cva(
         variant: 'plain',
         modifier: 'defaultPlain',
         size: 'medium',
-        class: 'text-white',
+        class: 'text-netral-100',
       },
       {
         variant: 'plain',
@@ -133,18 +136,6 @@ const button = cva(
         class: 'text-white',
       },
       {
-        variant: 'primary',
-        modifier: 'outlinePrimary',
-        size: 'small',
-        class: 'text-primary-main',
-      },
-      {
-        variant: 'primary',
-        modifier: 'nudePrimary',
-        size: 'small',
-        class: 'text-primary-main',
-      },
-      {
         variant: 'error',
         modifier: 'defaultPrimary',
         size: 'big',
@@ -198,11 +189,29 @@ const button = cva(
         size: 'small',
         class: 'text-error-main',
       },
+      {
+        variant: 'primary',
+        modifier: 'outlinePrimary',
+        size: 'small',
+        class: 'text-primary-main',
+      },
+      {
+        variant: 'primary',
+        modifier: 'nudePrimary',
+        size: 'small',
+        class: 'text-primary-main',
+      },
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'big',
+        class: 'text-netral-50',
+      },
     ],
     defaultVariants: {
       variant: 'primary',
       modifier: 'defaultPrimary',
-      size: 'big',
+      size: 'medium',
     },
   }
 )
