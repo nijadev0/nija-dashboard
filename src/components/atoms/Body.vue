@@ -11,7 +11,7 @@ interface TextProps {
 const { weight } = defineProps<TextProps>()
 
 // Body
-const body = cva(`Body text-inherit`, {
+const body = cva(`Body`, {
   variants: {
     size: {
       xxl: 'text-xl leading-7',

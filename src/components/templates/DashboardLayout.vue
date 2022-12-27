@@ -13,12 +13,18 @@ const { title = 'Test' } = defineProps<{ title?: string }>()
       <Navbar class="sticky top-0 left-0 z-50" />
 
       <div class="Content relative w-full rounded-large p-8">
-        <Heading size="sm" weight="semibold" class="mb-6">{{ title }}</Heading>
+        <div v-if="title" class="TitleLayout">
+          <Heading size="sm" weight="semibold" class="mb-6">{{ title }}</Heading>
+        </div>
+
+        <!-- Default Slot -->
         <slot />
 
         <slot name="PageAction" />
 
         <slot name="Modal" />
+
+        <slot name="Toast" />
       </div>
     </main>
   </div>

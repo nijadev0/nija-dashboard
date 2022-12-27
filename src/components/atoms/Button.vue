@@ -207,6 +207,18 @@ const button = cva(
         size: 'big',
         class: 'text-netral-50',
       },
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'medium',
+        class: 'text-netral-50',
+      },
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'small',
+        class: 'text-netral-50',
+      },
     ],
     defaultVariants: {
       variant: 'primary',

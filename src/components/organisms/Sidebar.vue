@@ -17,16 +17,16 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
 
 <template>
   <aside
-    class="Sidebar flex min-h-screen w-full max-w-[220px] flex-col items-center border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:max-w-[240px]"
+    class="Sidebar flex min-h-screen w-[220px] flex-col items-center border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
   >
-    <div class="Logo mb-8 ml-4 flex items-center justify-start gap-2 self-start 2xl:mb-10">
+    <div class="Logo mb-8 ml-4 flex items-start justify-start gap-2 self-start 2xl:mb-10">
       <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
-      <Body size="xxl" weight="medium"> Nija Kit </Body>
+      <Body size="xxl" weight="semibold" class="uppercase tracking-wide"> Nija Kit </Body>
     </div>
 
     <div class="Menu flex flex-col gap-2.5 2xl:gap-3">
       <!-- Dashboard -->
-      <SideMenu variant="default">
+      <SideMenu variant="default" href="/">
         <HouseSimple class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> Dashboard </Body>
       </SideMenu>
@@ -39,11 +39,11 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
         </template>
 
         <template #sub>
-          <SideMenu variant="sub">
+          <SideMenu variant="sub" href="/customers/users">
             <Body size="md" weight="medium"> Users </Body>
           </SideMenu>
 
-          <SideMenu variant="sub">
+          <SideMenu variant="sub" href="/customers/buyers">
             <Body size="md" weight="medium"> Buyers </Body>
           </SideMenu>
         </template>

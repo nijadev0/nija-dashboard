@@ -36,6 +36,7 @@ import Body from '$components/atoms/Body.vue'
               9
             </span>
           </div>
+
           <BellSimple class="h-5 w-5 stroke-2 text-netral-60 2xl:h-6 2xl:w-6" />
         </div>
 

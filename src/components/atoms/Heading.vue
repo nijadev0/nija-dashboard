@@ -13,7 +13,7 @@ const heading = cva('Heading text-inherit', {
       xxl: 'text-7xl leading-[80px]',
       xl: 'text-[64px] leading-[76px]',
       lg: 'text-[46px] leading-[54px]',
-      md: 'text-[36px] leading-[44px]',
+      md: 'text-3xl leading-10 2xl:text-4xl 2xl:leading-[44px]',
       sm: 'leading-[28px] text-xl 2xl:text-2xl 2xl:leading-[30px]',
     },
     weight: {

@@ -23,19 +23,28 @@ const { variant, href } = defineProps<SideMenuProps>()
   </button>
 
   <!-- Side Menu : Main (Default) -->
-  <button
+  <router-link
     v-if="variant === 'default'"
-    @click="$router.push(`${href}`)"
+    :to="`${href}`"
     class="SideMenu Default flex min-w-[180px] items-center gap-3 rounded-large p-3 text-netral-50 hover:bg-netral-20 focus:text-primary-main 2xl:min-w-[192px]"
+    active-class="Active"
   >
     <slot />
-  </button>
+  </router-link>
 
   <!-- Side Menu : Sub -->
-  <button
+  <router-link
     v-if="variant === 'sub'"
-    class="SideMenu Sub flex w-40 items-center gap-3 rounded-large p-3 text-netral-50 hover:bg-netral-20 focus:bg-netral-20 focus:text-primary-main"
+    :to="`${href}`"
+    class="SideMenu Sub flex w-36 items-center gap-3 rounded-large p-3 text-netral-50 hover:bg-netral-20 focus:bg-netral-20 focus:text-primary-main 2xl:w-40"
+    active-class="Active"
   >
     <slot />
-  </button>
+  </router-link>
 </template>
+
+<style scoped>
+.Active {
+  @apply bg-netral-20 text-primary-main;
+}
+</style>

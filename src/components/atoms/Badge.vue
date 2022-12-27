@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Text from '$components/atoms/Text.vue'
+import Body from '$components/atoms/Body.vue'
 
 interface Status {
   variant?: 'success' | 'warning' | 'info' | 'critical' | 'neutral'
@@ -10,7 +10,7 @@ const { variant } = defineProps<Status>()
 
 <template>
   <div
-    class="Badge w-max rounded-full py-1 px-4 capitalize tracking-[0.01rem]"
+    class="Badge w-max rounded-full py-1 px-4 text-xs capitalize tracking-[0.01rem]"
     :class="{
       'bg-success-surface/50 text-success-main': variant === 'success',
       'bg-warning-surface/50 text-warning-main': variant === 'warning',
@@ -19,7 +19,7 @@ const { variant } = defineProps<Status>()
       'bg-netral-30 text-netral-80': variant === 'neutral',
     }"
   >
-    <Body size="md" weight="medium">
+    <Body size="md" weight="medium" class="text-inherit">
       <slot />
     </Body>
   </div>

@@ -21,6 +21,10 @@ import BellSimple from './BellSimpleIcon.vue'
 import SortAscending from './SortAscendingIcon.vue'
 import Funnel from './FunnelIcon.vue'
 import XMark from './XMarkIcon.vue'
+import ArrowUpRight from './ArrowUpRightIcon.vue'
+import ArrowDownRight from './ArrowDownRightIcon.vue'
+import CheckCircle from './CheckCircleIcon.vue'
+import Plus from './PlusIcon.vue'
 
 export {
   Circle,
@@ -46,4 +50,8 @@ export {
   SortAscending,
   Funnel,
   XMark,
+  ArrowDownRight,
+  ArrowUpRight,
+  CheckCircle,
+  Plus,
 }
