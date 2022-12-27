@@ -15,9 +15,9 @@ import Modal from '$components/organisms/Modal.vue'
 import Toast from '$components/organisms/Toast.vue'
 
 /**
- * =======================
+ * ============================
  * Dummy Data - List Products
- * =======================
+ * ============================
  */
 const listProductsData = [
   {
@@ -103,13 +103,13 @@ function closeToastDelete() {
 </script>
 
 <template>
-  <DashboardLayout title="List Products">
-    <div class="Customers min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
+  <DashboardLayout title="Products">
+    <div class="Products min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
       <!-- Heading -->
-      <div class="Heading mb-8 flex w-full items-center justify-between">
+      <div class="Heading mb-6 flex w-full items-center justify-between 2xl:mb-8">
         <Title variant="default"> List Products </Title>
 
-        <div class="flex gap-2">
+        <div class="Cta flex gap-2">
           <Button type="click" variant="plain" modifier="defaultPlain" size="medium">
             Sort
             <SortAscending class="h-4 w-4 stroke-[4px] text-netral-80" />
@@ -128,14 +128,14 @@ function closeToastDelete() {
       </div>
 
       <!-- Table Users -->
-      <section class="TableUsers mb-6 w-full">
+      <section class="TableListProducts mb-6 w-full">
         <!-- Table Users -->
-        <div class="relative w-full overflow-x-auto">
-          <table class="w-full table-auto">
+        <div class="Wrap relative w-full overflow-x-auto">
+          <table class="Table w-full table-auto">
             <!-- Table Users: Head -->
-            <thead class="w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
+            <thead class="TableHead w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
-                <th class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
+                <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
                   <Switch
                     v-model="checkboxRef"
                     class="Checkbox flex items-center gap-2 outline-none"
@@ -155,33 +155,33 @@ function closeToastDelete() {
                 </th>
 
                 <th
-                  class="max-w-[270px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[270px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Product </Body>
                 </th>
 
                 <th
-                  class="min-w-[140px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="min-w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Category </Body>
                 </th>
                 <th
-                  class="max-w-[120px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Status</Body>
                 </th>
                 <th
-                  class="max-w-[64px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[64px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Stock </Body>
                 </th>
                 <th
-                  class="max-w-[120px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Price </Body>
                 </th>
                 <th
-                  class="max-w-[100px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[100px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Action </Body>
                 </th>
@@ -189,7 +189,7 @@ function closeToastDelete() {
             </thead>
 
             <!-- Table Users: Body -->
-            <tbody class="relative w-full">
+            <tbody class="TableBody relative w-full">
               <tr
                 v-for="product in listProductsData"
                 class="border-b border-netral-20 last:border-netral-30"
@@ -215,7 +215,11 @@ function closeToastDelete() {
 
                 <td class="max-w-[270px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="flex w-full max-w-[270px] items-center gap-3 2xl:gap-4">
-                    <img class="h-20 w-20" :src="product.productImage" :alt="product.productName" />
+                    <img
+                      class="h-16 w-16 2xl:h-20 2xl:w-20"
+                      :src="product.productImage"
+                      :alt="product.productName"
+                    />
                     <Body size="lg" weight="medium">
                       {{ product.productName }}
                     </Body>

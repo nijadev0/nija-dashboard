@@ -107,10 +107,10 @@ function closeToastDelete() {
   <DashboardLayout title="Customers">
     <div class="Customers min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
       <!-- Heading -->
-      <div class="Heading mb-8 flex w-full items-center justify-between">
+      <div class="Heading mb-6 flex w-full items-center justify-between 2xl:mb-8">
         <Title variant="default"> Users </Title>
 
-        <div class="flex gap-2">
+        <div class="Cta flex gap-2">
           <Button type="click" variant="plain" modifier="defaultPlain" size="medium">
             Sort
             <SortAscending class="h-4 w-4 stroke-[4px] text-netral-80" />
@@ -126,12 +126,12 @@ function closeToastDelete() {
       <!-- Table Users -->
       <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
-        <div class="relative w-full overflow-x-auto">
-          <table class="w-full table-auto">
+        <div class="Wrapper relative w-full overflow-x-auto">
+          <table class="Table w-full table-auto">
             <!-- Table Users: Head -->
-            <thead class="w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
+            <thead class="THead w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
-                <th class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
+                <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
                   <Switch
                     v-model="checkboxRef"
                     class="Checkbox flex items-center gap-2 outline-none"
@@ -150,32 +150,32 @@ function closeToastDelete() {
                   </Switch>
                 </th>
                 <th
-                  class="max-w-[180px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[180px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Name </Body>
                 </th>
                 <th
-                  class="min-w-[160px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="min-w-[160px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Email Address </Body>
                 </th>
                 <th
-                  class="max-w-[180px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[180px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Complete Address</Body>
                 </th>
                 <th
-                  class="max-w-[130px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[130px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Created At </Body>
                 </th>
                 <th
-                  class="max-w-[180px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="max-w-[180px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Last Activity </Body>
                 </th>
                 <th
-                  class="w-px whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                  class="w-px whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Action </Body>
                 </th>
@@ -183,7 +183,7 @@ function closeToastDelete() {
             </thead>
 
             <!-- Table Users: Body -->
-            <tbody class="relative w-full">
+            <tbody class="TBody relative w-full">
               <tr v-for="user in usersData" class="border-b border-netral-20 last:border-netral-30">
                 <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
                   <Switch

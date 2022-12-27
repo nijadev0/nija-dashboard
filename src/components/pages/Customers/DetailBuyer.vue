@@ -100,8 +100,9 @@ function closeToastSaved() {
             <img class="h-full w-full object-cover" :src="AvatarDefault" alt="Avatar Default" />
           </div>
 
+          <!-- Users Information -->
           <div class="Detail w-full">
-            <Heading size="sm" weight="semibold" class="mb-7"> Samanta Legend </Heading>
+            <Heading size="sm" weight="semibold" class="mb-6 2xl:mb-7"> Samanta Legend </Heading>
 
             <div class="Info flex w-9/12 items-start justify-between">
               <div class="Info Email">
@@ -132,7 +133,7 @@ function closeToastSaved() {
       </section>
 
       <section class="w-full rounded-large bg-white p-6">
-        <div class="Heading mb-8 flex w-full items-center justify-between">
+        <div class="Heading mb-6 flex w-full items-center justify-between 2xl:mb-8">
           <Title variant="default"> Transaction History </Title>
 
           <div class="flex gap-2">
@@ -157,37 +158,37 @@ function closeToastSaved() {
               <thead class="w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
                 <tr>
                   <th
-                    class="max-w-[140px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Transaction ID </Body>
                   </th>
 
                   <th
-                    class="max-w-[200px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[200px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Purchased Item </Body>
                   </th>
 
                   <th
-                    class="max-w-[80px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Amount </Body>
                   </th>
 
                   <th
-                    class="max-w-[120px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Status </Body>
                   </th>
 
                   <th
-                    class="max-w-[100px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[100px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Total Price </Body>
                   </th>
 
                   <th
-                    class="max-w-[140px] whitespace-nowrap px-6 py-4 text-left uppercase text-netral-50 first:pl-3"
+                    class="max-w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                   >
                     <Body size="md" weight="medium"> Transaction Date </Body>
                   </th>

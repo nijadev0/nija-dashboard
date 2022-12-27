@@ -10,7 +10,7 @@ const { variant } = defineProps<Status>()
 
 <template>
   <div
-    class="Badge w-max rounded-full py-1 px-4 text-xs capitalize tracking-[0.01rem]"
+    class="Badge w-max rounded-full py-1 px-3 text-[0.625rem] font-medium capitalize tracking-[0.01rem] 2xl:px-4 2xl:text-xs"
     :class="{
       'bg-success-surface/50 text-success-main': variant === 'success',
       'bg-warning-surface/50 text-warning-main': variant === 'warning',
@@ -19,8 +19,6 @@ const { variant } = defineProps<Status>()
       'bg-netral-30 text-netral-80': variant === 'neutral',
     }"
   >
-    <Body size="md" weight="medium" class="text-inherit">
-      <slot />
-    </Body>
+    <slot />
   </div>
 </template>

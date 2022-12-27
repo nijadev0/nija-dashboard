@@ -28,31 +28,33 @@ function closeToastSaved() {
   <DashboardLayout title="Detail User">
     <div class="min-h-[640px]">
       <div class="rounded-large bg-white p-6">
-        <Title variant="default" class="mb-8"> User </Title>
+        <Title variant="default" class="mb-6 2xl:mb-8"> User </Title>
 
-        <form class="grid grid-cols-2 gap-x-5 gap-y-8">
-          <div class="w-full">
-            <label class="text-xs font-semibold 2xl:text-sm" for="name"> Name </label>
+        <form class="Form grid grid-cols-2 gap-x-5 gap-y-6 2xl:gap-y-8">
+          <div class="Wrap w-full">
+            <label class="Label text-xs font-semibold 2xl:text-sm" for="name"> Name </label>
             <input
               name="name"
-              class="mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 p-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
+              class="Input mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
               type="text"
               placeholder="John Doe"
             />
           </div>
 
-          <div class="w-full">
-            <label class="text-xs font-semibold 2xl:text-sm" for="name"> Email address </label>
+          <div class="Wrap w-full">
+            <label class="Label text-xs font-semibold 2xl:text-sm" for="name">
+              Email Address
+            </label>
             <input
               name="name"
-              class="mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 p-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
+              class="Input mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
               type="text"
               placeholder="johndoe@gmail.com"
             />
           </div>
 
-          <div class="w-full">
-            <label class="text-xs font-semibold 2xl:text-sm" for="name"> Phone number </label>
+          <div class="Wrap w-full">
+            <label class="Label text-xs font-semibold 2xl:text-sm" for="name"> Phone number </label>
             <div class="relative">
               <div class="absolute top-3.5 left-2 z-10 flex w-fit items-center gap-2">
                 <div
@@ -66,18 +68,20 @@ function closeToastSaved() {
 
               <input
                 name="name"
-                class="relative mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 p-3 pl-24 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:pl-24 2xl:text-base"
+                class="Input relative mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 pl-24 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:pl-24 2xl:text-base"
                 type="text"
                 placeholder="8791238193"
               />
             </div>
           </div>
 
-          <div class="relative w-full">
-            <label class="text-xs font-semibold 2xl:text-sm" for="name"> Complete Address </label>
+          <div class="Wrap relative w-full">
+            <label class="Label text-xs font-semibold 2xl:text-sm" for="name">
+              Complete Address
+            </label>
             <input
               name="name"
-              class="mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 p-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
+              class="Input mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] shadow-input outline-none focus-within:ring-2 focus-within:ring-primary-main 2xl:p-3.5 2xl:text-base"
               type="text"
               placeholder="2972 Westheimer Rd. Santa Ana, Illinois 85486"
             />
