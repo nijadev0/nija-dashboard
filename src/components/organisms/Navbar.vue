@@ -47,7 +47,7 @@ import Body from '$components/atoms/Body.vue'
         <div class="User flex items-center">
           <Avatar size="small" />
 
-          <div class="ml-2 mr-7 space-y-1">
+          <div class="ml-2 mr-7 space-y-0.5 2xl:space-y-1">
             <Body size="md" weight="medium" class="text-netral-80"> Marvin McKinney </Body>
             <Body size="sm" weight="regular" class="text-netral-50"> Super Admin </Body>
           </div>

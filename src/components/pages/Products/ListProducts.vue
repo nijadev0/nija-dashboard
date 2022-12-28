@@ -135,7 +135,9 @@ function closeToastDelete() {
             <!-- Table Users: Head -->
             <thead class="TableHead w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
-                <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
+                <th
+                  class="w-px py-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6 2xl:py-4"
+                >
                   <Switch
                     v-model="checkboxRef"
                     class="Checkbox flex items-center gap-2 outline-none"
@@ -194,7 +196,7 @@ function closeToastDelete() {
                 v-for="product in listProductsData"
                 class="border-b border-netral-20 last:border-netral-30"
               >
-                <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
+                <td class="w-px py-4 text-left capitalize text-netral-80 first:pl-3 2xl:px-6">
                   <Switch
                     v-model="checkboxRef"
                     class="Checkbox flex items-center gap-2 outline-none"

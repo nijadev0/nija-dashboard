@@ -17,6 +17,7 @@ module.exports = {
         extend: '0px -0px 16px 8px rgba(0, 0, 0, 0.04)',
         message: '0px 0px 1px rgba(47, 47, 47, 0.2), 0px 3px 5px rgba(47, 47, 47, 0.2)',
         input: '0px 1px 0px rgba(0, 0, 0, 0.05)',
+        formInput: '0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #F4EBFF',
         pageAction: '0px 2px 2px rgba(160, 168, 176, 0.08), 0px -5px 20px #F4F4F4',
       },
       colors: {

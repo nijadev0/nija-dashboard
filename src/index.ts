@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '$components/pages/Home.vue'
 import Users from '$components/pages/Customers/Users.vue'
-import DetailUser from '$components/pages/Customers/DetailUser.vue'
+import UserDetail from '$components/pages/Customers/UserDetail.vue'
 import Buyers from '$components/pages/Customers/Buyers.vue'
-import DetailBuyer from '$components/pages/Customers/DetailBuyer.vue'
+import BuyerDetail from '$components/pages/Customers/BuyerDetail.vue'
 import ListProducts from '$components/pages/Products/ListProducts.vue'
 
 import Sandbox from '$components/pages/Sandbox.vue'
@@ -35,8 +35,8 @@ const router = createRouter({
     },
     {
       path: '/customers/users/detail',
-      name: 'DetailUser',
-      component: DetailUser,
+      name: 'UserDetail',
+      component: UserDetail,
     },
     {
       path: '/customers/buyers',
@@ -45,8 +45,8 @@ const router = createRouter({
     },
     {
       path: '/customers/buyers/detail',
-      name: 'DetailBuyer',
-      component: DetailBuyer,
+      name: 'BuyerDetail',
+      component: BuyerDetail,
     },
     {
       path: '/products/list-products',
