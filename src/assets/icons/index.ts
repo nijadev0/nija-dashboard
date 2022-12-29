@@ -25,6 +25,8 @@ import ArrowUpRight from './ArrowUpRightIcon.vue'
 import ArrowDownRight from './ArrowDownRightIcon.vue'
 import CheckCircle from './CheckCircleIcon.vue'
 import Plus from './PlusIcon.vue'
+import UploadSimple from './UploadSimpleIcon.vue'
+import CurrencyDollar from './CurrencyDollarIcon.vue'
 
 export {
   Circle,
@@ -54,4 +56,6 @@ export {
   ArrowUpRight,
   CheckCircle,
   Plus,
+  UploadSimple,
+  CurrencyDollar,
 }

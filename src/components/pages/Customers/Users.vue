@@ -105,7 +105,7 @@ function closeToastDelete() {
 
 <template>
   <DashboardLayout title="Customers">
-    <div class="Customers min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
+    <div class="Customers min-h-[480px] w-full rounded-large bg-white p-6">
       <!-- Heading -->
       <div class="Heading mb-6 flex w-full items-center justify-between 2xl:mb-8">
         <Title variant="default"> Users </Title>
@@ -245,13 +245,9 @@ function closeToastDelete() {
     </div>
 
     <!-- Page Action : Home -->
+    <!-- v-if="checkboxRef" -->
     <template #PageAction>
-      <PageAction
-        v-if="checkboxRef"
-        variant="deleteOnly"
-        :is-selected="checkboxRef"
-        :open-modal="openModalDelete"
-      />
+      <PageAction :is-selected="checkboxRef" variant="deleteOnly" :open-modal="openModalDelete" />
     </template>
 
     <!-- Modal Delete : Home -->
@@ -259,6 +255,7 @@ function closeToastDelete() {
       <Modal :modal-ref="modalRef" :close-modal="closeModalDelete" :open-toast="openToastDelete" />
     </template>
 
+    <!-- Toast Delete : Home -->
     <template #Toast>
       <Toast
         variant="delete"

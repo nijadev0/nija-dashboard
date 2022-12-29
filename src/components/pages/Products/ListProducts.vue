@@ -104,7 +104,7 @@ function closeToastDelete() {
 
 <template>
   <DashboardLayout title="Products">
-    <div class="Products min-h-[480px] w-full rounded-lg bg-white p-6 2xl:rounded-large">
+    <div class="Products min-h-[480px] w-full rounded-large bg-white p-6">
       <!-- Heading -->
       <div class="Heading mb-6 flex w-full items-center justify-between 2xl:mb-8">
         <Title variant="default"> List Products </Title>
@@ -120,7 +120,13 @@ function closeToastDelete() {
             <Funnel class="h-4 w-4 stroke-[4px] text-netral-80" />
           </Button>
 
-          <Button type="click" variant="primary" modifier="defaultPrimary" size="medium">
+          <Button
+            type="goto"
+            go-to="/products/list-products/add"
+            variant="primary"
+            modifier="defaultPrimary"
+            size="medium"
+          >
             <Plus class="h-4 w-4 stroke-[4px] text-white" />
             Add Products
           </Button>

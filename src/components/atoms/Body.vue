@@ -2,15 +2,12 @@
 import { cva } from 'cva'
 
 interface TextProps {
-  variant?: 'heading' | 'body'
   size?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm'
   weight?: 'bold' | 'semibold' | 'medium' | 'regular'
-  // className?: string
 }
 
 const { weight } = defineProps<TextProps>()
 
-// Body
 const body = cva(`Body`, {
   variants: {
     size: {
@@ -18,7 +15,7 @@ const body = cva(`Body`, {
       xl: '2xl:text-lg 2xl:leading-6 leading-5 text-base',
       lg: 'text-[13px] leading-5 2xl:text-base 2xl:leading-[22px]',
       md: 'text-xs leading-4 2xl:text-sm 2xl:leading-5',
-      sm: 'text-xs leading-4',
+      sm: 'text-[10px] leading-3 2xl:text-xs 2xl:leading-4',
     },
     weight: {
       bold: 'font-bold',

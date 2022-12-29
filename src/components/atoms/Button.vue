@@ -33,7 +33,7 @@ const button = cva(
       size: {
         big: 'p-3 2xl:p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
         medium: 'p-2.5 2xl:p-3 text-[13px] 2xl:text-base gap-2 rounded-md 2xl:rounded-large',
-        small: 'p-2 text-[13px] 2xl:text-sm gap-1 rounded-md',
+        small: 'p-2 text-[12px] 2xl:text-sm gap-1 rounded-md',
       },
       modifier: {
         defaultPlain:

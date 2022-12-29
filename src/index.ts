@@ -6,6 +6,8 @@ import UserDetail from '$components/pages/Customers/UserDetail.vue'
 import Buyers from '$components/pages/Customers/Buyers.vue'
 import BuyerDetail from '$components/pages/Customers/BuyerDetail.vue'
 import ListProducts from '$components/pages/Products/ListProducts.vue'
+import ListProductsAdd from '$components/pages/Products/ListProductsAdd.vue'
+import ListProductsVariants from '$components/pages/Products/ListProductsVariants.vue'
 
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
@@ -52,6 +54,16 @@ const router = createRouter({
       path: '/products/list-products',
       name: 'ListProducts',
       component: ListProducts,
+    },
+    {
+      path: '/products/list-products/add',
+      name: 'ListProductsAdd',
+      component: ListProductsAdd,
+    },
+    {
+      path: '/products/list-products/variants',
+      name: 'ListProductsVariants',
+      component: ListProductsVariants,
     },
     /**
      * ========================================
