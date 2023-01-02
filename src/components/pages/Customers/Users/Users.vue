@@ -252,7 +252,14 @@ function closeToastDelete() {
 
     <!-- Modal Delete : Home -->
     <template #Modal>
-      <Modal :modal-ref="modalRef" :close-modal="closeModalDelete" :open-toast="openToastDelete" />
+      <Modal
+        :modal-ref="modalRef"
+        :close-modal="closeModalDelete"
+        :open-toast="openToastDelete"
+        variant="delete"
+        title="Delete Category"
+        description="Are you sure want to delete this category? Category which already deleted can not be recovered."
+      />
     </template>
 
     <!-- Toast Delete : Home -->
