@@ -6,7 +6,7 @@ import { CaretLeft, CaretRight } from '$assets/icons'
 
 <template>
   <!-- Pagination -->
-  <section class="Pagination flex w-full items-center justify-between">
+  <section class="Pagination flex w-full items-center justify-between rounded-large bg-white">
     <!-- Current Page -->
     <Body size="md" weight="medium" class="text-netral-50">Page 1 of 2</Body>
 

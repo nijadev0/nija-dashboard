@@ -6,9 +6,10 @@ import Button from '$components/atoms/Button.vue'
 import { Checks } from '$assets/icons'
 
 interface PageActionProps {
-  variant: 'deleteOnly' | 'saveDiscard' | 'nextCancel'
+  variant: 'deleteOnly' | 'deleteDraft' | 'saveDiscard' | 'nextCancel'
   isSelected: boolean
   openModal?: any
+  openModalDraft?: any
   openToast?: any
   goTo?: string
 }
@@ -37,6 +38,29 @@ const { variant, isSelected, openModal, goTo } = defineProps<PageActionProps>()
 
     <!-- Delete Only -->
     <div v-if="variant === 'deleteOnly'" class="Cta flex items-center gap-2 2xl:gap-3">
+      <Button
+        type="click"
+        size="medium"
+        variant="error"
+        modifier="defaultError"
+        :on-click="openModal"
+      >
+        Delete
+      </Button>
+    </div>
+
+    <!-- Delete Draft -->
+    <div v-if="variant === 'deleteDraft'" class="Cta flex items-center gap-2 2xl:gap-3">
+      <Button
+        type="click"
+        size="medium"
+        variant="warning"
+        modifier="nudeWarning"
+        :on-click="openModalDraft"
+      >
+        Draft
+      </Button>
+
       <Button
         type="click"
         size="medium"

@@ -262,7 +262,7 @@ function closeToastDelete() {
                 <td class="max-w-[100px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <button
                     class="text-primary-main"
-                    @click="$router.push('/customers/users/detail')"
+                    @click="$router.push('/products/list-products/update')"
                   >
                     <Body size="lg" weight="semibold"> Detail </Body>
                   </button>
@@ -289,7 +289,14 @@ function closeToastDelete() {
 
     <!-- Modal Delete : Home -->
     <template #Modal>
-      <Modal :modal-ref="modalRef" :close-modal="closeModalDelete" :open-toast="openToastDelete" />
+      <Modal
+        variant="delete"
+        :modal-ref="modalRef"
+        :close-modal="closeModalDelete"
+        :open-toast="openToastDelete"
+        title="Delete Category"
+        description="Are you sure want to delete this category? Category which already deleted can not be recovered."
+      />
     </template>
 
     <template #Toast>

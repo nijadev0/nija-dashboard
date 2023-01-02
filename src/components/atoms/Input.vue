@@ -22,7 +22,8 @@ const { name, label, inputType, placeholder } = defineProps<InputProps>()
       :name="name"
       :type="inputType"
       :placeholder="placeholder"
-      class="Input mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:shadow-formInput focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:text-base"
+      class="Input w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:shadow-formInput focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:text-base"
+      :class="label && 'mt-1.5'"
     />
   </div>
 
@@ -45,7 +46,8 @@ const { name, label, inputType, placeholder } = defineProps<InputProps>()
         :name="name"
         :type="inputType"
         :placeholder="placeholder"
-        class="Input relative mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 pl-24 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:pl-24 2xl:text-base"
+        class="Input relative w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 pl-24 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:pl-24 2xl:text-base"
+        :class="label && 'mt-1.5'"
       />
     </div>
   </div>
@@ -61,7 +63,8 @@ const { name, label, inputType, placeholder } = defineProps<InputProps>()
         :name="name"
         :type="inputType"
         :placeholder="placeholder"
-        class="Input relative mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:text-base"
+        class="Input relative w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:text-base"
+        :class="label && 'mt-1.5'"
       />
 
       <div
@@ -83,7 +86,8 @@ const { name, label, inputType, placeholder } = defineProps<InputProps>()
         :name="name"
         :type="inputType"
         :placeholder="placeholder"
-        class="Input relative mt-1.5 w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 pl-12 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:pl-12 2xl:text-base"
+        class="Input relative w-full rounded-large border border-netral-30 bg-netral-10 py-2.5 px-3 pl-12 text-sm leading-[22px] text-netral-80 shadow-input outline-none focus-within:ring-4 focus-within:ring-primary-surface 2xl:p-3.5 2xl:pl-12 2xl:text-base"
+        :class="label && 'mt-1.5'"
       />
 
       <div

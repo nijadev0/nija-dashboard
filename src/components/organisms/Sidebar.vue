@@ -61,7 +61,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
             <Body size="md" weight="medium"> List Products </Body>
           </SideMenu>
 
-          <SideMenu variant="sub">
+          <SideMenu variant="sub" href="/products/categories">
             <Body size="md" weight="medium"> Categories </Body>
           </SideMenu>
         </template>

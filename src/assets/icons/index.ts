@@ -27,6 +27,11 @@ import CheckCircle from './CheckCircleIcon.vue'
 import Plus from './PlusIcon.vue'
 import UploadSimple from './UploadSimpleIcon.vue'
 import CurrencyDollar from './CurrencyDollarIcon.vue'
+import CloudArrowUp from './CloudArrowUpIcon.vue'
+import ArrowsClockwise from './ArrowsClockwiseIcon.vue'
+import SquaresFour from './SquaresFour.vue'
+import List from './ListIcon.vue'
+import WarningCircle from './WarningCircleIcon.vue'
 
 export {
   Circle,
@@ -58,4 +63,9 @@ export {
   Plus,
   UploadSimple,
   CurrencyDollar,
+  CloudArrowUp,
+  ArrowsClockwise,
+  SquaresFour,
+  List,
+  WarningCircle,
 }

@@ -241,7 +241,7 @@ function closeToastDelete() {
         v-if="true"
         variant="nextCancel"
         :is-selected="true"
-        go-to="/products/list-products/variants"
+        go-to="/products/list-products/empty-variants"
       />
     </template>
 
@@ -257,5 +257,3 @@ function closeToastDelete() {
     </template>
   </DashboardLayout>
 </template>
-
-<!-- git commit -m "Input: Price, Weight | Select | Upload Image" -->

@@ -3,18 +3,25 @@ import { cva } from 'cva'
 
 interface ButtonProps {
   type?: 'click' | 'link' | 'goto' | 'submit'
-  variant?: 'primary' | 'error' | 'plain'
+  variant?: 'primary' | 'error' | 'plain' | 'warning'
   size?: 'big' | 'medium' | 'small'
   modifier?:
     | 'defaultPlain'
-    | 'outlinePlain'
     | 'defaultPrimary'
-    | 'outlinePrimary'
-    | 'nudePrimary'
+    | 'defaultWarning'
     | 'defaultError'
+
+    // Outline
+    | 'outlinePlain'
+    | 'outlinePrimary'
+    | 'outlineWarning'
     | 'outlineError'
-    | 'nudeError'
+
+    // Nude
     | 'nudePlain'
+    | 'nudePrimary'
+    | 'nudeWarning'
+    | 'nudeError'
   onClick?: any
   goTo?: any
   linkHref?: any
@@ -29,6 +36,7 @@ const button = cva(
         plain: 'bg-netral-20',
         primary: 'bg-primary-main',
         error: 'bg-error-main',
+        warning: 'bg-warning-main',
       },
       size: {
         big: 'p-3 2xl:p-4 text-[15px] 2xl:text-base gap-3 rounded-large',
@@ -36,18 +44,31 @@ const button = cva(
         small: 'p-2 text-[12px] 2xl:text-sm gap-1 rounded-md',
       },
       modifier: {
+        // Variant: Plain
         defaultPlain:
           'text-netral-100 hover:bg-netral-30 active:ring-netral-80 active:bg-netral-30 stroke-netral-70',
         outlinePlain:
           'bg-transparent ring-1 ring-current hover:bg-netral-20 hover:ring-netral-60 active:ring-netral-80 active:ring-2 stroke-netral-80',
+        nudePlain:
+          'border-transparent bg-transparent hover:text-netral-80 active:ring-netral-80 stroke-netral-80',
+
+        // Variant: Primary
         defaultPrimary:
           'text-white hover:bg-primary-hover active:ring-primary-border active:bg-primary-pressed stroke-white',
         outlinePrimary:
           'bg-transparent ring-1 ring-current hover:bg-primary-surface hover:ring-transparent active:ring-primary-border active:ring-2 stroke-primary-main',
         nudePrimary:
           'border-transparent bg-transparent hover:text-primary-hover active:ring-primary-surface stroke-primary-main',
-        nudePlain:
-          'border-transparent bg-transparent hover:text-netral-80 active:ring-netral-80 stroke-netral-80',
+
+        // Variant: Warning
+        defaultWarning:
+          'text-white hover:bg-warning-hover active:ring-warning-border active:bg-warning-pressed stroke-white',
+        outlineWarning:
+          'bg-transparent ring-1 ring-current hover:bg-warning-surface hover:ring-transparent active:ring-warning-border active:ring-2 stroke-warning-main',
+        nudeWarning:
+          'border-transparent bg-transparent hover:text-warning-hover active:ring-warning-surface stroke-warning-main',
+
+        // Variant: Error
         defaultError:
           'text-white hover:bg-error-hover active:ring-error-border active:bg-error-pressed stroke-white',
         outlineError:
@@ -57,15 +78,10 @@ const button = cva(
       },
     },
     compoundVariants: [
+      // Background: Plain
       {
         variant: 'plain',
         modifier: 'defaultPlain',
-        size: 'big',
-        class: 'text-netral-100',
-      },
-      {
-        variant: 'plain',
-        modifier: 'outlinePlain',
         size: 'big',
         class: 'text-netral-100',
       },
@@ -77,28 +93,69 @@ const button = cva(
       },
       {
         variant: 'plain',
-        modifier: 'outlinePlain',
-        size: 'medium',
-        class: 'text-netral-100',
-      },
-      {
-        variant: 'plain',
         modifier: 'defaultPlain',
         size: 'small',
         class: 'text-netral-100',
       },
+      // Outline: Plain
+      {
+        variant: 'plain',
+        modifier: 'outlinePlain',
+        size: 'big',
+        class: 'text-netral-100',
+      },
+      {
+        variant: 'plain',
+        modifier: 'outlinePlain',
+        size: 'medium',
+        class: 'text-netral-100',
+      },
+
       {
         variant: 'plain',
         modifier: 'outlinePlain',
         size: 'small',
         class: 'text-netral-100',
       },
+      // Nude: Plain
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'big',
+        class: 'text-netral-50',
+      },
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'medium',
+        class: 'text-netral-50',
+      },
+      {
+        variant: 'plain',
+        modifier: 'nudePlain',
+        size: 'small',
+        class: 'text-netral-50',
+      },
+      // Background: Primary
       {
         variant: 'primary',
         modifier: 'defaultPrimary',
         size: 'big',
         class: 'text-white',
       },
+      {
+        variant: 'primary',
+        modifier: 'defaultPrimary',
+        size: 'medium',
+        class: 'text-white',
+      },
+      {
+        variant: 'primary',
+        modifier: 'defaultPrimary',
+        size: 'small',
+        class: 'text-white',
+      },
+      // Outline: Primary
       {
         variant: 'primary',
         modifier: 'outlinePrimary',
@@ -107,51 +164,98 @@ const button = cva(
       },
       {
         variant: 'primary',
-        modifier: 'nudePrimary',
-        size: 'big',
-        class: 'text-primary-main',
-      },
-      {
-        variant: 'primary',
-        modifier: 'defaultPrimary',
-        size: 'medium',
-        class: 'text-white',
-      },
-      {
-        variant: 'primary',
         modifier: 'outlinePrimary',
         size: 'medium',
         class: 'text-primary-main',
       },
       {
         variant: 'primary',
+        modifier: 'outlinePrimary',
+        size: 'small',
+        class: 'text-primary-main',
+      },
+      // Nude: Primary
+      {
+        variant: 'primary',
+        modifier: 'nudePrimary',
+        size: 'big',
+        class: 'text-primary-main',
+      },
+      {
+        variant: 'primary',
         modifier: 'nudePrimary',
         size: 'medium',
         class: 'text-primary-main',
       },
       {
         variant: 'primary',
-        modifier: 'defaultPrimary',
+        modifier: 'nudePrimary',
+        size: 'small',
+        class: 'text-primary-main',
+      },
+      // Warning: Default
+      {
+        variant: 'warning',
+        modifier: 'defaultWarning',
+        size: 'big',
+        class: 'text-white',
+      },
+      {
+        variant: 'warning',
+        modifier: 'defaultWarning',
+        size: 'medium',
+        class: 'text-white',
+      },
+      {
+        variant: 'warning',
+        modifier: 'defaultWarning',
         size: 'small',
         class: 'text-white',
       },
+      // Outline: Warning
+      {
+        variant: 'warning',
+        modifier: 'outlineWarning',
+        size: 'big',
+        class: 'text-warning-main',
+      },
+      {
+        variant: 'warning',
+        modifier: 'outlineWarning',
+        size: 'medium',
+        class: 'text-warning-main',
+      },
+      {
+        variant: 'warning',
+        modifier: 'outlineWarning',
+        size: 'small',
+        class: 'text-warning-main',
+      },
+      // Nude: Warning
+      {
+        variant: 'warning',
+        modifier: 'nudeWarning',
+        size: 'big',
+        class: 'text-warning-main',
+      },
+      {
+        variant: 'warning',
+        modifier: 'nudeWarning',
+        size: 'medium',
+        class: 'text-warning-main',
+      },
+      {
+        variant: 'warning',
+        modifier: 'nudeWarning',
+        size: 'small',
+        class: 'text-warning-main',
+      },
+      // Background: Error
       {
         variant: 'error',
         modifier: 'defaultPrimary',
         size: 'big',
         class: 'text-white',
-      },
-      {
-        variant: 'error',
-        modifier: 'outlineError',
-        size: 'big',
-        class: 'text-error-main',
-      },
-      {
-        variant: 'error',
-        modifier: 'nudeError',
-        size: 'big',
-        class: 'text-error-main',
       },
       {
         variant: 'error',
@@ -161,26 +265,40 @@ const button = cva(
       },
       {
         variant: 'error',
-        modifier: 'outlineError',
-        size: 'medium',
-        class: 'text-error-main',
-      },
-      {
-        variant: 'error',
-        modifier: 'nudeError',
-        size: 'medium',
-        class: 'text-error-main',
-      },
-      {
-        variant: 'error',
         modifier: 'defaultError',
         size: 'small',
         class: 'text-white',
       },
+      // Outline: Error
+      {
+        variant: 'error',
+        modifier: 'outlineError',
+        size: 'big',
+        class: 'text-error-main',
+      },
+      {
+        variant: 'error',
+        modifier: 'outlineError',
+        size: 'medium',
+        class: 'text-error-main',
+      },
       {
         variant: 'error',
         modifier: 'outlineError',
         size: 'small',
+        class: 'text-error-main',
+      },
+      // Nude: Error
+      {
+        variant: 'error',
+        modifier: 'nudeError',
+        size: 'big',
+        class: 'text-error-main',
+      },
+      {
+        variant: 'error',
+        modifier: 'nudeError',
+        size: 'medium',
         class: 'text-error-main',
       },
       {
@@ -188,36 +306,6 @@ const button = cva(
         modifier: 'nudeError',
         size: 'small',
         class: 'text-error-main',
-      },
-      {
-        variant: 'primary',
-        modifier: 'outlinePrimary',
-        size: 'small',
-        class: 'text-primary-main',
-      },
-      {
-        variant: 'primary',
-        modifier: 'nudePrimary',
-        size: 'small',
-        class: 'text-primary-main',
-      },
-      {
-        variant: 'plain',
-        modifier: 'nudePlain',
-        size: 'big',
-        class: 'text-netral-50',
-      },
-      {
-        variant: 'plain',
-        modifier: 'nudePlain',
-        size: 'medium',
-        class: 'text-netral-50',
-      },
-      {
-        variant: 'plain',
-        modifier: 'nudePlain',
-        size: 'small',
-        class: 'text-netral-50',
       },
     ],
     defaultVariants: {
