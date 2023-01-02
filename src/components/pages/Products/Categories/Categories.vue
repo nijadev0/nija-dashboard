@@ -8,7 +8,7 @@ import Title from '$components/atoms/Title.vue'
 import Badge from '$components/atoms/Badge.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
-import { Funnel, Plus, SortAscending, SquaresFour, List, Check } from '$assets/icons'
+import { Funnel, Plus, SortAscending, SquaresFour, List, Check, ArrowUpRight } from '$assets/icons'
 import Pagination from '$components/organisms/Pagination.vue'
 import PageAction from '$components/organisms/PageAction.vue'
 import Modal from '$components/organisms/Modal.vue'
@@ -152,13 +152,13 @@ function closeToastDraft() {
 
               <Button
                 type="goto"
-                go-to="/products/list-products/add"
+                go-to="/products/categories/add"
                 variant="primary"
                 modifier="defaultPrimary"
                 size="medium"
               >
                 <Plus class="h-4 w-4 stroke-[4px] text-white" />
-                Add Products
+                Add Category
               </Button>
 
               <Tab
@@ -203,11 +203,22 @@ function closeToastDraft() {
                 </div>
 
                 <!-- Image -->
-                <div class="Image mb-1.5 h-32 w-full rounded-large bg-[#FAFAFA] 2xl:h-40">
+                <div class="Image relative mb-1.5 h-32 w-full rounded-large bg-[#FAFAFA] 2xl:h-40">
                   <img
                     class="h-full w-full object-contain"
                     :src="`/images/categories/categories-${item}.png`"
                   />
+                  <div
+                    @click="$router.push('/products/categories/update')"
+                    class="ButtonUpdate absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center rounded-[10px] bg-transparent opacity-0 transition-colors duration-500 ease-in-out hover:bg-netral-100/50 hover:opacity-100"
+                  >
+                    <button
+                      class="Button flex items-center justify-center gap-2 rounded-lg border-[2.5px] border-white/60 stroke-white/60 p-2 text-white/90 duration-500"
+                    >
+                      <span class="font-bold"> Detail </span>
+                      <ArrowUpRight class="h-4 w-4 stroke-[3px] text-white" />
+                    </button>
+                  </div>
                 </div>
 
                 <!-- Text -->
@@ -351,7 +362,7 @@ function closeToastDraft() {
                       >
                         <button
                           class="text-primary-main"
-                          @click="$router.push('/products/list-products/update')"
+                          @click="$router.push('/products/categories/update')"
                         >
                           <Body size="lg" weight="semibold"> Detail </Body>
                         </button>

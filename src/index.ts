@@ -28,6 +28,8 @@ import ListProductsUpdate from '$components/pages/Products/ListProducts/UpdatePr
 
 // Categories
 import Categories from '$components/pages/Products/Categories/Categories.vue'
+import AddCategories from '$components/pages/Products/Categories/AddCategories.vue'
+import UpdateCategories from '$components/pages/Products/Categories/UpdateCategories.vue'
 
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
@@ -99,6 +101,16 @@ const router = createRouter({
       path: '/products/categories',
       name: 'Categories',
       component: Categories,
+    },
+    {
+      path: '/products/categories/add',
+      name: 'AddCategories',
+      component: AddCategories,
+    },
+    {
+      path: '/products/categories/update',
+      name: 'UpdateCategories',
+      component: UpdateCategories,
     },
     /**
      * ========================================

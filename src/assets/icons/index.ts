@@ -32,6 +32,8 @@ import ArrowsClockwise from './ArrowsClockwiseIcon.vue'
 import SquaresFour from './SquaresFour.vue'
 import List from './ListIcon.vue'
 import WarningCircle from './WarningCircleIcon.vue'
+import Repeat from './RepeatIcon.vue'
+import SelectionPlus from './SelectionPlusIcon.vue'
 
 export {
   Circle,
@@ -68,4 +70,6 @@ export {
   SquaresFour,
   List,
   WarningCircle,
+  Repeat,
+  SelectionPlus,
 }
