@@ -10,11 +10,13 @@ interface PageActionProps {
   isSelected: boolean
   openModal?: any
   openModalDraft?: any
+  openModalSecondary?: any
   openToast?: any
   goTo?: string
 }
 
-const { variant, isSelected, openModal, goTo } = defineProps<PageActionProps>()
+const { variant, isSelected, openModal, openModalDraft, openModalSecondary, goTo } =
+  defineProps<PageActionProps>()
 </script>
 
 <template>
@@ -106,14 +108,24 @@ const { variant, isSelected, openModal, goTo } = defineProps<PageActionProps>()
 
     <!-- Approve & Reject -->
     <div v-if="variant === 'approveReject'" class="Cta flex items-center gap-2 2xl:gap-3">
-      <div class="Cancel" @click="$router.go(-1)">
-        <Button type="click" size="medium" variant="primary" modifier="nudePrimary">
-          Cancel
-        </Button>
-      </div>
+      <Button
+        type="click"
+        size="medium"
+        variant="error"
+        modifier="outlineError"
+        :on-click="openModalSecondary"
+      >
+        Reject
+      </Button>
 
-      <Button type="goto" size="medium" variant="primary" modifier="defaultPrimary" :go-to="goTo">
-        Next
+      <Button
+        type="click"
+        size="medium"
+        variant="primary"
+        modifier="defaultPrimary"
+        :on-click="openModal"
+      >
+        Approve
       </Button>
     </div>
   </section>

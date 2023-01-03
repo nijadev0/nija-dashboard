@@ -10,6 +10,7 @@ import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
 import { Check, Funnel, MagnifyingGlass, SortAscending, UploadSimple } from '$assets/icons'
 import Body from '$components/atoms/Body.vue'
+import Pagination from '$components/organisms/Pagination.vue'
 
 /**
  * Dummy data - Manage Returns
@@ -97,7 +98,7 @@ const checkboxRef = ref(false)
         <nav class="Search relative">
           <input
             type="text"
-            class="w-[21.25rem] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:py-3 2xl:pl-11 2xl:text-sm"
+            class="w-[16rem] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
             placeholder="Search"
           />
 
@@ -251,6 +252,9 @@ const checkboxRef = ref(false)
           </table>
         </div>
       </section>
+
+      <!-- Pagination -->
+      <Pagination />
     </section>
   </DashboardLayout>
 </template>

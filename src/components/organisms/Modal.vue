@@ -7,10 +7,10 @@ import Title from '$components/atoms/Title.vue'
 import { XMark } from '$assets/icons'
 
 interface ModalProps {
-  variant: 'delete' | 'draft'
+  variant: 'delete' | 'draft' | 'approve' | 'reject'
   modalRef: boolean
   closeModal: any
-  openToast: any
+  openToast?: any
   title: string
   description: string
 }
@@ -28,7 +28,9 @@ const { variant, modalRef, closeModal, openToast, title, description } = defineP
       <DialogPanel class="Panel w-full max-w-md rounded-large bg-white p-6 2xl:max-w-lg">
         <DialogTitle class="Title mb-4 flex items-center justify-between">
           <Title v-if="variant === 'delete'" variant="critical" size="small"> {{ title }} </Title>
+          <Title v-if="variant === 'reject'" variant="critical" size="small"> {{ title }} </Title>
           <Title v-if="variant === 'draft'" variant="warning" size="small"> {{ title }} </Title>
+          <Title v-if="variant === 'approve'" variant="info" size="small"> {{ title }} </Title>
 
           <button @click="closeModal">
             <XMark class="h-5 w-5 stroke-[2.5px] text-netral-50 2xl:h-6 2xl:w-6" />
@@ -38,6 +40,54 @@ const { variant, modalRef, closeModal, openToast, title, description } = defineP
         <DialogDescription class="Description mb-8 text-sm text-netral-80 2xl:mb-16 2xl:text-base">
           {{ description }}
         </DialogDescription>
+
+        <!-- CTA: Approve -->
+        <div v-if="variant === 'approve'" class="Cta flex w-full justify-end gap-3">
+          <Button
+            type="click"
+            variant="plain"
+            size="medium"
+            modifier="nudePlain"
+            :on-click="closeModal"
+          >
+            Cancel
+          </Button>
+
+          <Button
+            type="click"
+            variant="primary"
+            size="medium"
+            modifier="defaultPrimary"
+            :on-click="openToast"
+          >
+            Submit
+          </Button>
+        </div>
+
+        <!-- CTA: Reject -->
+        <div v-if="variant === 'reject'" class="Cta flex w-full justify-end gap-3">
+          <div @click="closeModal">
+            <Button
+              type="click"
+              variant="plain"
+              size="medium"
+              modifier="nudePlain"
+              :on-click="closeModal"
+            >
+              Cancel
+            </Button>
+          </div>
+
+          <Button
+            type="click"
+            variant="error"
+            size="medium"
+            modifier="defaultError"
+            :on-click="openToast"
+          >
+            Submit
+          </Button>
+        </div>
 
         <!-- CTA: Delete -->
         <div v-if="variant === 'delete'" class="Cta flex w-full justify-end gap-3">

@@ -14,7 +14,7 @@ import Body from '$components/atoms/Body.vue'
       <nav class="Search relative">
         <input
           type="text"
-          class="min-w-[346px] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:py-3 2xl:pl-11 2xl:text-sm"
+          class="w-[18rem] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
           placeholder="What are you looking for"
         />
 

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
 import Input from '$components/atoms/Input.vue'
@@ -7,9 +8,13 @@ import Title from '$components/atoms/Title.vue'
 import PageAction from '$components/organisms/PageAction.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
+import { Eye, DownloadSimple } from '$assets/icons'
+
 import BankLogo from '$assets/images/Bank.png'
 import ShipLogo from '$assets/images/Ship.png'
-import { Eye, DownloadSimple } from '$assets/icons'
+import Modal from '$components/organisms/Modal.vue'
+import RejectReasonModal from '$components/organisms/Modal/RejectReasonModal.vue'
+import Toast from '$components/organisms/Toast.vue'
 
 /**
  * ============================
@@ -48,6 +53,70 @@ const listProductsData = [
     total: '$129',
   },
 ]
+
+/**
+ * Modal & Toast Approve
+ */
+// Modal
+const approveRef = ref(false)
+
+const openModalApprove = () => {
+  approveRef.value = true
+}
+
+const closeModalApprove = () => {
+  approveRef.value = false
+}
+
+// Toast
+const toastApproveRef = ref(false)
+
+const openToastApprove = () => {
+  approveRef.value = false
+  toastApproveRef.value = true
+}
+
+const closeToastApprove = () => {
+  toastApproveRef.value = false
+}
+
+/**
+ * Modal Reject
+ */
+// Modal
+const rejectRef = ref(false)
+
+const openModalReject = () => {
+  rejectRef.value = true
+}
+
+const closeModalReject = () => {
+  rejectRef.value = false
+}
+
+// Modal - Reason
+const reasonRef = ref(false)
+
+const openModalReason = () => {
+  rejectRef.value = false
+  reasonRef.value = true
+}
+
+const closeModalReason = () => {
+  reasonRef.value = false
+}
+
+// Toast
+const toastRejectRef = ref(false)
+
+const openToastReject = () => {
+  reasonRef.value = false
+  toastRejectRef.value = true
+}
+
+const closeToastReject = () => {
+  toastRejectRef.value = false
+}
 </script>
 
 <template>
@@ -396,7 +465,55 @@ const listProductsData = [
     </section>
 
     <template #PageAction>
-      <!-- <PageAction variant="approveReject"/> -->
+      <PageAction
+        variant="approveReject"
+        :open-modal="openModalApprove"
+        :open-modal-secondary="openModalReject"
+        :is-selected="true"
+      />
+    </template>
+
+    <template #Modal>
+      <Modal
+        variant="approve"
+        :modal-ref="approveRef"
+        :close-modal="closeModalApprove"
+        :open-toast="openToastApprove"
+        title="Approve return"
+        description="Are you sure to approve this return?"
+      />
+
+      <Modal
+        variant="reject"
+        :modal-ref="rejectRef"
+        :close-modal="closeModalReject"
+        :open-toast="openModalReason"
+        title="Reject return"
+        description="Are you sure you want to reject this product return?"
+      />
+
+      <RejectReasonModal
+        :is-open-ref="reasonRef"
+        :close-modal="closeModalReason"
+        :next-click="openToastReject"
+      />
+    </template>
+
+    <template #Toast>
+      <Toast
+        :toast-ref="toastApproveRef"
+        :close-toast="closeToastApprove"
+        variant="saved"
+        heading="Return has been approved"
+        description="Product returns have been approved, a message will be sent to the customer and return will be processed."
+      />
+      <Toast
+        :toast-ref="toastRejectRef"
+        :close-toast="closeToastReject"
+        variant="delete"
+        heading="Return has been rejected"
+        description="Product returns have been rejected, a message will be sent to the customer."
+      />
     </template>
   </DashboardLayout>
 </template>
