@@ -17,7 +17,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
 
 <template>
   <aside
-    class="Sidebar flex min-h-screen w-[220px] flex-col items-center border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
+    class="Sidebar flex min-h-screen w-60 flex-col items-center border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
   >
     <div class="Logo mb-8 ml-4 flex items-start justify-start gap-2 self-start 2xl:mb-10">
       <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
@@ -76,10 +76,10 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
 
         <template #sub>
           <SideMenu variant="sub">
-            <Body size="md" weight="medium"> Transactions </Body>
+            <Body size="md" weight="medium"> Manage Transactions </Body>
           </SideMenu>
 
-          <SideMenu variant="sub">
+          <SideMenu variant="sub" href="/transactions/manage-returns">
             <Body size="md" weight="medium"> Returns </Body>
           </SideMenu>
         </template>

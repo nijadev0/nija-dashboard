@@ -34,6 +34,8 @@ import List from './ListIcon.vue'
 import WarningCircle from './WarningCircleIcon.vue'
 import Repeat from './RepeatIcon.vue'
 import SelectionPlus from './SelectionPlusIcon.vue'
+import Eye from './EyeIcon.vue'
+import DownloadSimple from './DownloadSimpleIcon.vue'
 
 export {
   Circle,
@@ -72,4 +74,6 @@ export {
   WarningCircle,
   Repeat,
   SelectionPlus,
+  Eye,
+  DownloadSimple,
 }

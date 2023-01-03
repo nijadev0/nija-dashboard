@@ -31,6 +31,10 @@ import Categories from '$components/pages/Products/Categories/Categories.vue'
 import AddCategories from '$components/pages/Products/Categories/AddCategories.vue'
 import UpdateCategories from '$components/pages/Products/Categories/UpdateCategories.vue'
 
+// Transactions
+import ManageReturns from '$components/pages/Transactions/ManageReturns/ManageReturns.vue'
+import ApproveManageReturns from '$components/pages/Transactions/ManageReturns/ApproveManageReturns.vue'
+
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
 import TextSandbox from '$components/pages/Sandbox/TextSandbox.vue'
@@ -52,6 +56,11 @@ const router = createRouter({
       name: 'Home',
       component: Home,
     },
+    /**
+     * ========================================
+     * Customers
+     * ========================================
+     */
     {
       path: '/customers/users',
       name: 'Users',
@@ -72,6 +81,11 @@ const router = createRouter({
       name: 'BuyerDetail',
       component: BuyerDetail,
     },
+    /**
+     * ========================================
+     * Products
+     * ========================================
+     */
     {
       path: '/products/list-products',
       name: 'ListProducts',
@@ -97,6 +111,11 @@ const router = createRouter({
       name: 'ListProductsVariants',
       component: ListProductsVariants,
     },
+    /**
+     * ========================================
+     * Products
+     * ========================================
+     */
     {
       path: '/products/categories',
       name: 'Categories',
@@ -111,6 +130,22 @@ const router = createRouter({
       path: '/products/categories/update',
       name: 'UpdateCategories',
       component: UpdateCategories,
+    },
+
+    /**
+     * ========================================
+     * Products
+     * ========================================
+     */
+    {
+      path: '/transactions/manage-returns',
+      name: 'ManageReturns',
+      component: ManageReturns,
+    },
+    {
+      path: '/transactions/manage-returns/approve',
+      name: 'ApproveManageReturns',
+      component: ApproveManageReturns,
     },
     /**
      * ========================================

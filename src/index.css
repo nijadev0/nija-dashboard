@@ -11,6 +11,6 @@
   } */
 
   body {
-    @apply relative bg-netral-20 font-jakarta text-netral-100 antialiased;
+    @apply relative overflow-x-hidden bg-netral-20 font-jakarta text-netral-100 antialiased;
   }
 }

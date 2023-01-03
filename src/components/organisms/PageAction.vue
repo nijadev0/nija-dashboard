@@ -6,7 +6,7 @@ import Button from '$components/atoms/Button.vue'
 import { Checks } from '$assets/icons'
 
 interface PageActionProps {
-  variant: 'deleteOnly' | 'deleteDraft' | 'saveDiscard' | 'nextCancel'
+  variant: 'deleteOnly' | 'deleteDraft' | 'saveDiscard' | 'nextCancel' | 'approveReject'
   isSelected: boolean
   openModal?: any
   openModalDraft?: any
@@ -93,6 +93,19 @@ const { variant, isSelected, openModal, goTo } = defineProps<PageActionProps>()
 
     <!-- Next & Cancel -->
     <div v-if="variant === 'nextCancel'" class="Cta flex items-center gap-2 2xl:gap-3">
+      <div class="Cancel" @click="$router.go(-1)">
+        <Button type="click" size="medium" variant="primary" modifier="nudePrimary">
+          Cancel
+        </Button>
+      </div>
+
+      <Button type="goto" size="medium" variant="primary" modifier="defaultPrimary" :go-to="goTo">
+        Next
+      </Button>
+    </div>
+
+    <!-- Approve & Reject -->
+    <div v-if="variant === 'approveReject'" class="Cta flex items-center gap-2 2xl:gap-3">
       <div class="Cancel" @click="$router.go(-1)">
         <Button type="click" size="medium" variant="primary" modifier="nudePrimary">
           Cancel
