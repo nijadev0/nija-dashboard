@@ -19,6 +19,7 @@ module.exports = {
         input: '0px 1px 0px rgba(0, 0, 0, 0.05)',
         formInput: '0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #F4EBFF',
         pageAction: '0px 2px 2px rgba(0, 0, 0, 0.08), 0px -8px 20px rgba(244, 244, 244, 0.25);',
+        'elevation-03': '0px 4px 16px rgba(0, 0, 0, 0.08)',
       },
       colors: {
         primary: {
@@ -30,6 +31,7 @@ module.exports = {
         },
         netral: {
           10: '#FFFFFF',
+          15: '#FAFAFA',
           20: '#F4F5F6',
           30: '#E5E7EB',
           40: '#D3D6DA',

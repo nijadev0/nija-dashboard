@@ -239,7 +239,7 @@ function closeToastReject() {
             name="ProductName"
             placeholder="Enter product name"
             value="8723781236"
-            status="Waiting"
+            status="Processed"
           />
         </div>
       </div>
@@ -247,53 +247,71 @@ function closeToastReject() {
 
     <section class="ApproveManageReturns mt-6 min-h-[480px] rounded-large bg-white p-6">
       <!-- Heading -->
-      <Title variant="default" class="mb-7"> Return Detail </Title>
+      <Title variant="default" class="mb-7"> Shipping Detail </Title>
 
       <div class="flex items-start justify-between border-y border-netral-20 py-7">
         <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Reason </Body>
+          <Body size="lg" weight="semibold"> Receipt number </Body>
         </div>
 
         <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <TextArea
-            type="disabled"
-            name="ProductDescription"
-            placeholder="Description"
-            text-value="The shipping box or envelope isn't damaged but the item is damaged"
+          <Input
+            variant="base"
+            input-type="text"
+            name="ProductName"
+            placeholder="Enter product name"
+            value="BSDJA2130923UK"
           />
         </div>
       </div>
 
-      <div class="flex items-start justify-between border-y border-netral-20 py-7">
+      <div class="flex items-start justify-between border-b border-netral-20 py-7">
         <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Image Proof </Body>
+          <Body size="lg" weight="semibold"> Payment </Body>
         </div>
 
-        <div class="flex w-full max-w-xl gap-6 2xl:max-w-4xl">
-          <div
-            v-for="item in [1, 2, 3, 4]"
-            class="Image relative h-32 w-32 rounded-large 2xl:h-40 2xl:w-40"
-          >
-            <div
-              class="Overlay flexitems-center absolute z-10 h-full w-full justify-center rounded-large bg-black/20 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100"
-            >
-              <div
-                class="absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5"
-              >
-                <button class="Button rounded-lg bg-white/40 p-2">
-                  <Eye class="h-4 w-4 stroke-[3px] text-white 2xl:h-5 2xl:w-5" />
-                </button>
-                <button class="Button rounded-lg bg-white/40 p-2">
-                  <DownloadSimple class="h-4 w-4 stroke-[3px] text-white 2xl:h-5 2xl:w-5" />
-                </button>
-              </div>
-            </div>
-            <img
-              class="h-full w-full rounded-large object-cover"
-              :src="'/images/manage-return/manage-return-image-' + item + '.png'"
-              :alt="'Manage Return' + item"
-            />
-          </div>
+        <div class="w-full max-w-xl 2xl:max-w-4xl">
+          <Input
+            variant="logo"
+            input-type="text"
+            name="ProductName"
+            placeholder="Enter product name"
+            value="FedEx (2-3 Days)"
+            :logo-src="ShipLogo"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-start justify-between border-b border-netral-20 py-7">
+        <div class="flex w-64 flex-col items-start gap-2">
+          <Body size="lg" weight="semibold"> Address </Body>
+        </div>
+
+        <div class="w-full max-w-xl 2xl:max-w-4xl">
+          <Input
+            variant="base"
+            input-type="text"
+            name="ProductName"
+            placeholder="Enter product name"
+            value="2972 Westheimer Rd. Santa Ana, Illinois 85486 "
+          />
+        </div>
+      </div>
+
+      <div class="flex items-start justify-between border-b border-netral-20 py-7">
+        <div class="flex w-64 flex-col items-start gap-2">
+          <Body size="lg" weight="semibold"> Payment </Body>
+        </div>
+
+        <div class="w-full max-w-xl 2xl:max-w-4xl">
+          <Input
+            variant="logo"
+            input-type="text"
+            name="ProductName"
+            placeholder="Enter product name"
+            value="Maybank Virtual Account"
+            :logo-src="BankLogo"
+          />
         </div>
       </div>
     </section>
@@ -407,84 +425,39 @@ function closeToastReject() {
               </tr>
             </tbody>
           </table>
+
+          <div class="Detail space-y-4 pt-6">
+            <div class="flex justify-end gap-6">
+              <Body size="lg" weight="semibold" class="w-24">Discount</Body>
+
+              <Body size="lg" weight="semibold" class="w-24">20%</Body>
+            </div>
+
+            <div class="flex justify-end gap-6">
+              <Body size="lg" weight="semibold" class="w-24">Shipping</Body>
+
+              <Body size="lg" weight="semibold" class="w-24">10%</Body>
+            </div>
+
+            <div class="flex justify-end gap-6">
+              <Body size="lg" weight="semibold" class="w-24">Tax</Body>
+
+              <Body size="lg" weight="semibold" class="w-24">10$</Body>
+            </div>
+
+            <div class="flex justify-end gap-6">
+              <Body size="lg" weight="semibold" class="w-24">Sub total</Body>
+
+              <Body size="lg" weight="semibold" class="w-24">$389</Body>
+            </div>
+          </div>
         </div>
       </section>
     </section>
 
-    <section class="ApproveManageReturns mt-6 min-h-[480px] rounded-large bg-white p-6">
-      <!-- Heading -->
-      <Title variant="default" class="mb-7"> Shipping Detail </Title>
-
-      <div class="flex items-start justify-between border-y border-netral-20 py-7">
-        <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Receipt number </Body>
-        </div>
-
-        <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
-            variant="base"
-            input-type="text"
-            name="ProductName"
-            placeholder="Enter product name"
-            value="BSDJA2130923UK"
-          />
-        </div>
-      </div>
-
-      <div class="flex items-start justify-between border-b border-netral-20 py-7">
-        <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Payment </Body>
-        </div>
-
-        <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
-            variant="logo"
-            input-type="text"
-            name="ProductName"
-            placeholder="Enter product name"
-            value="FedEx (2-3 Days)"
-            :logo-src="ShipLogo"
-          />
-        </div>
-      </div>
-
-      <div class="flex items-start justify-between border-b border-netral-20 py-7">
-        <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Address </Body>
-        </div>
-
-        <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
-            variant="base"
-            input-type="text"
-            name="ProductName"
-            placeholder="Enter product name"
-            value="2972 Westheimer Rd. Santa Ana, Illinois 85486 "
-          />
-        </div>
-      </div>
-
-      <div class="flex items-start justify-between border-b border-netral-20 py-7">
-        <div class="flex w-64 flex-col items-start gap-2">
-          <Body size="lg" weight="semibold"> Payment </Body>
-        </div>
-
-        <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
-            variant="logo"
-            input-type="text"
-            name="ProductName"
-            placeholder="Enter product name"
-            value="Maybank Virtual Account"
-            :logo-src="BankLogo"
-          />
-        </div>
-      </div>
-    </section>
-
     <template #PageAction>
       <PageAction
-        variant="approveReject"
+        variant="saveDiscard"
         :open-modal="openModalApprove"
         :open-modal-secondary="openModalReject"
         :is-selected="true"
@@ -497,8 +470,8 @@ function closeToastReject() {
         :modal-ref="approveRef"
         :close-modal="closeModalApprove"
         :open-toast="openToastApprove"
-        title="Approve return"
-        description="Are you sure to approve this return?"
+        title="Save updates?"
+        description="Are you sure to save this update?"
       />
 
       <Modal
@@ -522,8 +495,8 @@ function closeToastReject() {
         :toast-ref="toastApproveRef"
         :close-toast="closeToastApprove"
         variant="saved"
-        heading="Return has been approved"
-        description="Product returns have been approved, a message will be sent to the customer and return will be processed."
+        heading="Update success"
+        description="You have successfully updated the transaction data."
       />
 
       <Toast

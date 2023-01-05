@@ -75,7 +75,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
         </template>
 
         <template #sub>
-          <SideMenu variant="sub">
+          <SideMenu variant="sub" href="/transactions/manage-transactions">
             <Body size="md" weight="medium"> Manage Transactions </Body>
           </SideMenu>
 
@@ -104,7 +104,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
       </SideMenu>
 
       <!-- User Role -->
-      <SideMenu variant="default">
+      <SideMenu variant="default" href="/user-role">
         <UserCircle class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> User Role </Body>
       </SideMenu>

@@ -108,15 +108,9 @@ const { variant, isSelected, openModal, openModalDraft, openModalSecondary, goTo
 
     <!-- Approve & Reject -->
     <div v-if="variant === 'approveReject'" class="Cta flex items-center gap-2 2xl:gap-3">
-      <Button
-        type="click"
-        size="medium"
-        variant="error"
-        modifier="outlineError"
-        :on-click="openModalSecondary"
-      >
-        Reject
-      </Button>
+      <div @click="openModalSecondary">
+        <Button type="click" size="medium" variant="error" modifier="outlineError"> Reject </Button>
+      </div>
 
       <Button
         type="click"

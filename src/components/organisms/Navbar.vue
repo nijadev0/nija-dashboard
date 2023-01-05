@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import Avatar from '$components/atoms/Avatar.vue'
-import Text from '$components/atoms/Text.vue'
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 
-import { BellSimple, CaretDown, MagnifyingGlass } from '$assets/icons'
+import Avatar from '$components/atoms/Avatar.vue'
 import Body from '$components/atoms/Body.vue'
+
+import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } from '$assets/icons'
 </script>
 
 <template>
@@ -24,21 +25,93 @@ import Body from '$components/atoms/Body.vue'
       </nav>
 
       <!-- Profile -->
-      <nav class="Profile flex items-center gap-5">
-        <div class="Notification relative">
-          <!-- Notification -->
-          <div
-            class="absolute -top-1 right-0 flex h-3 w-3 items-center justify-center rounded-full bg-primary-main"
-          >
-            <span
-              class="whitespace-nowrap text-center text-[8px] font-medium leading-none text-white"
-            >
-              9
-            </span>
-          </div>
 
-          <BellSimple class="h-5 w-5 stroke-2 text-netral-60 2xl:h-6 2xl:w-6" />
-        </div>
+      <nav class="Profile flex items-center gap-5">
+        <!-- Notification -->
+
+        <Popover>
+          <PopoverButton class="Notification relative">
+            <div
+              class="absolute -top-1 right-0 flex h-3 w-3 items-center justify-center rounded-full bg-error-main"
+            >
+              <span
+                class="whitespace-nowrap text-center text-[8px] font-medium leading-none text-white"
+              >
+                9
+              </span>
+            </div>
+
+            <BellSimple class="h-5 w-5 stroke-2 text-netral-60 2xl:h-6 2xl:w-6" />
+          </PopoverButton>
+
+          <PopoverPanel>
+            <div
+              class="absolute top-16 right-56 flex h-fit w-[335px] flex-col rounded-large bg-white shadow-message"
+            >
+              <div class="flex justify-between border-b border-netral-30 px-4 py-5">
+                <Body size="xl" weight="medium"> Notifications </Body>
+                <XMark class="h-4 w-4 stroke-[3px] text-netral-40" />
+              </div>
+
+              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
+                <a class="flex items-start gap-4" href="/account-settings">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
+                    <Bag class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
+                  </div>
+
+                  <div class="max-w-[240px]">
+                    <Body size="lg" weight="semibold" class="mb-0.5"> New Order </Body>
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
+                      >There is a new order, check the order details now</Body
+                    >
+                    <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
+                  </div>
+                </a>
+                <div class="TickNotif absolute right-5 z-20 h-2 w-2 rounded-full bg-error-main" />
+              </div>
+
+              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
+                <a class="flex items-start gap-4" href="/account-settings">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
+                    <Package class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
+                  </div>
+
+                  <div class="max-w-[240px]">
+                    <Body size="lg" weight="semibold" class="mb-0.5"> Order Refund </Body>
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
+                      >There is a returned order, check refund status</Body
+                    >
+                    <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
+                  </div>
+                </a>
+                <div class="TickNotif absolute right-5 z-20 h-2 w-2 rounded-full bg-error-main" />
+              </div>
+
+              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
+                <a class="flex items-start gap-4" href="/account-settings">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
+                    <TShirt class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
+                  </div>
+
+                  <div class="max-w-[240px]">
+                    <Body size="lg" weight="semibold" class="mb-0.5"> Order Refund </Body>
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
+                      >There is a returned order, check refund status</Body
+                    >
+                    <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
+                  </div>
+                </a>
+                <div class="TickNotif absolute right-5 z-20 h-2 w-2 rounded-full bg-error-main" />
+              </div>
+
+              <div class="flex justify-end p-4">
+                <a href="/account-settings">
+                  <Body size="md" weight="medium"> View all notifications </Body>
+                </a>
+              </div>
+            </div>
+          </PopoverPanel>
+        </Popover>
 
         <!-- Divider -->
         <div class="Divider min-h-[2rem] w-px bg-netral-30" />

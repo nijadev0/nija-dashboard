@@ -12,7 +12,7 @@ const body = cva(`Body`, {
   variants: {
     size: {
       xxl: 'text-xl leading-7',
-      xl: '2xl:text-lg 2xl:leading-6 leading-5 text-base',
+      xl: 'text-base leading-5 2xl:text-lg 2xl:leading-6 ',
       lg: 'text-[13px] leading-5 2xl:text-base 2xl:leading-[22px]',
       md: 'text-xs leading-4 2xl:text-sm 2xl:leading-5',
       sm: 'text-[10px] leading-3 2xl:text-xs 2xl:leading-4',

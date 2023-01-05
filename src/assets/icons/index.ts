@@ -36,6 +36,12 @@ import Repeat from './RepeatIcon.vue'
 import SelectionPlus from './SelectionPlusIcon.vue'
 import Eye from './EyeIcon.vue'
 import DownloadSimple from './DownloadSimpleIcon.vue'
+import Bag from './BagIcon.vue'
+import TShirt from './TShirtIcon.vue'
+import FilePDF from './FilePDFIcon.vue'
+import FileX from './FileXIcon.vue'
+import FileText from './FileTextIcon.vue'
+import UserPlus from './UserPlusIcon.vue'
 
 export {
   Circle,
@@ -76,4 +82,10 @@ export {
   SelectionPlus,
   Eye,
   DownloadSimple,
+  Bag,
+  TShirt,
+  FilePDF,
+  FileX,
+  FileText,
+  UserPlus,
 }

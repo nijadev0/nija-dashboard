@@ -103,7 +103,13 @@ const { name, label, inputType, placeholder, value, status, logoSrc } = definePr
       <div
         class="Number absolute top-1/2 left-3 z-10 flex h-8 w-fit -translate-y-1/2 items-center justify-center gap-2 rounded-md bg-netral-20 px-2"
       >
-        <div class="h-4 w-4 rounded-full bg-warning-main 2xl:h-5 2xl:w-5" />
+        <div
+          class="h-4 w-4 rounded-full 2xl:h-5 2xl:w-5"
+          :class="{
+            'bg-warning-main': status === 'Waiting',
+            'bg-netral-80': status === 'Processed',
+          }"
+        />
         <Body size="md" weight="regular">{{ status }}</Body>
       </div>
     </div>

@@ -34,7 +34,15 @@ import UpdateCategories from '$components/pages/Products/Categories/UpdateCatego
 // Transactions
 import ManageReturns from '$components/pages/Transactions/ManageReturns/ManageReturns.vue'
 import ApproveManageReturns from '$components/pages/Transactions/ManageReturns/ApproveManageReturns.vue'
+import ManageTransactions from '$components/pages/Transactions/ManageTransactions/ManageTransactions.vue'
+import DetailTransactions from '$components/pages/Transactions/ManageTransactions/DetailTransactions.vue'
 
+// User Role
+import UserRole from '$components/pages/UserRole/UserRole.vue'
+import AddUserRole from '$components/pages/UserRole/AddUserRole.vue'
+import EditUserRole from '$components/pages/UserRole/EditUserRole.vue'
+
+// Sandbox
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
 import TextSandbox from '$components/pages/Sandbox/TextSandbox.vue'
@@ -134,9 +142,19 @@ const router = createRouter({
 
     /**
      * ========================================
-     * Products
+     * Transactions
      * ========================================
      */
+    {
+      path: '/transactions/manage-transactions',
+      name: 'ManageTransactions',
+      component: ManageTransactions,
+    },
+    {
+      path: '/transactions/detail-transactions',
+      name: 'DetailTransactions',
+      component: DetailTransactions,
+    },
     {
       path: '/transactions/manage-returns',
       name: 'ManageReturns',
@@ -147,6 +165,38 @@ const router = createRouter({
       name: 'ApproveManageReturns',
       component: ApproveManageReturns,
     },
+    /**
+     * ========================================
+     * Flash Sale
+     * ========================================
+     */
+    // {
+    //   path: '/flash-sale',
+    //   name: 'FlashSale',
+    //   component: FlashSale,
+    // },
+
+    /**
+     * ========================================
+     * User Role
+     * ========================================
+     */
+    {
+      path: '/user-role',
+      name: 'UserRole',
+      component: UserRole,
+    },
+    {
+      path: '/user-role/add',
+      name: 'AddUserRole',
+      component: AddUserRole,
+    },
+    {
+      path: '/user-role/edit',
+      name: 'EditUserRole',
+      component: EditUserRole,
+    },
+
     /**
      * ========================================
      * Sandbox Pages

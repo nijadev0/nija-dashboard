@@ -13,6 +13,16 @@ interface SelectProps {
 const { selectData } = defineProps<SelectProps>()
 
 const selectRef = ref(selectData[0])
+
+/**
+ * Example data
+ */
+const categoriesData = [
+  { id: 1, name: 'Select Category', disable: true },
+  { id: 2, name: 'Outer' },
+  { id: 3, name: 'Sweater' },
+  { id: 4, name: 'Kids' },
+]
 </script>
 
 <template>
