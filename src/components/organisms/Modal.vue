@@ -7,7 +7,7 @@ import Title from '$components/atoms/Title.vue'
 import { XMark } from '$assets/icons'
 
 interface ModalProps {
-  variant: 'delete' | 'draft' | 'approve' | 'reject'
+  variant: 'delete' | 'draft' | 'approve' | 'reject' | 'saved'
   modalRef: boolean
   closeModal: any
   openToast?: any
@@ -30,7 +30,9 @@ const { variant, modalRef, closeModal, openToast, title, description } = defineP
           <Title v-if="variant === 'delete'" variant="critical" size="small"> {{ title }} </Title>
           <Title v-if="variant === 'reject'" variant="critical" size="small"> {{ title }} </Title>
           <Title v-if="variant === 'draft'" variant="warning" size="small"> {{ title }} </Title>
-          <Title v-if="variant === 'approve'" variant="info" size="small"> {{ title }} </Title>
+          <Title v-if="variant === 'approve' || variant === 'saved'" variant="info" size="small">
+            {{ title }}
+          </Title>
 
           <button @click="closeModal">
             <XMark class="h-5 w-5 stroke-[2.5px] text-netral-50 2xl:h-6 2xl:w-6" />

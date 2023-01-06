@@ -92,7 +92,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
       </SideMenu>
 
       <!-- Banner -->
-      <SideMenu variant="default">
+      <SideMenu variant="default" href="/banners">
         <AppWindow class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> Banner </Body>
       </SideMenu>

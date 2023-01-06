@@ -10,7 +10,7 @@ const { variant } = defineProps<Status>()
 
 <template>
   <div
-    class="Badge w-max rounded-full py-1 px-3 text-[0.625rem] font-medium capitalize tracking-[0.01rem] 2xl:px-4 2xl:text-xs"
+    class="Badge w-max rounded-full py-1 px-3 text-xs font-medium capitalize tracking-[0.01rem] 2xl:px-4"
     :class="{
       'bg-success-surface/50 text-success-main': variant === 'success',
       'bg-warning-surface/50 text-warning-main': variant === 'warning',

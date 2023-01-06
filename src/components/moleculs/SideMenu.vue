@@ -43,7 +43,7 @@ const { variant, href } = defineProps<SideMenuProps>()
   </router-link>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .Active {
   @apply bg-netral-20 text-primary-main;
 }

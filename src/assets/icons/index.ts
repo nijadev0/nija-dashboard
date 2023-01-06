@@ -42,8 +42,11 @@ import FilePDF from './FilePDFIcon.vue'
 import FileX from './FileXIcon.vue'
 import FileText from './FileTextIcon.vue'
 import UserPlus from './UserPlusIcon.vue'
+import Pencil from './PencilIcon.vue'
+import FolderSimplePlus from './FolderSimplePlusIcon.vue'
 
 export {
+  Pencil,
   Circle,
   Heart,
   Trash,
@@ -88,4 +91,5 @@ export {
   FileX,
   FileText,
   UserPlus,
+  FolderSimplePlus,
 }

@@ -2,10 +2,10 @@
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
 import Title from '$components/atoms/Title.vue'
+import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
 
-import { XMark, Repeat, SelectionPlus } from '$assets/icons'
-import Select from '$components/atoms/Select.vue'
+import { XMark, ArrowsClockwise, Trash, Plus, SelectionPlus, Repeat } from '$assets/icons'
 
 interface UploadImageFilledProps {
   isOpenRef: any
@@ -14,13 +14,6 @@ interface UploadImageFilledProps {
 }
 
 const { isOpenRef, closeModal, nextClick } = defineProps<UploadImageFilledProps>()
-
-const typesData = [
-  { id: 1, name: 'Select Type', disable: true },
-  { id: 2, name: 'Banner Hero Section' },
-  { id: 3, name: 'Banner Best Seller Collection' },
-  { id: 4, name: 'Banner Best Seller Collection' },
-]
 </script>
 
 <template>
@@ -61,12 +54,15 @@ const typesData = [
               </DialogTitle>
 
               <div
-                class="relative mb-10 flex min-h-[240px] items-center justify-center gap-4 rounded-large border-2 border-netral-20 bg-neutral-50 p-6 2xl:min-h-[320px]"
+                class="Wrapper relative mb-8 flex h-60 items-center justify-center rounded-large border-2 border-netral-20 bg-neutral-50 2xl:mb-10 2xl:min-h-[320px]"
               >
-                <img
-                  class="h-80 w-96 object-contain"
-                  src="/images/categories/categories-upload-image.png"
-                />
+                <div class="relative h-full max-w-[32rem]">
+                  <img
+                    class="h-full w-full object-cover"
+                    src="/images/outlets/outlets-banner.png"
+                    alt="Outlets Banner"
+                  />
+                </div>
 
                 <div class="ButtonReplace absolute">
                   <Button type="click" variant="plain" modifier="defaultPlain">
@@ -81,10 +77,6 @@ const typesData = [
                     Crop
                   </Button>
                 </div>
-              </div>
-
-              <div class="SelectType mb-10">
-                <Select :selectData="typesData" />
               </div>
 
               <div class="flex w-full justify-end gap-3">

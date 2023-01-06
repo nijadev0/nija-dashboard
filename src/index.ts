@@ -43,11 +43,18 @@ import ManageTransactions from '$components/pages/Transactions/ManageTransaction
 import DetailTransactions from '$components/pages/Transactions/ManageTransactions/DetailTransactions.vue'
 
 /**
- * Outlet List
+ * Outlets
  */
 
 import Outlets from '$components/pages/Outlets/Outlets.vue'
 import DetailOutlets from '$components/pages/Outlets/DetailOutlets.vue'
+import EditOutlets from '$components/pages/Outlets/EditOutlets.vue'
+
+/**
+ * Outlets
+ */
+
+import Banners from '$components/pages/Banners/Banners.vue'
 
 /**
  * User Role
@@ -66,7 +73,6 @@ import SmallSandbox from '$components/pages/Sandbox/SmallSandbox.vue'
 import TableSandbox from '$components/pages/Sandbox/TableSandbox.vue'
 
 import NotFound from '$components/pages/404.vue'
-
 
 /**
  * Vue Router 4
@@ -211,6 +217,31 @@ const router = createRouter({
       name: 'DetailOutlets',
       component: DetailOutlets,
     },
+    {
+      path: '/outlets/edit',
+      name: 'EditOutlets',
+      component: EditOutlets,
+    },
+    /**
+     * ========================================
+     * Banners
+     * ========================================
+     */
+    {
+      path: '/banners',
+      name: 'Banners',
+      component: Banners,
+    },
+    // {
+    //   path: '/outlets/detail',
+    //   name: 'DetailOutlets',
+    //   component: DetailOutlets,
+    // },
+    // {
+    //   path: '/outlets/edit',
+    //   name: 'EditOutlets',
+    //   component: EditOutlets,
+    // },
     /**
      * ========================================
      * User Role

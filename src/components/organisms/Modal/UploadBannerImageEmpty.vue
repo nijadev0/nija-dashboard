@@ -4,7 +4,8 @@ import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } fro
 import Title from '$components/atoms/Title.vue'
 import Button from '$components/atoms/Button.vue'
 
-import { XMark, Repeat, SelectionPlus } from '$assets/icons'
+import { XMark, Repeat, SelectionPlus, UploadSimple } from '$assets/icons'
+import Body from '$components/atoms/Body.vue'
 import Select from '$components/atoms/Select.vue'
 
 interface UploadImageFilledProps {
@@ -25,7 +26,7 @@ const typesData = [
 
 <template>
   <TransitionRoot appear :show="isOpenRef" as="div">
-    <Dialog as="div" @close="closeModal" class="relative z-[60]">
+    <Dialog as="div" @close="closeModal" class="relative z-[99999998]">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -38,7 +39,7 @@ const typesData = [
         <div class="fixed inset-0 bg-black/25" />
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
+      <div class="z-[9999999999999]s fixed inset-0">
         <div class="flex min-h-full items-center justify-center p-4 text-center">
           <TransitionChild
             as="template"
@@ -50,9 +51,9 @@ const typesData = [
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="-mt-16 w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24 2xl:max-w-4xl"
+              class="-mt-16 w-full max-w-2xl transform overflow-hidden overflow-y-auto rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24 2xl:max-w-4xl"
             >
-              <DialogTitle as="div" class="mb-10 flex items-start justify-between">
+              <DialogTitle as="div" class="Title mb-10 flex items-start justify-between">
                 <Title variant="default"> Add Banner </Title>
 
                 <button @click="closeModal">
@@ -61,25 +62,14 @@ const typesData = [
               </DialogTitle>
 
               <div
-                class="relative mb-10 flex min-h-[240px] items-center justify-center gap-4 rounded-large border-2 border-netral-20 bg-neutral-50 p-6 2xl:min-h-[320px]"
+                class="Empty-State relative mb-10 flex min-h-[240px] items-center justify-center gap-4 rounded-large border-2 border-dashed border-netral-40 bg-neutral-50 p-6 2xl:min-h-[320px]"
               >
-                <img
-                  class="h-80 w-96 object-contain"
-                  src="/images/categories/categories-upload-image.png"
-                />
-
-                <div class="ButtonReplace absolute">
-                  <Button type="click" variant="plain" modifier="defaultPlain">
-                    <Repeat class="h-5 w-5 stroke-[2.5px] text-netral-80" />
-                    Replace
-                  </Button>
-                </div>
-
-                <div class="ButtonCrop absolute right-4 bottom-4 rounded-large shadow-md">
-                  <Button type="click" variant="plain" modifier="defaultPlain">
-                    <SelectionPlus class="h-5 w-5 stroke-[2.5px] text-netral-80" />
-                    Crop
-                  </Button>
+                <div class="Text flex flex-col items-center text-netral-50">
+                  <UploadSimple class="mb-6 h-10 w-10 stroke-[3px] text-netral-40" />
+                  <Body size="lg" weight="semibold" class="mb-1">
+                    Click to upload, or drag and drop
+                  </Body>
+                  <Body size="md" weight="regular"> SVG, PNG, JPEG (MAX 800X400px) </Body>
                 </div>
               </div>
 

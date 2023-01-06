@@ -178,7 +178,7 @@ function closeModalFilter() {
                 <SortAscending class="h-4 w-4 stroke-[4px] text-netral-80" />
               </Button>
             </PopoverButton>
-            
+
             <PopoverPanel
               class="absolute top-16 right-0 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
             >
@@ -341,43 +341,43 @@ function closeModalFilter() {
             <thead class="TableHead w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
                 <th
-                  class="w-[180px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[180px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Transaction Number </Body>
                 </th>
 
                 <th
-                  class="w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Customer Name </Body>
                 </th>
 
                 <th
-                  class="w-[170px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[170px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Purchased Product </Body>
                 </th>
 
                 <th
-                  class="w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Total Product </Body>
+                  <Body size="md" weight="medium"> Qty</Body>
                 </th>
 
                 <th
-                  class="w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Amount </Body>
                 </th>
 
                 <th
-                  class="w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Status</Body>
                 </th>
 
                 <th
-                  class="w-[60px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
+                  class="max-w-[20px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
                   <Body size="md" weight="medium"> Action </Body>
                 </th>
@@ -390,37 +390,37 @@ function closeModalFilter() {
                 v-for="product in manageReturnsData"
                 class="border-b border-netral-20 last:border-netral-30"
               >
-                <td class="w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.transactionNumber }}
                   </Body>
                 </td>
 
-                <td class="w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.customerName }}
                   </Body>
                 </td>
 
-                <td class="w-[170px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[170px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.purchasedProduct }}
                   </Body>
                 </td>
 
-                <td class="w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.phoneNumber }}
                   </Body>
                 </td>
 
-                <td class="w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.paymentAmount }}
                   </Body>
                 </td>
 
-                <td class="w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <Badge v-if="product.status === 'success'" variant="success">
                     {{ product.status }}
                   </Badge>
@@ -433,7 +433,7 @@ function closeModalFilter() {
                   </Badge>
                 </td>
 
-                <td class="w-[60px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[20px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
                   <button
                     class="text-primary-main"
                     @click="$router.push('/transactions/detail-transactions')"
