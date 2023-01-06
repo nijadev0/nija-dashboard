@@ -178,6 +178,7 @@ function closeModalFilter() {
                 <SortAscending class="h-4 w-4 stroke-[4px] text-netral-80" />
               </Button>
             </PopoverButton>
+            
             <PopoverPanel
               class="absolute top-16 right-0 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
             >

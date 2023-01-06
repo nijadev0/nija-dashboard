@@ -98,7 +98,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
       </SideMenu>
 
       <!-- Outlet -->
-      <SideMenu variant="default">
+      <SideMenu variant="default" href="/outlets">
         <Storefront class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> Outlet </Body>
       </SideMenu>

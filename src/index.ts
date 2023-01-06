@@ -8,7 +8,8 @@ import Home from '$components/pages/Home.vue'
 /**
  * Customers
  */
-//Users
+
+// Users
 import Users from '$components/pages/Customers/Users/Users.vue'
 import UserDetail from '$components/pages/Customers/Users/DetailUsers.vue'
 
@@ -31,18 +32,33 @@ import Categories from '$components/pages/Products/Categories/Categories.vue'
 import AddCategories from '$components/pages/Products/Categories/AddCategories.vue'
 import UpdateCategories from '$components/pages/Products/Categories/UpdateCategories.vue'
 
-// Transactions
+/**
+ * Transactions
+ */
+
+// Manage Transactions
 import ManageReturns from '$components/pages/Transactions/ManageReturns/ManageReturns.vue'
 import ApproveManageReturns from '$components/pages/Transactions/ManageReturns/ApproveManageReturns.vue'
 import ManageTransactions from '$components/pages/Transactions/ManageTransactions/ManageTransactions.vue'
 import DetailTransactions from '$components/pages/Transactions/ManageTransactions/DetailTransactions.vue'
 
-// User Role
+/**
+ * Outlet List
+ */
+
+import Outlets from '$components/pages/Outlets/Outlets.vue'
+import DetailOutlets from '$components/pages/Outlets/DetailOutlets.vue'
+
+/**
+ * User Role
+ */
 import UserRole from '$components/pages/UserRole/UserRole.vue'
 import AddUserRole from '$components/pages/UserRole/AddUserRole.vue'
 import EditUserRole from '$components/pages/UserRole/EditUserRole.vue'
 
-// Sandbox
+/**
+ * Sandbox
+ */
 import Sandbox from '$components/pages/Sandbox.vue'
 import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
 import TextSandbox from '$components/pages/Sandbox/TextSandbox.vue'
@@ -51,6 +67,10 @@ import TableSandbox from '$components/pages/Sandbox/TableSandbox.vue'
 
 import NotFound from '$components/pages/404.vue'
 
+
+/**
+ * Vue Router 4
+ */
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -176,6 +196,21 @@ const router = createRouter({
     //   component: FlashSale,
     // },
 
+    /**
+     * ========================================
+     * Outlets
+     * ========================================
+     */
+    {
+      path: '/outlets',
+      name: 'Outlets',
+      component: Outlets,
+    },
+    {
+      path: '/outlets/detail',
+      name: 'DetailOutlets',
+      component: DetailOutlets,
+    },
     /**
      * ========================================
      * User Role
