@@ -11,10 +11,10 @@ const { imageBanner, altBanner } = defineProps<AuthLayoutProps>()
   <!-- Layout: Auth Layout -->
   <div class="AuthLayout grid grid-cols-12 gap-5">
     <!-- Photo -->
-    <div class="relative col-span-7">
-      <div class="sticky inset-0 z-10 h-screen">
+    <div class="Banner relative col-span-7">
+      <div class="Wrap sticky inset-0 z-10 h-screen">
         <img
-          class="h-full w-full object-cover object-center"
+          class="Image h-full w-full object-cover object-center"
           :src="imageBanner"
           :alt="altBanner + ' Banner'"
         />
@@ -22,7 +22,7 @@ const { imageBanner, altBanner } = defineProps<AuthLayoutProps>()
     </div>
 
     <!-- Content -->
-    <div class="relative col-span-5">
+    <div class="Content relative col-span-5">
       <slot />
     </div>
   </div>

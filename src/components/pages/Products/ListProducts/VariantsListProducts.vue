@@ -250,7 +250,7 @@ function openToastSaved() {
                   class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Body size="lg" weight="medium">
-                    <Select :select-data="sizesData" />
+                    <Select variant="relax" :select-data="sizesData" />
                   </Body>
                 </td>
 

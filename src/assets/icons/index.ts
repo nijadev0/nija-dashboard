@@ -1,3 +1,5 @@
+import ArrowLeft from './ArrowLeftIcon.vue'
+import Lightning from './LightningIcon.vue'
 import Circle from './CircleIcon.vue'
 import Heart from './HeartIcon.vue'
 import Trash from './TrashIcon.vue'
@@ -44,8 +46,12 @@ import FileText from './FileTextIcon.vue'
 import UserPlus from './UserPlusIcon.vue'
 import Pencil from './PencilIcon.vue'
 import FolderSimplePlus from './FolderSimplePlusIcon.vue'
+import CalendarPlus from './CalendarPlusIcon.vue'
+import Clock from './ClockIcon.vue'
+import EyeSlash from './EyeSlashIcon.vue'
 
 export {
+  Lightning,
   Pencil,
   Circle,
   Heart,
@@ -92,4 +98,8 @@ export {
   FileText,
   UserPlus,
   FolderSimplePlus,
+  CalendarPlus,
+  Clock,
+  EyeSlash,
+  ArrowLeft,
 }

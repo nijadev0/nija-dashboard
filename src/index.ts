@@ -1,9 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 /**
+ * Login
+ */
+import Login from '$components/pages/Account/Login.vue'
+import Forgot from '$components/pages/Account/Forgot.vue'
+import Verify from '$components/pages/Account/Verify.vue'
+import NewPassword from '$components/pages/Account/NewPassword.vue'
+import ResetSuccess from '$components/pages/Account/ResetSuccess.vue'
+
+/**
  * Home
  */
 import Home from '$components/pages/Home.vue'
+import Notifications from '$components/pages/Notifications.vue'
 
 /**
  * Customers
@@ -64,14 +74,14 @@ import AddUserRole from '$components/pages/UserRole/AddUserRole.vue'
 import EditUserRole from '$components/pages/UserRole/EditUserRole.vue'
 
 /**
+ * Flash Sale
+ */
+import FlashSale from '$components/pages/FlashSale/FlashSale.vue'
+
+/**
  * Sandbox
  */
 import Sandbox from '$components/pages/Sandbox.vue'
-import ButtonSandbox from '$components/pages/Sandbox/ButtonSandbox.vue'
-import TextSandbox from '$components/pages/Sandbox/TextSandbox.vue'
-import SmallSandbox from '$components/pages/Sandbox/SmallSandbox.vue'
-import TableSandbox from '$components/pages/Sandbox/TableSandbox.vue'
-
 import NotFound from '$components/pages/404.vue'
 
 /**
@@ -82,6 +92,36 @@ const router = createRouter({
   routes: [
     /**
      * ========================================
+     * Account Pages
+     * ========================================
+     */
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
+    {
+      path: '/forgot',
+      name: 'Forgot',
+      component: Forgot,
+    },
+    {
+      path: '/verify',
+      name: 'Verify',
+      component: Verify,
+    },
+    {
+      path: '/new-password',
+      name: 'NewPassword',
+      component: NewPassword,
+    },
+    {
+      path: '/reset-success',
+      name: 'ResetSuccess',
+      component: ResetSuccess,
+    },
+    /**
+     * ========================================
      * Main Pages
      * ========================================
      */
@@ -89,6 +129,11 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: Home,
+    },
+    {
+      path: '/notifications',
+      name: 'Notifications',
+      component: Notifications,
     },
     /**
      * ========================================
@@ -196,11 +241,11 @@ const router = createRouter({
      * Flash Sale
      * ========================================
      */
-    // {
-    //   path: '/flash-sale',
-    //   name: 'FlashSale',
-    //   component: FlashSale,
-    // },
+    {
+      path: '/flash-sale',
+      name: 'FlashSale',
+      component: FlashSale,
+    },
 
     /**
      * ========================================
@@ -272,26 +317,6 @@ const router = createRouter({
       path: '/sandbox',
       name: 'Sandbox',
       component: Sandbox,
-    },
-    {
-      path: '/sandbox/button',
-      name: 'Button Sandbox',
-      component: ButtonSandbox,
-    },
-    {
-      path: '/sandbox/text',
-      name: 'Text Sandbox',
-      component: TextSandbox,
-    },
-    {
-      path: '/sandbox/small',
-      name: 'Small Sandbox',
-      component: SmallSandbox,
-    },
-    {
-      path: '/sandbox/table',
-      name: 'Table Sandbox',
-      component: TableSandbox,
     },
     /**
      * ========================================

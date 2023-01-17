@@ -361,13 +361,13 @@ function closeModalFilter() {
                 <th
                   class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Qty</Body>
+                  <Body size="md" weight="medium"> Total Product</Body>
                 </th>
 
                 <th
                   class="max-w-[80px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Amount </Body>
+                  <Body size="md" weight="medium"> Payment Amount </Body>
                 </th>
 
                 <th

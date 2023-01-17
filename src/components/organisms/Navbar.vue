@@ -53,8 +53,11 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
                 <XMark class="h-4 w-4 stroke-[3px] text-netral-40" />
               </div>
 
-              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
-                <a class="flex items-start gap-4" href="/account-settings">
+              <div
+                @click="$router.push('/notifications')"
+                class="relative flex cursor-pointer items-start gap-4 border-b border-netral-30 p-4 hover:bg-primary-surface/25"
+              >
+                <a class="flex items-start gap-4">
                   <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
                     <Bag class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
                   </div>
@@ -70,8 +73,11 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
                 <div class="TickNotif absolute right-5 z-20 h-2 w-2 rounded-full bg-error-main" />
               </div>
 
-              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
-                <a class="flex items-start gap-4" href="/account-settings">
+              <div
+                @click="$router.push('/notifications')"
+                class="relative flex cursor-pointer items-start gap-4 border-b border-netral-30 p-4 hover:bg-primary-surface/25"
+              >
+                <a class="flex items-start gap-4">
                   <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
                     <Package class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
                   </div>
@@ -87,8 +93,11 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
                 <div class="TickNotif absolute right-5 z-20 h-2 w-2 rounded-full bg-error-main" />
               </div>
 
-              <div class="relative flex items-start gap-4 border-b border-netral-30 p-4">
-                <a class="flex items-start gap-4" href="/account-settings">
+              <div
+                @click="$router.push('/notifications')"
+                class="relative flex cursor-pointer items-start gap-4 border-b border-netral-30 p-4 hover:bg-primary-surface/25"
+              >
+                <a class="flex items-start gap-4">
                   <div class="flex h-10 w-10 items-center justify-center rounded-full bg-netral-20">
                     <TShirt class="h-5 w-5 stroke-2 text-netral-80 2xl:h-6 2xl:w-6" />
                   </div>
@@ -105,9 +114,9 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
               </div>
 
               <div class="flex justify-end p-4">
-                <a href="/account-settings">
+                <button @click="$router.push('/notifications')">
                   <Body size="md" weight="medium"> View all notifications </Body>
-                </a>
+                </button>
               </div>
             </div>
           </PopoverPanel>

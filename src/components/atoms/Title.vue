@@ -11,7 +11,7 @@ const { variant = 'base', size } = defineProps<Title>()
 
 <template>
   <!-- Title -->
-  <div class="Title flex flex-row items-end gap-3">
+  <div class="Title flex flex-row items-start gap-3">
     <div
       class="h-5 w-1.5 rounded-full 2xl:h-6 2xl:w-2"
       :class="{

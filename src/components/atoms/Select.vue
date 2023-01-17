@@ -8,9 +8,10 @@ import { CaretDown } from '$assets/icons'
 
 interface SelectProps {
   selectData: any
+  variant: 'tight' | 'relax'
 }
 
-const { selectData } = defineProps<SelectProps>()
+const { selectData, variant = 'relax' } = defineProps<SelectProps>()
 
 const selectRef = ref(selectData[0])
 
@@ -29,7 +30,11 @@ const categoriesData = [
   <Listbox v-model="selectRef">
     <div class="ListBox relative">
       <ListboxButton
-        class="relative flex w-full items-center justify-between rounded-large border border-netral-30 p-3 text-sm leading-[22px] text-netral-80 outline-none focus-within:ring-4 focus-within:ring-primary-surface focus-visible:ring-primary-surface 2xl:p-3.5 2xl:text-base"
+        class="relative flex w-full items-center justify-between rounded-large text-sm leading-[22px] text-netral-80 outline-none focus-within:ring-4 focus-within:ring-primary-surface focus-visible:ring-primary-surface 2xl:text-base"
+        :class="
+          (variant === 'tight' && 'p-3 font-semibold') ||
+          (variant === 'relax' && 'border border-netral-30 p-3 2xl:p-3.5')
+        "
       >
         <Body size="lg" weight="regular">
           {{ selectRef.name }}
