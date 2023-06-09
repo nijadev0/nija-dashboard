@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import VueApexCharts from 'vue3-apexcharts'
 
 import './index.css'
 
@@ -7,4 +8,4 @@ import App from './App.vue'
 
 const app = createApp(App)
 
-createApp(App).use(router).mount('#app')
+app.use(router).use(VueApexCharts).mount('#app')

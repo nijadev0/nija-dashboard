@@ -56,7 +56,7 @@ const button = cva(
         defaultPrimary:
           'text-white hover:bg-primary-hover active:ring-primary-border active:bg-primary-pressed stroke-white',
         outlinePrimary:
-          'bg-transparent ring-1 ring-current hover:bg-primary-surface hover:ring-transparent active:ring-primary-border active:ring-2 stroke-primary-main',
+          'bg-transparent border border-current hover:bg-primary-surface hover:border-transparent active:border-primary-border active:border-2 stroke-primary-main',
         nudePrimary:
           'border-transparent bg-transparent hover:text-primary-hover active:ring-primary-surface stroke-primary-main',
 

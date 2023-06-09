@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import VueApexCharts from 'vue3-apexcharts'
+
 import Body from '$components/atoms/Body.vue'
 import Title from '$components/atoms/Title.vue'
 import Button from '$components/atoms/Button.vue'
@@ -19,6 +21,168 @@ const categoriesData = [
   { id: 3, name: 'This Month' },
   { id: 4, name: 'This Week' },
 ]
+
+const splineAreaData = {
+  series: [
+    {
+      name: 'Quarter 1',
+      data: [31, 40, 28, 51, 42, 109, 100],
+    },
+    {
+      name: 'Quarter 2',
+      data: [11, 32, 45, 32, 34, 52, 41],
+    },
+  ],
+  chartOptions: {
+    colors: ['#5E59FF', 'rgba(94, 89, 255, 0.25)'],
+
+    chart: {
+      toolbar: { show: false },
+      height: 350,
+      type: 'area',
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: 'smooth',
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: [
+        '2018-09-19T00:00:00.000Z',
+        '2018-09-19T01:30:00.000Z',
+        '2018-09-19T02:30:00.000Z',
+        '2018-09-19T03:30:00.000Z',
+        '2018-09-19T04:30:00.000Z',
+        '2018-09-19T05:30:00.000Z',
+        '2018-09-19T06:30:00.000Z',
+      ],
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yy HH:mm',
+      },
+    },
+  },
+}
+
+const radialBarData = {
+  dummy: [
+    {
+      color: 'bg-[#5E59FF]',
+      label: 'Product Sold',
+      number: 86,
+    },
+    {
+      color: 'bg-[#FFAB00]',
+      label: 'Product Return',
+      number: 48,
+    },
+  ],
+  series: [86, 48],
+  chartOptions: {
+    chart: {
+      toolbar: { show: false },
+      height: 350,
+      type: 'radialBar',
+    },
+    colors: ['#5E59FF', '#FFAB00'],
+    plotOptions: {
+      radialBar: {
+        stroke: {
+          colors: ['#5E59FF', '#FFAB00'],
+        },
+        dataLabels: {
+          name: {
+            fontSize: '22px',
+          },
+          value: {
+            fontSize: '16px',
+          },
+          total: {
+            show: true,
+            label: 'Total',
+            formatter: function () {
+              // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+              return 100
+            },
+          },
+        },
+        track: {
+          // background: ['#5E59FF', '#FFAB00'],
+        },
+      },
+    },
+    labels: ['Product Sold', 'Product Return'],
+    stroke: {
+      lineCap: 'round',
+      colors: ['#5E59FF', '#FFAB00'],
+    },
+  },
+}
+
+const barData = {
+  series: [
+    {
+      name: 'Total Outlet',
+      data: [44, 55, 41, 64, 22, 43, 21],
+    },
+    {
+      name: 'Percentage of Sales',
+      data: [53, 32, 33, 52, 13, 44, 32],
+    },
+  ],
+  chartOptions: {
+    colors: ['#5E59FF', '#E5E7EB'],
+
+    stroke: {
+      colors: ['transparent'],
+      width: 5,
+    },
+    chart: {
+      type: 'bar',
+      height: 400,
+      toolbar: { show: false },
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        dataLabels: {
+          position: 'top',
+        },
+        barHeight: 24,
+        borderRadius: 3,
+        fill: ['#5E59FF', '#E5E7EB'],
+        colors: {
+          ranges: [
+            {
+              from: 0,
+              to: 0,
+              color: ['#5E59FF', '#E5E7EB'],
+            },
+          ],
+        },
+      },
+    },
+    labels: ['Clothing', 'Food Products'],
+    dataLabels: {
+      enabled: false,
+      offsetX: -6,
+      style: {
+        fontSize: '12px',
+        colors: ['#fff'],
+      },
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+    },
+    xaxis: {
+      categories: ['New York', 'Los Angeles', 'Chicago', 'Phoenix'],
+    },
+  },
+}
 
 const topProductsData = [
   {
@@ -43,7 +207,7 @@ const topProductsData = [
   <DashboardLayout>
     <section class="Summary flex w-full items-center gap-5">
       <div
-        class="Card relative w-full overflow-hidden rounded-large bg-white py-5 px-6 2xl:py-6 2xl:px-8"
+        class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
           class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
@@ -65,7 +229,7 @@ const topProductsData = [
       </div>
 
       <div
-        class="Card relative w-full overflow-hidden rounded-large bg-white py-5 px-6 2xl:py-6 2xl:px-8"
+        class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
           class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
@@ -87,7 +251,7 @@ const topProductsData = [
       </div>
 
       <div
-        class="Card relative w-full overflow-hidden rounded-large bg-white py-5 px-6 2xl:py-6 2xl:px-8"
+        class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
           class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
@@ -110,23 +274,39 @@ const topProductsData = [
     </section>
 
     <section class="Content mt-8 grid grid-cols-12 gap-6">
-      <div class="Content-Left col-span-7">
+      <div class="Content-Left col-span-8">
         <!-- BEGIN: Sales -->
-        <div class="Sales mb-6 min-h-[492px] w-full rounded-large bg-white p-6">
+        <div class="Sales mb-6 min-h-[576px] w-full rounded-large bg-white p-6">
           <!-- Heading -->
           <div class="Heading flex w-full items-center justify-between">
             <Title variant="default"> Sales </Title>
 
-            <Button type="click" variant="primary" modifier="outlinePrimary" size="medium">
+            <Button
+              type="click"
+              variant="primary"
+              modifier="outlinePrimary"
+              size="medium"
+              class="!border !border-primary-main"
+            >
               <DownloadSimple class="h-4 w-4 stroke-[2.5px] text-primary-main 2xl:h-5 2xl:w-5" />
               Download
             </Button>
           </div>
+
+          <div class="!font-jakarta">
+            <VueApexCharts
+              width="100%"
+              type="area"
+              :options="splineAreaData.chartOptions"
+              :series="splineAreaData.series"
+            ></VueApexCharts>
+          </div>
         </div>
+
         <!-- END: Sales -->
 
         <!-- BEGIN: Outlet -->
-        <div class="Outlet min-h-[380px] w-full rounded-large bg-white p-6">
+        <div class="Outlet min-h-[600px] w-full rounded-large bg-white p-6 !font-jakarta">
           <!-- Heading -->
           <div class="Heading flex w-full items-center justify-between">
             <Title variant="default"> Outlet </Title>
@@ -141,17 +321,53 @@ const topProductsData = [
               </Button>
             </div>
           </div>
+
+          <VueApexCharts
+            type="bar"
+            height="100%"
+            :options="barData.chartOptions"
+            :series="barData.series"
+          ></VueApexCharts>
         </div>
         <!-- END: Outlet -->
       </div>
-      <div class="Content-Right col-span-5">
+
+      <div class="Content-Right col-span-4">
         <div class="Top-Products min-h-[350px] w-full rounded-large bg-white p-6">
           <!-- Heading -->
           <div class="Heading mb-6 flex items-center justify-between">
             <Title variant="default"> Product </Title>
+
             <div class="Filter w-32">
               <Select variant="tight" :select-data="categoriesData" />
             </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-8">
+            <div class="flex-shrink-0 !font-jakarta">
+              <VueApexCharts
+                type="radialBar"
+                height="350"
+                :options="radialBarData.chartOptions"
+                :series="radialBarData.series"
+              ></VueApexCharts>
+            </div>
+
+            <section class="space-y-4">
+              <div v-for="item in radialBarData.dummy" class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <div class="h-2 w-2 flex-shrink-0 rounded-full" :class="item.color" />
+
+                  <Body size="md" weight="medium" class="text-netral-60">
+                    {{ item.label }}
+                  </Body>
+                </div>
+
+                <Body size="xxl" weight="bold">
+                  {{ item.number }}
+                </Body>
+              </div>
+            </section>
           </div>
         </div>
 
@@ -159,6 +375,7 @@ const topProductsData = [
           <!-- Heading -->
           <div class="Heading mb-6 flex items-center justify-between">
             <Title variant="default"> Top Product </Title>
+
             <div class="Filter w-32">
               <Select variant="tight" :select-data="categoriesData" />
             </div>
@@ -167,7 +384,7 @@ const topProductsData = [
           <!-- Table -->
           <section class="Table">
             <!-- Heading -->
-            <div class="grid w-full grid-cols-12 rounded-large bg-netral-20 py-4 px-3">
+            <div class="grid w-full grid-cols-12 rounded-large bg-netral-20 px-3 py-4">
               <div class="col-span-9">
                 <Body size="md" weight="semibold" class="uppercase text-netral-50"> Product </Body>
               </div>
@@ -178,7 +395,7 @@ const topProductsData = [
 
             <div
               v-for="product in topProductsData"
-              class="Card-Top-Product grid w-full grid-cols-12 items-center border-b border-netral-30 py-6 px-3"
+              class="Card-Top-Product grid w-full grid-cols-12 items-center border-b border-netral-30 px-3 py-6"
             >
               <div class="Col-Product col-span-9">
                 <div class="Product flex items-center gap-3">
@@ -204,3 +421,12 @@ const topProductsData = [
     </section>
   </DashboardLayout>
 </template>
+
+<style lang="postcss">
+.apexcharts-canvas tspan {
+  @apply !font-jakarta !font-medium;
+}
+.apexcharts-legend-series > span {
+  @apply !font-jakarta !font-medium !text-netral-60;
+}
+</style>
