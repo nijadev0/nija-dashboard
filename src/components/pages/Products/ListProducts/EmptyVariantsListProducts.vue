@@ -1,16 +1,11 @@
 <script lang="ts" setup>
-import { Check, Plus } from '$assets/icons'
+import { ref } from 'vue'
+import { Plus } from '$assets/icons'
+
 import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
-import Checkbox from '$components/atoms/Checkbox.vue'
-import Input from '$components/atoms/Input.vue'
-import Select from '$components/atoms/Select.vue'
 import Title from '$components/atoms/Title.vue'
-import Toggle from '$components/atoms/Toggle.vue'
-import Pagination from '$components/organisms/Pagination.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
-import { Switch } from '@headlessui/vue'
-import { ref } from 'vue'
 
 /**
  * =======================
@@ -111,6 +106,9 @@ const checkboxRef = ref(false)
       <div class="flex min-h-[480px] w-full items-center justify-center 2xl:min-h-[560px]">
         <div class="flex max-w-xl flex-col items-center gap-6 2xl:max-w-2xl">
           <div class="h-48 w-48 rounded-large bg-netral-30 2xl:h-64 2xl:w-64" />
+
+          <Body size="xxl" weight="semibold" class="text-center"> No variant available </Body>
+
           <Body size="lg" weight="regular" class="text-center">
             Product variety refers to the number and range of products (differentiated by
             specifications) offered by sellers. And also product variety is beneficial for consumers

@@ -8,6 +8,8 @@ import Body from '$components/atoms/Body.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
 import { Funnel, SortAscending, Plus, Check } from '$assets/icons'
+import { NoProductsIll } from '$assets/illustrations'
+
 import Badge from '$components/atoms/Badge.vue'
 import Pagination from '$components/organisms/Pagination.vue'
 import PageAction from '$components/organisms/PageAction.vue'
@@ -100,6 +102,13 @@ function closeToastDelete() {
   toastRef.value = false
   checkboxRef.value = false
 }
+
+/**
+ * =================
+ * Empty state
+ * =================
+ */
+const emptyState = ref(true)
 </script>
 
 <template>
@@ -122,7 +131,7 @@ function closeToastDelete() {
 
           <Button
             type="goto"
-            go-to="/products/list-products/add"
+            link-href="/products/list-products/add"
             variant="primary"
             modifier="defaultPrimary"
             size="medium"
@@ -133,8 +142,25 @@ function closeToastDelete() {
         </div>
       </div>
 
+      <section class="flex w-full flex-col items-center justify-center pb-24" v-if="emptyState">
+        <NoProductsIll class="h-60 w-60" />
+
+        <Body size="xxl" weight="semibold" class="mb-2"> No Variant Available </Body>
+
+        <Body size="lg" weight="regular" class="mb-6 max-w-xl text-center text-netral-60">
+          Product variety refers to the number and range of products (differentiated by
+          specifications) offered by sellers. And also product variety is beneficial for consumers
+          because they can choose from a variety of alternatives.
+        </Body>
+
+        <Button size="big" variant="primary" type="goto" @click="emptyState = false">
+          <Plus class="h-4 w-4 stroke-white stroke-[4px]" />
+          Add Variant
+        </Button>
+      </section>
+
       <!-- Table Users -->
-      <section class="TableListProducts mb-6 w-full">
+      <section v-if="!emptyState" class="TableListProducts mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -221,7 +247,7 @@ function closeToastDelete() {
                   </Switch>
                 </td>
 
-                <td class="max-w-[270px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[270px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="flex w-full max-w-[270px] items-center gap-3 2xl:gap-4">
                     <img
                       class="h-16 w-16 2xl:h-20 2xl:w-20"
@@ -234,11 +260,11 @@ function closeToastDelete() {
                   </div>
                 </td>
 
-                <td class="max-w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.category }} </Body>
                 </td>
 
-                <td class="max-w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Badge v-if="product.status === 'active'" variant="success">
                     {{ product.status }}
                   </Badge>
@@ -251,15 +277,15 @@ function closeToastDelete() {
                   </Badge>
                 </td>
 
-                <td class="max-w-[64px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[64px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.stock }} </Body>
                 </td>
 
-                <td class="max-w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.price }} </Body>
                 </td>
 
-                <td class="max-w-[100px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[100px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <button
                     class="text-primary-main"
                     @click="$router.push('/products/list-products/update')"
@@ -274,7 +300,7 @@ function closeToastDelete() {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination />
+      <Pagination v-if="!emptyState" />
     </div>
 
     <!-- Page Action : Home -->

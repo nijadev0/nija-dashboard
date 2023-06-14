@@ -98,7 +98,12 @@ function closeToastDelete() {
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <TextArea name="ProductDescription" placeholder="Description" />
+            <TextArea
+              type="default"
+              variant="default"
+              name="ProductDescription"
+              placeholder="Description"
+            />
           </div>
         </div>
 
@@ -111,7 +116,7 @@ function closeToastDelete() {
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <Select :select-data="categoriesData" />
+            <Select variant="relax" :select-data="categoriesData" />
           </div>
         </div>
 
@@ -124,7 +129,7 @@ function closeToastDelete() {
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <Select :select-data="genderData" />
+            <Select variant="relax" :select-data="genderData" />
           </div>
         </div>
 
@@ -163,9 +168,10 @@ function closeToastDelete() {
           <div class="flex w-full max-w-xl gap-4 2xl:max-w-4xl 2xl:gap-6">
             <div
               v-for="item in [1, 2, 3, 4]"
-              class="flex w-fit flex-col items-center justify-center gap-2 rounded-large border-2 border-dashed border-netral-30 bg-[#fafafa] px-3 py-4 2xl:py-8 2xl:px-7"
+              class="flex w-fit flex-col items-center justify-center gap-2 rounded-large border-2 border-dashed border-netral-30 bg-[#fafafa] px-3 py-4 2xl:px-7 2xl:py-8"
             >
               <UploadSimple class="h-8 w-8 stroke-[2px] text-netral-40" />
+
               <Button type="click" variant="primary" modifier="defaultPrimary" size="small">
                 Add Image
               </Button>
@@ -211,7 +217,7 @@ function closeToastDelete() {
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <Select :select-data="discountTypeData" />
+            <Select variant="relax" :select-data="discountTypeData" />
           </div>
         </div>
 

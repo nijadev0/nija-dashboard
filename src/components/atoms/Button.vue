@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { cva } from 'cva'
+import { RouterLink } from 'vue-router'
 
 interface ButtonProps {
   type?: 'click' | 'link' | 'goto' | 'submit'
@@ -349,14 +350,15 @@ const {
   </button>
 
   <!-- Link: internal -->
-  <a
+  <!-- @click="$router.push(`${goTo}`)" -->
+  <RouterLink
     v-if="type === 'goto'"
-    @click="$router.push(`${goTo}`)"
+    :to="`${linkHref}`"
     class="Button"
     :class="button({ variant, size, modifier })"
   >
     <slot />
-  </a>
+  </RouterLink>
 
   <!-- Link: external -->
   <a

@@ -22,7 +22,7 @@ const { variant, isSelected, openModal, openModalDraft, openModalSecondary, goTo
 <template>
   <section
     v-if="isSelected"
-    class="PageAction sticky bottom-8 z-30 my-6 flex h-fit w-full items-center justify-between rounded-large border border-neutral-100 bg-white py-3 px-6 shadow-pageAction"
+    class="PageAction sticky bottom-8 z-30 my-6 flex h-fit w-full items-center justify-between rounded-large border border-neutral-100 bg-white px-6 py-3 shadow-pageAction"
   >
     <!-- Label -->
     <div class="Text flex items-end gap-1 text-netral-50 2xl:gap-2">
@@ -101,7 +101,13 @@ const { variant, isSelected, openModal, openModalDraft, openModalSecondary, goTo
         </Button>
       </div>
 
-      <Button type="goto" size="medium" variant="primary" modifier="defaultPrimary" :go-to="goTo">
+      <Button
+        type="goto"
+        size="medium"
+        variant="primary"
+        modifier="defaultPrimary"
+        :link-href="goTo"
+      >
         Next
       </Button>
     </div>
