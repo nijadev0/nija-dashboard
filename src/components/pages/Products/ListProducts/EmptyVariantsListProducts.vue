@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Plus } from '$assets/icons'
+import { NoProductsIll } from '$assets/illustrations'
 
 import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
@@ -104,19 +105,24 @@ const checkboxRef = ref(false)
       </div>
 
       <div class="flex min-h-[480px] w-full items-center justify-center 2xl:min-h-[560px]">
-        <div class="flex max-w-xl flex-col items-center gap-6 2xl:max-w-2xl">
-          <div class="h-48 w-48 rounded-large bg-netral-30 2xl:h-64 2xl:w-64" />
+        <div class="flex max-w-xl flex-col items-center 2xl:max-w-2xl">
+          <!-- <div class="h-48 w-48 rounded-large bg-netral-30 2xl:h-64 2xl:w-64" /> -->
+          <NoProductsIll class="h-60 w-60" />
 
-          <Body size="xxl" weight="semibold" class="text-center"> No variant available </Body>
+          <Body size="xxl" weight="semibold" class="mb-2 text-center"> No variant available </Body>
 
-          <Body size="lg" weight="regular" class="text-center">
+          <Body size="lg" weight="regular" class="mb-6 text-center text-netral-60">
             Product variety refers to the number and range of products (differentiated by
             specifications) offered by sellers. And also product variety is beneficial for consumers
             because they can choose from a variety of alternatives.
           </Body>
 
           <div class="w-full max-w-[160px] 2xl:max-w-[240px]">
-            <Button type="goto" go-to="/products/list-products/variants"> Add Variant </Button>
+            <Button type="goto" link-href="/products/list-products/variants">
+              <Plus class="h-4 w-4 stroke-white stroke-[4px]" />
+
+              Add Variant
+            </Button>
           </div>
         </div>
       </div>

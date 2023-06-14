@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
-import Title from '$components/atoms/Title.vue'
-import Button from '$components/atoms/Button.vue'
+import { Button, Title, Select } from '$components/atoms'
 
 import { XMark, Repeat, SelectionPlus } from '$assets/icons'
-import Select from '$components/atoms/Select.vue'
 
 interface UploadImageFilledProps {
   isOpenRef: any
@@ -75,7 +73,7 @@ const typesData = [
                   </Button>
                 </div>
 
-                <div class="ButtonCrop absolute right-4 bottom-4 rounded-large shadow-md">
+                <div class="ButtonCrop absolute bottom-4 right-4 rounded-large shadow-md">
                   <Button type="click" variant="plain" modifier="defaultPlain">
                     <SelectionPlus class="h-5 w-5 stroke-[2.5px] text-netral-80" />
                     Crop
@@ -84,7 +82,7 @@ const typesData = [
               </div>
 
               <div class="SelectType mb-10">
-                <Select :selectData="typesData" />
+                <Select variant="relax" :selectData="typesData" />
               </div>
 
               <div class="flex w-full justify-end gap-3">

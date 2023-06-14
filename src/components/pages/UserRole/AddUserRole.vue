@@ -75,7 +75,7 @@ function closeToastSaved() {
 
           <div class="UserRole space-y-1.5">
             <Body size="md" weight="semibold"> User Role </Body>
-            <Select :select-data="userRoleData" />
+            <Select variant="relax" :select-data="userRoleData" />
           </div>
         </form>
       </div>

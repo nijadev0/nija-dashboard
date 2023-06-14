@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
-import Title from '$components/atoms/Title.vue'
-import Body from '$components/atoms/Body.vue'
-import Button from '$components/atoms/Button.vue'
+import { Body, Button, Title } from '$components/atoms'
 
 import { XMark, ArrowsClockwise, Trash, Plus } from '$assets/icons'
 
@@ -57,7 +55,10 @@ const { isOpenRef, closeModal, nextClick } = defineProps<UploadImageFilledProps>
                 class="mb-10 flex min-h-[240px] gap-4 rounded-large border-2 border-netral-20 bg-neutral-50 p-6 2xl:min-h-[320px]"
               >
                 <div v-for="image in [1, 2, 3]" class="relative h-40 w-40">
-                  <img :src="`/images/upload-image-filled/illustration-${image}.png`" />
+                  <img
+                    class="flex-shrink-0"
+                    :src="`/images/upload-image-filled/illustration-${image}.png`"
+                  />
                   <div class="absolute bottom-2.5 right-2.5 flex gap-1.5">
                     <div
                       class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-white/50 hover:bg-white/75"
@@ -77,6 +78,7 @@ const { isOpenRef, closeModal, nextClick } = defineProps<UploadImageFilledProps>
                   class="relative flex h-40 w-40 flex-col items-center justify-center gap-3 rounded-large border-2 border-dashed"
                 >
                   <Plus class="h-6 w-6 stroke-[2px] text-netral-40 2xl:h-8 2xl:w-8" />
+
                   <Body size="md" weight="regular" class="w-24 text-center text-netral-50">
                     Add more images
                   </Body>

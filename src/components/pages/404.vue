@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Button from '$components/atoms/Button.vue'
+import { Button } from '$components/atoms'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 </script>
 

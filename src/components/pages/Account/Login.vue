@@ -104,7 +104,7 @@ const checkboxRef = ref(false)
           </div>
         </div>
 
-        <Button type="goto" go-to="/" size="big" variant="primary" modifier="defaultPrimary">
+        <Button type="goto" link-href="/" size="big" variant="primary" modifier="defaultPrimary">
           Login
         </Button>
       </div>

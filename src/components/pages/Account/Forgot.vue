@@ -61,7 +61,13 @@ const checkboxRef = ref(false)
           />
         </div>
 
-        <Button type="goto" go-to="/verify" size="big" variant="primary" modifier="defaultPrimary">
+        <Button
+          type="goto"
+          link-href="/verify"
+          size="big"
+          variant="primary"
+          modifier="defaultPrimary"
+        >
           Reset Password
         </Button>
       </div>

@@ -1,22 +1,15 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import { TabGroup, TabList, Tab, TabPanels, TabPanel, Switch } from '@headlessui/vue'
 
-import Title from '$components/atoms/Title.vue'
-import Button from '$components/atoms/Button.vue'
+import { Body, Button, Input, Select, TextArea, Title, Toggle } from '$components/atoms'
+import { PageAction } from '$components/organisms'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
-import Body from '$components/atoms/Body.vue'
-import Toggle from '$components/atoms/Toggle.vue'
-import Input from '$components/atoms/Input.vue'
-import Select from '$components/atoms/Select.vue'
-
 import { Check, MagnifyingGlass, Plus, UploadSimple } from '$assets/icons'
-import TextArea from '$components/atoms/TextArea.vue'
-import PageAction from '$components/organisms/PageAction.vue'
-import { ref } from 'vue'
-import UploadImageEmpty from '$components/organisms/Modal/UploadImageEmpty.vue'
-import UploadImageFilled from '$components/organisms/Modal/UploadImageFilled.vue'
-import Toast from '$components/organisms/Toast.vue'
+
+import { Toast } from '$components/organisms'
+import { UploadImageEmpty, UploadImageFilled } from '$components/organisms/Modal'
 
 /**
  * =======================
@@ -174,7 +167,7 @@ function openToastSaved() {
       <TabPanels>
         <TabPanel class="">
           <section class="rounded-b-large bg-white px-6">
-            <div class="flex items-start justify-between border-y border-netral-20 pt-8 pb-7">
+            <div class="flex items-start justify-between border-y border-netral-20 pb-7 pt-8">
               <div class="flex w-64 flex-col items-start gap-2">
                 <Body size="lg" weight="semibold"> Product Name </Body>
                 <Body size="md" weight="regular" class="text-netral-50">
@@ -214,7 +207,7 @@ function openToastSaved() {
               </div>
 
               <div class="w-full max-w-xl 2xl:max-w-4xl">
-                <Select :select-data="categoriesData" />
+                <Select variant="relax" :select-data="categoriesData" />
               </div>
             </div>
 
@@ -227,7 +220,7 @@ function openToastSaved() {
               </div>
 
               <div class="w-full max-w-xl 2xl:max-w-4xl">
-                <Select :select-data="genderData" />
+                <Select variant="relax" :select-data="genderData" />
               </div>
             </div>
 
@@ -267,7 +260,7 @@ function openToastSaved() {
               <div class="flex w-full max-w-xl gap-4 2xl:max-w-4xl 2xl:gap-6">
                 <div
                   v-for="item in [1, 2, 3, 4]"
-                  class="flex w-fit flex-col items-center justify-center gap-2 rounded-large border-2 border-dashed border-netral-30 bg-[#fafafa] px-3 py-4 2xl:py-8 2xl:px-7"
+                  class="flex w-fit flex-col items-center justify-center gap-2 rounded-large border-2 border-dashed border-netral-30 bg-[#fafafa] px-3 py-4 2xl:px-7 2xl:py-8"
                 >
                   <UploadSimple class="h-8 w-8 stroke-[2px] text-netral-40" />
                   <Button type="click" variant="primary" modifier="defaultPrimary" size="small">
@@ -319,7 +312,7 @@ function openToastSaved() {
                 </div>
 
                 <div class="w-full max-w-xl 2xl:max-w-4xl">
-                  <Select :select-data="discountTypeData" />
+                  <Select variant="relax" :select-data="discountTypeData" />
                 </div>
               </div>
 
@@ -345,17 +338,17 @@ function openToastSaved() {
         </TabPanel>
 
         <TabPanel>
-          <section class="rounded-b-large bg-white px-6 pt-7 pb-6">
+          <section class="rounded-b-large bg-white px-6 pb-6 pt-7">
             <div class="flex items-end justify-between pb-7">
               <nav class="Search relative">
                 <input
                   type="text"
-                  class="max-w-md rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:py-3 2xl:pl-11 2xl:text-sm"
+                  class="max-w-md rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:py-3 2xl:pl-11 2xl:text-sm"
                   placeholder="Search"
                 />
 
                 <MagnifyingGlass
-                  class="absolute top-1/2 left-3 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-80 2xl:h-5 2xl:w-5"
+                  class="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-80 2xl:h-5 2xl:w-5"
                 />
               </nav>
               <Button type="click" variant="primary" modifier="defaultPrimary" size="medium">
@@ -468,7 +461,7 @@ function openToastSaved() {
                       </td>
 
                       <td
-                        class="max-w-[72px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:max-w-[80px] 2xl:px-6"
+                        class="max-w-[72px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:max-w-[80px] 2xl:px-6"
                       >
                         <div
                           class="h-16 w-16 rounded-large bg-netral-30 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
@@ -476,21 +469,21 @@ function openToastSaved() {
                       </td>
 
                       <td
-                        class="max-w-[140px] py-6 px-3 text-left text-netral-80 first:pl-3 2xl:px-6"
+                        class="max-w-[140px] px-3 py-6 text-left text-netral-80 first:pl-3 2xl:px-6"
                       >
-                        <Select :select-data="colorsData" />
+                        <Select variant="relax" :select-data="colorsData" />
                       </td>
 
                       <td
-                        class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Body size="lg" weight="medium">
-                          <Select :select-data="sizesData" />
+                          <Select variant="relax" :select-data="sizesData" />
                         </Body>
                       </td>
 
                       <td
-                        class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Input
                           variant="base"
@@ -501,7 +494,7 @@ function openToastSaved() {
                       </td>
 
                       <td
-                        class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Input
                           variant="base"
@@ -512,13 +505,13 @@ function openToastSaved() {
                       </td>
 
                       <td
-                        class="max-w-[70px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="max-w-[70px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Toggle />
                       </td>
 
                       <td
-                        class="w-px py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="w-px px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Button
                           type="click"

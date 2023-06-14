@@ -2,21 +2,14 @@
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 
-import Body from '$components/atoms/Body.vue'
-import Button from '$components/atoms/Button.vue'
-import Input from '$components/atoms/Input.vue'
-import Select from '$components/atoms/Select.vue'
-import Title from '$components/atoms/Title.vue'
-import Toggle from '$components/atoms/Toggle.vue'
+import { Body, Button, Input, Select, Title, Toggle } from '$components/atoms'
 
-import Pagination from '$components/organisms/Pagination.vue'
-import UploadImageEmpty from '$components/organisms/Modal/UploadImageEmpty.vue'
+import { Pagination, Toast } from '$components/organisms'
+import { UploadImageEmpty, UploadImageFilled } from '$components/organisms/Modal'
 
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
-import { Check, Plus, Trash } from '$assets/icons'
-import UploadImageFilled from '$components/organisms/Modal/UploadImageFilled.vue'
-import Toast from '$components/organisms/Toast.vue'
+import { Check, Plus } from '$assets/icons'
 
 /**
  * =======================
@@ -57,6 +50,8 @@ const sizesData = [
   { id: 4, name: 'L' },
   { id: 5, name: 'XL' },
 ]
+
+const showData = ref(false)
 
 /**
  * =======================
@@ -109,7 +104,9 @@ function closeToastSaved() {
 
 function openToastSaved() {
   isOpenModalFilledRef.value = false
+
   toastSavedRef.value = true
+  showData.value = true
 }
 </script>
 
@@ -235,19 +232,27 @@ function openToastSaved() {
                 </td>
 
                 <td
-                  class="max-w-[72px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:max-w-[80px] 2xl:px-6"
+                  class="max-w-[72px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:max-w-[80px] 2xl:px-6"
                 >
                   <div
+                    v-if="!showData"
                     class="h-16 w-16 rounded-large bg-netral-30 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
-                  ></div>
+                  />
+
+                  <img
+                    v-else
+                    class="h-16 w-16 rounded-large"
+                    src="/images/list-products/ListProducts-1.png"
+                    alt="List product"
+                  />
                 </td>
 
-                <td class="max-w-[140px] py-6 px-3 text-left text-netral-80 first:pl-3 2xl:px-6">
-                  <Select :select-data="colorsData" />
+                <td class="max-w-[140px] px-3 py-6 text-left text-netral-80 first:pl-3 2xl:px-6">
+                  <Select variant="relax" :select-data="colorsData" />
                 </td>
 
                 <td
-                  class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                  class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Body size="lg" weight="medium">
                     <Select variant="relax" :select-data="sizesData" />
@@ -255,7 +260,7 @@ function openToastSaved() {
                 </td>
 
                 <td
-                  class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                  class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Input
                     variant="base"
@@ -266,7 +271,7 @@ function openToastSaved() {
                 </td>
 
                 <td
-                  class="max-w-[140px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                  class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Input
                     variant="base"
@@ -277,12 +282,12 @@ function openToastSaved() {
                 </td>
 
                 <td
-                  class="max-w-[70px] py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                  class="max-w-[70px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Toggle />
                 </td>
 
-                <td class="w-px py-6 px-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6">
+                <td class="w-px px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6">
                   <Button
                     type="click"
                     :on-click="openModalEmpty"

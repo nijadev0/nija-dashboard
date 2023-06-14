@@ -15,7 +15,7 @@ import { PencilSquare } from '$assets/icons'
       <div class="Heading mb-6 flex items-start justify-between 2xl:mb-8">
         <Title variant="default" size="big"> Outlet Detail </Title>
 
-        <Button type="goto" go-to="/outlets/edit" variant="primary" modifier="outlinePrimary">
+        <Button type="goto" link-href="/outlets/edit" variant="primary" modifier="outlinePrimary">
           <PencilSquare class="h-4 w-4 text-primary-main 2xl:h-5 2xl:w-5" />
           Edit
         </Button>

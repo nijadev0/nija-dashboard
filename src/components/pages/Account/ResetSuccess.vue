@@ -43,7 +43,13 @@ import Button from '$components/atoms/Button.vue'
         </Body>
 
         <div class="w-full">
-          <Button type="goto" go-to="/login" size="big" variant="primary" modifier="defaultPrimary">
+          <Button
+            type="goto"
+            link-href="/login"
+            size="big"
+            variant="primary"
+            modifier="defaultPrimary"
+          >
             Login
           </Button>
         </div>

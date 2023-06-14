@@ -143,7 +143,7 @@ function closeModalFilled() {
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <TextArea name="ProductDescription" placeholder="Description" />
+            <TextArea type="default" name="ProductDescription" placeholder="Description" />
           </div>
         </div>
 

@@ -5,7 +5,8 @@ import Title from '$components/atoms/Title.vue'
 import Body from '$components/atoms/Body.vue'
 import Button from '$components/atoms/Button.vue'
 
-import { XMark, CloudArrowUp } from '$assets/icons'
+import { XMark } from '$assets/icons'
+import { NoVariantsIll } from '$assets/illustrations'
 
 interface UploadImageFilledProps {
   isOpenRef: any
@@ -56,7 +57,7 @@ const { isOpenRef, closeModal, nextClick } = defineProps<UploadImageFilledProps>
               <div
                 class="mb-10 flex min-h-[240px] flex-col items-center justify-center gap-4 rounded-large border-2 border-dashed border-netral-40 bg-neutral-50 2xl:min-h-[320px]"
               >
-                <CloudArrowUp class="h-14 w-14 stroke-[1.5px] text-netral-50" />
+                <NoVariantsIll class="h-32 w-32" />
 
                 <div class="space-y-1.5 text-center">
                   <Body size="xl" weight="medium" class="text-netral-80">

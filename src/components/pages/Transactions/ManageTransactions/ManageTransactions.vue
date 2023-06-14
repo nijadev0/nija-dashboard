@@ -2,11 +2,7 @@
 import { ref } from 'vue'
 import { Popover, PopoverButton, PopoverPanel, Switch } from '@headlessui/vue'
 
-import Badge from '$components/atoms/Badge.vue'
-import Button from '$components/atoms/Button.vue'
-import Input from '$components/atoms/Input.vue'
-import Title from '$components/atoms/Title.vue'
-import Body from '$components/atoms/Body.vue'
+import { Badge, Button, Input, Title, Body } from '$components/atoms'
 import Pagination from '$components/organisms/Pagination.vue'
 import DashboardLayout from '$components/templates/DashboardLayout.vue'
 
@@ -20,6 +16,7 @@ import {
   UploadSimple,
 } from '$assets/icons'
 import Select from '$components/atoms/Select.vue'
+import { NoProductsIll } from '$assets/illustrations'
 
 /**
  * Dummy data - Manage Returns
@@ -109,6 +106,12 @@ function openModalFilter() {
 function closeModalFilter() {
   isOpenFilter.value = false
 }
+
+/** ================
+ *  Empty Ref
+ *  ================
+ */
+const isEmptyRef = ref(true)
 </script>
 
 <template>
@@ -121,12 +124,12 @@ function closeModalFilter() {
         <nav class="Search relative">
           <input
             type="text"
-            class="w-[16rem] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
+            class="w-[16rem] rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
             placeholder="Search"
           />
 
           <MagnifyingGlass
-            class="absolute top-1/2 left-3 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-60 2xl:h-5 2xl:w-5"
+            class="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-60 2xl:h-5 2xl:w-5"
           />
         </nav>
 
@@ -141,7 +144,7 @@ function closeModalFilter() {
             </PopoverButton>
 
             <PopoverPanel
-              class="absolute top-16 right-0 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
+              class="absolute right-0 top-16 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
             >
               <a
                 class="flex items-center gap-3 rounded-large p-4 text-netral-90 hover:bg-netral-20 2xl:gap-4"
@@ -180,7 +183,7 @@ function closeModalFilter() {
             </PopoverButton>
 
             <PopoverPanel
-              class="absolute top-16 right-0 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
+              class="absolute right-0 top-16 z-30 flex w-64 flex-col rounded-large border border-netral-20 bg-white p-3 shadow-elevation-03 2xl:w-72"
             >
               <a
                 class="flex items-center gap-3 rounded-large p-4 text-netral-90 hover:bg-netral-20 2xl:gap-4"
@@ -229,7 +232,7 @@ function closeModalFilter() {
             <DialogPanel>
               <div class="Overlay fixed inset-0 z-[99] h-full w-full bg-black/50"></div>
               <div
-                class="Modal fixed inset-0 top-1/3 left-1/2 z-[100] h-fit w-[480px] -translate-x-1/2 -translate-y-1/3 rounded-large bg-white p-6"
+                class="Modal fixed inset-0 left-1/2 top-1/3 z-[100] h-fit w-[480px] -translate-x-1/2 -translate-y-1/3 rounded-large bg-white p-6"
               >
                 <DialogTitle class="pb-4">
                   <Title variant="default"> Filter </Title>
@@ -239,6 +242,7 @@ function closeModalFilter() {
                   <div class="Status">
                     <Body size="md" weight="semibold" class="mb-1.5"> Status </Body>
                     <Select
+                      variant="relax"
                       :select-data="[
                         { id: 1, name: 'Select Category', disable: true },
                         { id: 2, name: 'Outer' },
@@ -332,8 +336,22 @@ function closeModalFilter() {
         </div>
       </div>
 
+      <!-- Empty State -->
+      <section
+        @click="isEmptyRef = false"
+        v-if="isEmptyRef"
+        class="mb-16 flex flex-col items-center justify-center"
+      >
+        <NoProductsIll class="h-60 w-60" />
+        <Body size="xxl" weight="semibold" class="mb-2"> No transaction list </Body>
+
+        <Body size="md" class="text-netral-60">
+          The transaction you are looking for is not available.
+        </Body>
+      </section>
+
       <!-- Table Categories -->
-      <section class="TableListProducts mb-6 w-full">
+      <section v-else class="TableListProducts mb-6 w-full">
         <!-- Table Categories -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-fixed">
@@ -390,37 +408,37 @@ function closeModalFilter() {
                 v-for="product in manageReturnsData"
                 class="border-b border-netral-20 last:border-netral-30"
               >
-                <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[180px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.transactionNumber }}
                   </Body>
                 </td>
 
-                <td class="max-w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.customerName }}
                   </Body>
                 </td>
 
-                <td class="max-w-[170px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[170px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.purchasedProduct }}
                   </Body>
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.phoneNumber }}
                   </Body>
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ product.paymentAmount }}
                   </Body>
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Badge v-if="product.status === 'success'" variant="success">
                     {{ product.status }}
                   </Badge>
@@ -433,7 +451,7 @@ function closeModalFilter() {
                   </Badge>
                 </td>
 
-                <td class="max-w-[20px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[20px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <button
                     class="text-primary-main"
                     @click="$router.push('/transactions/detail-transactions')"
@@ -445,10 +463,9 @@ function closeModalFilter() {
             </tbody>
           </table>
         </div>
+        <!-- Pagination -->
+        <Pagination />
       </section>
-
-      <!-- Pagination -->
-      <Pagination />
     </section>
   </DashboardLayout>
 </template>
