@@ -5,12 +5,81 @@ import { DashboardLayout } from '$components/templates'
 import { Body, Button, Input, Title } from '$components/atoms'
 
 import { Pencil, UploadSimple } from '$assets/icons'
+import {
+  ChangePasswordModal,
+  UploadAvatarEmpty,
+  UploadAvatarFilled,
+} from '$components/organisms/Modal'
+import { Toast } from '$components/organisms'
 
 //---------------------------------------------------------------------
 const avatarRef = ref(false)
+//---------------------------------------------------------------------
+const isOpenModalEmptyRef = ref(false)
 
-const toggleAvatar = () => {
+const openModalEmpty = () => {
+  isOpenModalEmptyRef.value = true
+}
+
+const closeModalEmpty = () => {
+  isOpenModalEmptyRef.value = false
+}
+
+//---------------------------------------------------------------------
+const isOpenModalFilledRef = ref(false)
+
+const openModalFilled = () => {
+  closeModalEmpty()
+
+  setTimeout(() => {
+    isOpenModalFilledRef.value = true
+  }, 500)
+}
+
+const closeModalFilled = () => {
+  isOpenModalFilledRef.value = false
+}
+//---------------------------------------------------------------------
+const toastSavedDataRef = ref(false)
+
+function openToastSavedData() {
+  isOpenModalFilledRef.value = false
+
   avatarRef.value = true
+  toastSavedDataRef.value = true
+
+  setTimeout(() => {
+    closeToastSavedData()
+  }, 3000)
+}
+
+function closeToastSavedData() {
+  toastSavedDataRef.value = false
+}
+//---------------------------------------------------------------------
+const isOpenModalChangeRef = ref(false)
+
+const openModalChange = () => {
+  isOpenModalChangeRef.value = true
+}
+
+const closeModalChange = () => {
+  isOpenModalChangeRef.value = false
+}
+//---------------------------------------------------------------------
+const toastChangeRef = ref(false)
+
+function openToastChange() {
+  closeModalChange()
+  toastChangeRef.value = true
+
+  setTimeout(() => {
+    closeToastChange()
+  }, 3000)
+}
+
+function closeToastChange() {
+  toastChangeRef.value = false
 }
 //---------------------------------------------------------------------
 </script>
@@ -20,7 +89,7 @@ const toggleAvatar = () => {
     <main class="relative mb-6 rounded-large bg-white p-6">
       <Title variant="default" class="mb-8"> Manage Profile </Title>
 
-      <form>
+      <section>
         <div class="flex items-start justify-between border-y border-netral-20 py-7">
           <div class="flex w-64 flex-col items-start gap-2">
             <Body size="lg" weight="semibold"> Avatar </Body>
@@ -35,7 +104,7 @@ const toggleAvatar = () => {
             >
               <div v-if="!avatarRef" class="flex flex-col items-center gap-3">
                 <UploadSimple class="h-8 w-8 stroke-netral-50 stroke-[2.5px]" />
-                <Button @click="toggleAvatar" type="click" size="small" variant="primary">
+                <Button @click="openModalEmpty" type="click" size="small" variant="primary">
                   Add Image
                 </Button>
               </div>
@@ -50,7 +119,13 @@ const toggleAvatar = () => {
                 <div
                   class="absolute right-1 top-1 z-10 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100"
                 >
-                  <Button type="click" variant="plain" size="small" modifier="defaultPlain">
+                  <Button
+                    @click="openModalEmpty"
+                    type="click"
+                    variant="plain"
+                    size="small"
+                    modifier="defaultPlain"
+                  >
                     <Pencil class="h-4 w-4 stroke-netral-80 stroke-[3px]" />
                   </Button>
                 </div>
@@ -82,71 +157,138 @@ const toggleAvatar = () => {
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
             <Input
-              variant="base"
-              input-type="text"
-              name="ProductName"
-              placeholder="Enter product name"
-              value="INV/20221114/MPL/28203158839"
-            />
-          </div>
-        </div>
-
-        <div class="flex items-start justify-between border-b border-netral-20 py-7">
-          <div class="flex w-64 flex-col items-start gap-2">
-            <Body size="lg" weight="semibold"> Customer Name </Body>
-          </div>
-
-          <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <Input
-              variant="base"
-              input-type="text"
-              name="ProductName"
-              placeholder="Enter product name"
-              value="Samanta Legend"
-            />
-          </div>
-        </div>
-
-        <div class="flex items-start justify-between border-b border-netral-20 py-7">
-          <div class="flex w-64 flex-col items-start gap-2">
-            <Body size="lg" weight="semibold"> Phone Number </Body>
-          </div>
-
-          <div class="w-full max-w-xl 2xl:max-w-4xl">
-            <Input
               variant="phone"
-              input-type="number"
-              name="ProductName"
-              placeholder="Enter product name"
-              value="8723781236"
+              input-type="text"
+              name="Phone Number"
+              placeholder="Enter your phone number"
+              value="762394289312"
             />
           </div>
         </div>
 
         <div class="flex items-start justify-between border-b border-netral-20 py-7">
           <div class="flex w-64 flex-col items-start gap-2">
-            <Body size="lg" weight="semibold"> Status </Body>
-            <Body size="md" weight="regular" class="text-netral-50">
-              This is the customer's order status. You can arrange your customer's order status
-              according to the order process.
-            </Body>
+            <Body size="lg" weight="semibold"> Address </Body>
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">
             <Input
-              variant="status"
+              variant="base"
               input-type="text"
-              name="ProductName"
-              placeholder="Enter product name"
-              value="8723781236"
-              status="Waiting"
+              name="Adresss"
+              placeholder="Enter your adress"
+              value="8502 Preston Rd. Inglewood, Maine 98380"
             />
           </div>
         </div>
-      </form>
+      </section>
     </main>
     <main class="relative rounded-large bg-white p-6">
       <Title variant="default" class="mb-8"> Manage Account </Title>
+
+      <section>
+        <div class="flex items-start justify-between border-b border-netral-20 py-7">
+          <div class="flex w-64 flex-col items-start gap-2">
+            <Body size="lg" weight="semibold"> Email </Body>
+          </div>
+
+          <div class="flex w-full max-w-xl items-center justify-between 2xl:max-w-4xl">
+            <div class="w-96 2xl:w-[28rem]">
+              <Input
+                variant="base"
+                input-type="email"
+                name="Email"
+                placeholder="Enter your email"
+                value="samantalegend@mail.com"
+                is-disabled
+              />
+            </div>
+
+            <Button type="click" variant="primary" size="medium" modifier="outlinePrimary">
+              Change Email
+            </Button>
+          </div>
+        </div>
+
+        <div class="flex items-start justify-between border-b border-netral-20 py-7">
+          <div class="flex w-64 flex-col items-start gap-2">
+            <Body size="lg" weight="semibold"> Password </Body>
+          </div>
+
+          <div class="flex w-full max-w-xl items-center justify-between 2xl:max-w-4xl">
+            <div class="w-96 2xl:w-[28rem]">
+              <Input
+                variant="base"
+                input-type="password"
+                name="Password"
+                placeholder="Enter password"
+                value="halooooo"
+                is-disabled
+              />
+            </div>
+
+            <Button
+              @click="openModalChange"
+              type="click"
+              variant="primary"
+              size="medium"
+              modifier="outlinePrimary"
+            >
+              Change Password
+            </Button>
+          </div>
+        </div>
+
+        <div class="flex items-start justify-between border-b border-netral-20 py-7">
+          <div class="flex w-64 flex-col items-start gap-2">
+            <Body size="lg" weight="semibold"> Logout </Body>
+          </div>
+
+          <div class="flex w-full max-w-xl items-center justify-end 2xl:max-w-4xl">
+            <Button type="click" variant="error" size="medium" modifier="defaultError">
+              Logout
+            </Button>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <template #Modal>
+      <UploadAvatarEmpty
+        :isOpenRef="isOpenModalEmptyRef"
+        :close-modal="closeModalEmpty"
+        :next-click="openModalFilled"
+      />
+
+      <UploadAvatarFilled
+        :isOpenRef="isOpenModalFilledRef"
+        :close-modal="closeModalFilled"
+        :next-click="openToastSavedData"
+      />
+
+      <ChangePasswordModal
+        :isOpenRef="isOpenModalChangeRef"
+        :close-modal="closeModalChange"
+        :next-click="openToastChange"
+      />
+    </template>
+
+    <template #Toast>
+      <Toast
+        variant="saved"
+        :toast-ref="toastSavedDataRef"
+        :close-toast="closeToastSavedData"
+        heading="Avatar Updated"
+        description="Your avatar update was successful."
+      />
+
+      <Toast
+        variant="saved"
+        :toast-ref="toastChangeRef"
+        :close-toast="closeToastChange"
+        heading="Password Updated"
+        description="Password update was successful. It is possible to update the password again after 30 days."
+      />
+    </template>
   </DashboardLayout>
 </template>

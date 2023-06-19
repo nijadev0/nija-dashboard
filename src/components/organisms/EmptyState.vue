@@ -29,12 +29,15 @@ const { toggleEmpty, title, desc, btnLabel } = defineProps<EmptyStateProps>()
       class="text-center text-netral-60"
       :class="{ 'mb-6': btnLabel }"
     >
-      {{ desc ?? 'The flash sale you are looking for is not available.' }}
+      {{
+        `${desc}. (Click illustration to show data)` ??
+        'The flash sale you are looking for is not available.'
+      }}
     </Body>
 
     <Button v-if="btnLabel" type="click" @click="toggleEmpty" variant="primary" size="medium">
       <Plus class="h-4 w-4 stroke-[4px] text-white" />
-      {{ `${btnLabel}. (Click illustration to show data)` ?? 'Add Products' }}
+      {{ btnLabel ?? 'Add Products' }}
     </Button>
   </section>
 </template>

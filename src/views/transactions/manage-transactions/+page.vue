@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 
-import { Pagination } from '$components/organisms'
+import { EmptyState, Pagination } from '$components/organisms'
 import { DashboardLayout } from '$components/templates'
 import { Badge, Button, Input, Title, Body, Select } from '$components/atoms'
 
@@ -112,6 +112,10 @@ function closeModalFilter() {
  *  ================
  */
 const isEmptyRef = ref(true)
+
+const toggleEmpty = () => {
+  isEmptyRef.value = false
+}
 </script>
 
 <template>
@@ -336,19 +340,14 @@ const isEmptyRef = ref(true)
         </div>
       </div>
 
-      <!-- Empty State -->
-      <section
-        @click="isEmptyRef = false"
+      <EmptyState
         v-if="isEmptyRef"
-        class="mb-16 flex cursor-pointer flex-col items-center justify-center"
+        :toggle-empty="toggleEmpty"
+        title="No transaction list"
+        desc="The transaction you are looking for is not available"
       >
         <NoProductsIll class="h-60 w-60" />
-        <Body size="xxl" weight="semibold" class="mb-2"> No transaction list </Body>
-
-        <Body size="md" class="text-netral-60">
-          The transaction you are looking for is not available.
-        </Body>
-      </section>
+      </EmptyState>
 
       <!-- Table Categories -->
       <section v-else class="TableListProducts mb-6 w-full">

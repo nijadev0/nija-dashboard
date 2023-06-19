@@ -58,7 +58,6 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
             >
               <div class="flex justify-between border-b border-netral-30 px-4 py-5">
                 <Body size="xl" weight="medium"> Notifications </Body>
-                <XMark class="h-4 w-4 stroke-[3px] text-netral-40" />
               </div>
 
               <div
@@ -149,7 +148,7 @@ import { Bag, BellSimple, CaretDown, MagnifyingGlass, XMark, Package, TShirt } f
 
           <MenuItems
             as="div"
-            class="absolute right-0 top-16 flex w-64 flex-col items-start rounded-large bg-white px-3 py-2 shadow-sm"
+            class="absolute right-0 top-16 flex w-64 flex-col items-start rounded-large bg-white px-3 py-2 shadow-message"
           >
             <MenuItem as="div" class="w-full border-b border-netral-30 py-1 last:border-b-0">
               <a href="/" class="flex items-center gap-4 rounded-lg px-3 py-2 hover:bg-netral-20">
