@@ -16,7 +16,8 @@
     "paths": {
       "$assets/*": ["./src/assets/*"],
       "$components/*": ["./src/components/*"],
-      "$stores/*": ["./src/stores/*"]
+      "$stores/*": ["./src/stores/*"],
+      "$views/*": ["./src/views/*"],
       // "$utilities/*": ["./src/utilities/*"]
     }
   },

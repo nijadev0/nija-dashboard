@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
-import Title from '$components/atoms/Title.vue'
-import Body from '$components/atoms/Body.vue'
-import Button from '$components/atoms/Button.vue'
+import { Body, Button, Title } from '$components/atoms'
 
 import { XMark } from '$assets/icons'
 import { NoVariantsIll } from '$assets/illustrations'

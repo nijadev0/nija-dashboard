@@ -49,7 +49,7 @@ const typesData = [
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="-mt-16 w-full max-w-2xl transform overflow-hidden overflow-y-auto rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24 2xl:max-w-4xl"
+              class="-mt-16 w-full max-w-2xl transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24 2xl:max-w-4xl"
             >
               <DialogTitle as="div" class="Title mb-10 flex items-start justify-between">
                 <Title variant="default"> Add Banner </Title>

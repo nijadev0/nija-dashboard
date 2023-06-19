@@ -111,7 +111,6 @@ const button = cva(
         size: 'medium',
         class: 'text-netral-100',
       },
-
       {
         variant: 'plain',
         modifier: 'outlinePlain',

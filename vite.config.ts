@@ -10,6 +10,7 @@ export default defineConfig({
       $assets: resolve('./src/assets'),
       $components: resolve('./src/components'),
       $stores: resolve('./src/stores'),
+      $views: resolve('./src/views'),
     },
   },
 })

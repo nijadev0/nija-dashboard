@@ -142,7 +142,7 @@ const listProductsData = [
                   </div>
                 </div>
                 <div
-                  class="Line absolute top-1/3 -z-0 h-0.5 w-full -translate-y-1/2 bg-primary-main"
+                  class="Line absolute top-1/3 -z-0 h-0.5 w-10/12 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-main"
                 />
               </div>
 

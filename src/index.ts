@@ -1,89 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
-/**
- * Login
- */
-import Login from '$components/pages/Account/Login.vue'
-import Forgot from '$components/pages/Account/Forgot.vue'
-import Verify from '$components/pages/Account/Verify.vue'
-import NewPassword from '$components/pages/Account/NewPassword.vue'
-import ResetSuccess from '$components/pages/Account/ResetSuccess.vue'
-
-/**
- * Home
- */
-import Home from '$components/pages/Home.vue'
-import Notifications from '$components/pages/Notifications.vue'
-
-/**
- * Customers
- */
-
-// Users
-import Users from '$components/pages/Customers/Users/Users.vue'
-import UserDetail from '$components/pages/Customers/Users/DetailUsers.vue'
-
-// Buyers
-import Buyers from '$components/pages/Customers/Buyers/Buyers.vue'
-import BuyerDetail from '$components/pages/Customers/Buyers/DetailBuyers.vue'
-
-/**
- * Products
- */
-// List Products
-import ListProducts from '$components/pages/Products/ListProducts/ListProducts.vue'
-import ListProductsAdd from '$components/pages/Products/ListProducts/AddListProducts.vue'
-import ListProductsEmptyVariants from '$components/pages/Products/ListProducts/EmptyVariantsListProducts.vue'
-import ListProductsVariants from '$components/pages/Products/ListProducts/VariantsListProducts.vue'
-import ListProductsUpdate from '$components/pages/Products/ListProducts/UpdateProductsVariants.vue'
-
-// Categories
-import Categories from '$components/pages/Products/Categories/Categories.vue'
-import AddCategories from '$components/pages/Products/Categories/AddCategories.vue'
-import UpdateCategories from '$components/pages/Products/Categories/UpdateCategories.vue'
-
-/**
- * Transactions
- */
-
-// Manage Transactions
-import ManageReturns from '$components/pages/Transactions/ManageReturns/ManageReturns.vue'
-import ApproveManageReturns from '$components/pages/Transactions/ManageReturns/ApproveManageReturns.vue'
-import ManageTransactions from '$components/pages/Transactions/ManageTransactions/ManageTransactions.vue'
-import DetailTransactions from '$components/pages/Transactions/ManageTransactions/DetailTransactions.vue'
-
-/**
- * Outlets
- */
-
-import Outlets from '$components/pages/Outlets/Outlets.vue'
-import DetailOutlets from '$components/pages/Outlets/DetailOutlets.vue'
-import EditOutlets from '$components/pages/Outlets/EditOutlets.vue'
-
-/**
- * Outlets
- */
-
-import Banners from '$components/pages/Banners/Banners.vue'
-
-/**
- * User Role
- */
-import UserRole from '$components/pages/UserRole/UserRole.vue'
-import AddUserRole from '$components/pages/UserRole/AddUserRole.vue'
-import EditUserRole from '$components/pages/UserRole/EditUserRole.vue'
-
-/**
- * Flash Sale
- */
-import FlashSale from '$components/pages/FlashSale/FlashSale.vue'
-
-/**
- * Sandbox
- */
-import Sandbox from '$components/pages/Sandbox.vue'
-import NotFound from '$components/pages/404.vue'
-
 /**
  * Vue Router 4
  */
@@ -96,29 +11,29 @@ const router = createRouter({
      * ========================================
      */
     {
-      path: '/login',
+      path: '/auth/login',
       name: 'Login',
-      component: Login,
+      component: () => import('$views/auth/login/+page.vue'),
     },
     {
-      path: '/forgot',
+      path: '/auth/forgot-password',
       name: 'Forgot',
-      component: Forgot,
+      component: () => import('$views/auth/forgot-password/+page.vue'),
     },
     {
-      path: '/verify',
+      path: '/auth/verify-password',
       name: 'Verify',
-      component: Verify,
+      component: () => import('$views/auth/verify-password/+page.vue'),
     },
     {
-      path: '/new-password',
-      name: 'NewPassword',
-      component: NewPassword,
+      path: '/auth/new-password',
+      name: 'New Password',
+      component: () => import('$views/auth/new-password/+page.vue'),
     },
     {
-      path: '/reset-success',
-      name: 'ResetSuccess',
-      component: ResetSuccess,
+      path: '/auth/reset-success',
+      name: 'Reset Success',
+      component: () => import('$views/auth/reset-succes/+page.vue'),
     },
     /**
      * ========================================
@@ -127,13 +42,18 @@ const router = createRouter({
      */
     {
       path: '/',
-      name: 'Home',
-      component: Home,
+      name: 'Dashboard',
+      component: () => import('$views/+page.vue'),
     },
     {
-      path: '/notifications',
+      path: '/settings',
+      name: 'Settings',
+      component: () => import('$views/settings/+page.vue'),
+    },
+    {
+      path: '/settings/notifications',
       name: 'Notifications',
-      component: Notifications,
+      component: () => import('$views/settings/notifications/+page.vue'),
     },
     /**
      * ========================================
@@ -143,22 +63,27 @@ const router = createRouter({
     {
       path: '/customers/users',
       name: 'Users',
-      component: Users,
+      component: () => import('$views/customers/users/+page.vue'),
     },
     {
       path: '/customers/users/detail',
-      name: 'UserDetail',
-      component: UserDetail,
+      name: 'User Detail',
+      component: () => import('$views/customers/users/detail/+page.vue'),
     },
     {
       path: '/customers/buyers',
       name: 'Buyers',
-      component: Buyers,
+      component: () => import('$views/customers/buyers/+page.vue'),
     },
     {
       path: '/customers/buyers/detail',
-      name: 'BuyerDetail',
-      component: BuyerDetail,
+      name: 'Buyer Detail',
+      component: () => import('$views/customers/buyers/detail/+page.vue'),
+    },
+    {
+      path: '/customers/buyers/edit',
+      name: 'Buyer Edit',
+      component: () => import('$views/customers/buyers/edit/+page.vue'),
     },
     /**
      * ========================================
@@ -168,27 +93,27 @@ const router = createRouter({
     {
       path: '/products/list-products',
       name: 'ListProducts',
-      component: ListProducts,
+      component: () => import('$views/products/list-products/+page.vue'),
     },
     {
       path: '/products/list-products/add',
       name: 'ListProductsAdd',
-      component: ListProductsAdd,
+      component: () => import('$views/products/list-products/add/+page.vue'),
     },
     {
       path: '/products/list-products/update',
-      name: 'ListProductsUpdate',
-      component: ListProductsUpdate,
+      name: 'List Products Update',
+      component: () => import('$views/products/list-products/update/+page.vue'),
     },
-    {
-      path: '/products/list-products/empty-variants',
-      name: 'ListProductsEmptyVariants',
-      component: ListProductsEmptyVariants,
-    },
+    // {
+    //   path: '/products/list-products/empty-variants',
+    //   name: 'ListProductsEmptyVariants',
+    //   component: ListProductsEmptyVariants,
+    // },
     {
       path: '/products/list-products/variants',
       name: 'ListProductsVariants',
-      component: ListProductsVariants,
+      component: () => import('$views/products/list-products/variants/+page.vue'),
     },
     /**
      * ========================================
@@ -198,17 +123,17 @@ const router = createRouter({
     {
       path: '/products/categories',
       name: 'Categories',
-      component: Categories,
+      component: () => import('$views/products/categories/+page.vue'),
     },
     {
       path: '/products/categories/add',
       name: 'AddCategories',
-      component: AddCategories,
+      component: () => import('$views/products/categories/add/+page.vue'),
     },
     {
       path: '/products/categories/update',
       name: 'UpdateCategories',
-      component: UpdateCategories,
+      component: () => import('$views/products/categories/update/+page.vue'),
     },
 
     /**
@@ -218,23 +143,23 @@ const router = createRouter({
      */
     {
       path: '/transactions/manage-transactions',
-      name: 'ManageTransactions',
-      component: ManageTransactions,
+      name: 'Manage Transactions',
+      component: () => import('$views/transactions/manage-transactions/+page.vue'),
     },
     {
-      path: '/transactions/detail-transactions',
-      name: 'DetailTransactions',
-      component: DetailTransactions,
+      path: '/transactions/manage-transactions/detail',
+      name: 'Detail Manage Transactions',
+      component: () => import('$views/transactions/manage-transactions/detail/+page.vue'),
     },
     {
-      path: '/transactions/manage-returns',
+      path: '/transactions/returns',
       name: 'ManageReturns',
-      component: ManageReturns,
+      component: () => import('$views/transactions/returns/+page.vue'),
     },
     {
-      path: '/transactions/manage-returns/approve',
+      path: '/transactions/returns/approve',
       name: 'ApproveManageReturns',
-      component: ApproveManageReturns,
+      component: () => import('$views/transactions/returns/approve/+page.vue'),
     },
     /**
      * ========================================
@@ -243,8 +168,8 @@ const router = createRouter({
      */
     {
       path: '/flash-sale',
-      name: 'FlashSale',
-      component: FlashSale,
+      name: 'Flash Sale',
+      component: () => import('$views/flash-sale/+page.vue'),
     },
 
     /**
@@ -255,17 +180,22 @@ const router = createRouter({
     {
       path: '/outlets',
       name: 'Outlets',
-      component: Outlets,
+      component: () => import('$views/outlets/+page.vue'),
+    },
+    {
+      path: '/outlets/add',
+      name: 'Add Outlets',
+      component: () => import('$views/outlets/add/+page.vue'),
     },
     {
       path: '/outlets/detail',
-      name: 'DetailOutlets',
-      component: DetailOutlets,
+      name: 'Detail Outlets',
+      component: () => import('$views/outlets/detail/+page.vue'),
     },
     {
       path: '/outlets/edit',
-      name: 'EditOutlets',
-      component: EditOutlets,
+      name: 'Edit Outlets',
+      component: () => import('$views/outlets/edit/+page.vue'),
     },
     /**
      * ========================================
@@ -275,7 +205,7 @@ const router = createRouter({
     {
       path: '/banners',
       name: 'Banners',
-      component: Banners,
+      component: () => import('$views/banners/+page.vue'),
     },
     // {
     //   path: '/outlets/detail',
@@ -294,18 +224,18 @@ const router = createRouter({
      */
     {
       path: '/user-role',
-      name: 'UserRole',
-      component: UserRole,
+      name: 'User Role',
+      component: () => import('$views/user-role/+page.vue'),
     },
     {
       path: '/user-role/add',
       name: 'AddUserRole',
-      component: AddUserRole,
+      component: () => import('$views/user-role/add/+page.vue'),
     },
     {
       path: '/user-role/edit',
-      name: 'EditUserRole',
-      component: EditUserRole,
+      name: 'Edit User Role',
+      component: () => import('$views/user-role/edit/+page.vue'),
     },
 
     /**
@@ -316,7 +246,7 @@ const router = createRouter({
     {
       path: '/sandbox',
       name: 'Sandbox',
-      component: Sandbox,
+      component: () => import('$components/pages/Sandbox.vue'),
     },
     /**
      * ========================================
@@ -326,7 +256,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: '404 Not Found',
-      component: NotFound,
+      component: () => import('$components/pages/404.vue'),
     },
   ],
 })

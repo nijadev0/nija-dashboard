@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { TransitionRoot, TransitionChild } from '@headlessui/vue'
-
-import Button from '$components/atoms/Button.vue'
+import { Button } from '$components/atoms'
 
 import { Checks } from '$assets/icons'
 
@@ -68,6 +66,7 @@ const { variant, isSelected, openModal, openModalDraft, openModalSecondary, goTo
         size="medium"
         variant="error"
         modifier="defaultError"
+        class="!text-white"
         :on-click="openModal"
       >
         Delete

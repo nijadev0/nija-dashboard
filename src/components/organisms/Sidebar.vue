@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Body from '$components/atoms/Body.vue'
-import SideMenu from '$components/moleculs/SideMenu.vue'
+import { Body } from '$components/atoms'
+import { SideMenu, SideMenuExpand } from '$components/moleculs'
 
 import {
   HouseSimple,
@@ -12,7 +12,6 @@ import {
   Storefront,
   UserCircle,
 } from '$assets/icons'
-import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
 </script>
 
 <template>
@@ -79,7 +78,7 @@ import SideMenuExpand from '$components/moleculs/SideMenuExpand.vue'
             <Body size="md" weight="medium"> Manage Transactions </Body>
           </SideMenu>
 
-          <SideMenu variant="sub" href="/transactions/manage-returns">
+          <SideMenu variant="sub" href="/transactions/returns">
             <Body size="md" weight="medium"> Returns </Body>
           </SideMenu>
         </template>
