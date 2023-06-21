@@ -37,6 +37,7 @@ const toggle = {
 
 <template>
   <aside
+    id="sidebar"
     class="Sidebar flex h-screen w-60 flex-col items-center overflow-y-auto border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
   >
     <div class="Logo mb-8 ml-4 flex items-start justify-start gap-2 self-start 2xl:mb-10">
