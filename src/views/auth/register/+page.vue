@@ -116,7 +116,7 @@ const checkboxRef = ref(false)
           </div>
 
           <div class="relative flex w-fit justify-center bg-netral-20 px-2 text-xs uppercase">
-            <Body size="xs" weight="regular" class="px-2 text-netral-50">Or continue with</Body>
+            <Body size="sm" weight="regular" class="px-2 text-netral-50">Or continue with</Body>
           </div>
         </div>
 
