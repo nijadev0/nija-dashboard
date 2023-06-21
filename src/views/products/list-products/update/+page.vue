@@ -9,13 +9,33 @@ import { Body, Button, Input, Select, TextArea, Title, Toggle } from '$component
 
 import { Check, MagnifyingGlass, Plus, UploadSimple } from '$assets/icons'
 
-
 /**
  * =======================
  * Dummy Data - Users
  * =======================
  */
 const usersData = [
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
   {
     name: 'Samanta Legend',
     email: 'samanta@mail.com',
@@ -128,6 +148,7 @@ function closeModalFilled() {
  * =======================
  */
 const toastSavedRef = ref(false)
+const showData = ref(false)
 
 function closeToastSaved() {
   toastSavedRef.value = false
@@ -135,7 +156,9 @@ function closeToastSaved() {
 
 function openToastSaved() {
   isOpenModalFilledRef.value = false
+
   toastSavedRef.value = true
+  showData.value = true
 }
 </script>
 
@@ -463,21 +486,37 @@ function openToastSaved() {
                         class="max-w-[72px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:max-w-[80px] 2xl:px-6"
                       >
                         <div
+                          v-if="!showData"
                           class="h-16 w-16 rounded-large bg-netral-30 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
-                        ></div>
+                        />
+
+                        <img
+                          v-else
+                          class="h-16 w-16 rounded-large 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
+                          src="/images/list-products/ListProducts-1.png"
+                          alt="List product"
+                        />
                       </td>
 
                       <td
-                        class="max-w-[140px] px-3 py-6 text-left text-netral-80 first:pl-3 2xl:px-6"
+                        class="relative z-[99] max-w-[140px] px-3 py-6 text-left text-netral-80 first:pl-3 2xl:px-6"
                       >
-                        <Select variant="relax" :select-data="colorsData" />
+                        <Select
+                          variant="relax"
+                          :select-data="colorsData"
+                          :active="showData ? 2 : 0"
+                        />
                       </td>
 
                       <td
-                        class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
+                        class="relative z-[99] max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                       >
                         <Body size="lg" weight="medium">
-                          <Select variant="relax" :select-data="sizesData" />
+                          <Select
+                            variant="relax"
+                            :select-data="sizesData"
+                            :active="showData ? 2 : 0"
+                          />
                         </Body>
                       </td>
 
@@ -489,6 +528,7 @@ function openToastSaved() {
                           input-type="number"
                           name="ProductDiscount"
                           placeholder="0"
+                          :value="showData ? '110' : '0'"
                         />
                       </td>
 
@@ -500,6 +540,7 @@ function openToastSaved() {
                           input-type="number"
                           name="ProductDiscount"
                           placeholder="0"
+                          :value="showData ? '12738198732' : '0'"
                         />
                       </td>
 

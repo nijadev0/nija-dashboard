@@ -47,9 +47,9 @@ const button = cva(
       modifier: {
         // Variant: Plain
         defaultPlain:
-          'text-netral-100 hover:bg-netral-30 active:ring-netral-80 active:bg-netral-30 stroke-netral-70',
+          'text-netral-100 bg-netral-20 hover:bg-netral-30 active:ring-netral-80 active:bg-netral-30 stroke-netral-70',
         outlinePlain:
-          'bg-transparent ring-1 ring-current hover:bg-netral-20 hover:ring-netral-60 active:ring-netral-80 active:ring-2 stroke-netral-80',
+          'bg-transparent border border-current ring-1 ring-current hover:bg-netral-20 hover:ring-netral-60 active:ring-netral-80 active:ring-2 stroke-netral-80',
         nudePlain:
           'border-transparent bg-transparent hover:text-netral-80 active:ring-netral-80 stroke-netral-80',
 
@@ -73,7 +73,7 @@ const button = cva(
         defaultError:
           'text-white hover:bg-error-hover active:ring-error-border active:bg-error-pressed stroke-white',
         outlineError:
-          'bg-transparent ring-1 ring-current hover:bg-error-surface hover:ring-transparent active:ring-error-border active:ring-2 stroke-error-main',
+          'bg-transparent border border-error-main ring-1 ring-current hover:bg-error-surface hover:ring-transparent active:ring-error-border active:ring-2 stroke-error-main',
         nudeError:
           'border-transparent bg-transparent hover:text-error-hover active:ring-error-surface stroke-error-main',
       },

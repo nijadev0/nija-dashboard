@@ -2,11 +2,12 @@
 import { ref } from 'vue'
 
 import { DashboardLayout } from '$components/templates'
-import { Pagination, Toast } from '$components/organisms'
+import { EmptyState, Pagination, Toast } from '$components/organisms'
 import { Body, Button, Title, Toggle } from '$components/atoms'
 import { UploadBannerImageEmpty, UploadBannerImageFilled } from '$components/organisms/Modal'
 
 import { MagnifyingGlass, FolderSimplePlus, Trash, Pencil } from '$assets/icons'
+import { NoBannersIll } from '$assets/illustrations'
 
 /**
  * =======================
@@ -94,6 +95,15 @@ function openSavedToast() {
 function closeSavedToast() {
   savedToastRef.value = false
 }
+
+/**
+ * Empty State
+ */
+const isEmptyState = ref(true)
+
+const toggleEmpty = () => {
+  isEmptyState.value = false
+}
 </script>
 
 <template>
@@ -107,12 +117,12 @@ function closeSavedToast() {
           <nav class="Search relative">
             <input
               type="text"
-              class="w-[16rem] rounded-large bg-netral-20 py-2 px-3.5 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
+              class="w-[16rem] rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
               placeholder="Search"
             />
 
             <MagnifyingGlass
-              class="absolute top-1/2 left-3 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-60 2xl:h-5 2xl:w-5"
+              class="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 stroke-2 text-netral-60 2xl:h-5 2xl:w-5"
             />
           </nav>
 
@@ -129,7 +139,17 @@ function closeSavedToast() {
         </div>
       </div>
 
-      <section class="TableUsers mb-6 w-full">
+      <!-- Empty State -->
+      <EmptyState
+        v-if="isEmptyState"
+        :toggle-empty="toggleEmpty"
+        title="No banners list"
+        desc="The banners you are looking for is not available."
+      >
+        <NoBannersIll class="h-60 w-60" />
+      </EmptyState>
+
+      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -184,7 +204,7 @@ function closeSavedToast() {
                   <Body size="lg" weight="medium"> {{ index + 1 }} </Body>
                 </td>
 
-                <td class="max-w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="Image relative h-24 w-40">
                     <img
                       class="h-full w-full rounded-large object-cover object-left"
@@ -194,21 +214,21 @@ function closeSavedToast() {
                   </div>
                 </td>
 
-                <td class="max-w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ banner.type }}
                   </Body>
                 </td>
 
-                <td class="max-w-[180px] py-6 px-6 text-left text-netral-80 first:pl-3">
+                <td class="max-w-[180px] px-6 py-6 text-left text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ banner.createdAt }} </Body>
                 </td>
 
-                <td class="max-w-[100px] py-6 px-6 text-left text-netral-80 first:pl-3">
+                <td class="max-w-[100px] px-6 py-6 text-left text-netral-80 first:pl-3">
                   <Toggle />
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="Action flex gap-3 2xl:gap-4">
                     <Button type="goto" variant="plain" size="medium" modifier="defaultPlain">
                       <Pencil class="h-5 w-5 stroke-[2.5px] text-netral-80" />
@@ -226,7 +246,7 @@ function closeSavedToast() {
       </section>
 
       <!-- Pagination -->
-      <Pagination />
+      <Pagination v-if="!isEmptyState" />
     </div>
 
     <!-- Modal -->

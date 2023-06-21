@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import { CaretDown } from '$assets/icons'
 
 interface SideMenuProps {
@@ -7,12 +9,20 @@ interface SideMenuProps {
 }
 
 const { variant, href } = defineProps<SideMenuProps>()
+
+const sideMenu = ref(null)
+// const activeSidebar = sideMenu?.getAttribute('data-headlessui-state')
+
+const getActiveSidebar = () => {
+  console.log('ok')
+}
 </script>
 
 <template>
   <!-- Side Menu : Main (Expand) -->
   <button
     v-if="variant === 'expand'"
+    @click="getActiveSidebar"
     class="SideMenu Expand flex w-full min-w-[180px] justify-between rounded-large p-3 2xl:min-w-[192px]"
   >
     <div class="Menu flex items-center gap-3">

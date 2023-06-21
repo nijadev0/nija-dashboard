@@ -9,11 +9,12 @@ import { CaretDown } from '$assets/icons'
 interface SelectProps {
   selectData: any
   variant: 'tight' | 'relax'
+  active?: number
 }
 
-const { selectData, variant = 'relax' } = defineProps<SelectProps>()
+const { selectData, variant = 'relax', active } = defineProps<SelectProps>()
 
-const selectRef = ref(selectData[0])
+const selectRef = ref(selectData[active || 0])
 
 /**
  * Example data
@@ -44,7 +45,7 @@ const categoriesData = [
       </ListboxButton>
 
       <ListboxOptions
-        class="absolute top-14 left-0 z-20 w-full rounded-large border border-netral-30 bg-white shadow-md outline-none"
+        class="absolute left-0 top-14 z-20 w-full rounded-large border border-netral-30 bg-white shadow-md outline-none"
       >
         <ListboxOption
           v-for="data in selectData"

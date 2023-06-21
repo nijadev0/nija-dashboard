@@ -27,15 +27,15 @@ const checkboxRef = ref(false)
     image-banner="/images/accounts/account-baby-photo.png"
     alt-banner="Baby Account Photo"
   >
-    <div class="container max-w-screen-sm">
+    <div class="container max-w-screen-sm pt-16">
       <!-- Logo -->
-      <div class="flex gap-4">
+      <div class="mb-16 flex items-center gap-4">
         <button @click="$router.go(-1)">
           <ArrowLeft class="h-6 w-6 stroke-2" />
         </button>
 
         <button @click="$router.push('/')">
-          <div class="Logo flex items-start justify-start gap-2 self-start py-16 2xl:mb-10">
+          <div class="Logo flex items-start justify-start gap-2 self-start">
             <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
             <Body size="xxl" weight="semibold" class="uppercase tracking-wide"> Nija Kit </Body>
           </div>
@@ -109,7 +109,7 @@ const checkboxRef = ref(false)
 
         <Button
           type="goto"
-          go-to="/reset-success"
+          link-href="/auth/reset-success"
           size="big"
           variant="primary"
           modifier="defaultPrimary"

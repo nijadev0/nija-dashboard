@@ -17,7 +17,7 @@ const { isOpenRef, closeModal, nextClick } = defineProps<UploadImageFilledProps>
 
 <template>
   <TransitionRoot appear :show="isOpenRef" as="div">
-    <Dialog as="div" @close="closeModal" class="relative z-[60]">
+    <Dialog as="div" @close="closeModal" class="relative z-[99999]">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"

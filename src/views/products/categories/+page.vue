@@ -189,7 +189,7 @@ const toggleEmpty = () => {
             <section
               class="TableCardCategories mb-6 grid grid-cols-4 gap-5 border-b border-netral-30 pb-6"
             >
-              <div v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]" class="Card relative">
+              <div v-for="item in [1, 2, 3, 4, 5]" class="Card relative">
                 <!-- Checkbox -->
                 <div class="Checkbox absolute top-3 left-3">
                   <Switch

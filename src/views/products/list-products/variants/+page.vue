@@ -22,6 +22,27 @@ const usersData = [
     createAt: 'Orange',
     date: 'May 6, 2012',
   },
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
+  {
+    name: 'Samanta Legend',
+    email: 'samanta@mail.com',
+    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+    createAt: 'Orange',
+    date: 'May 6, 2012',
+  },
 ]
 
 /**
@@ -48,8 +69,6 @@ const sizesData = [
   { id: 4, name: 'L' },
   { id: 5, name: 'XL' },
 ]
-
-const showData = ref(false)
 
 /**
  * =======================
@@ -95,6 +114,7 @@ function closeModalFilled() {
  * =======================
  */
 const toastSavedRef = ref(false)
+const showData = ref(false)
 
 function closeToastSaved() {
   toastSavedRef.value = false
@@ -116,7 +136,7 @@ function openToastSaved() {
         <Title variant="default"> Variants </Title>
 
         <div class="Cta flex gap-3">
-          <!-- <Button
+          <Button
             v-if="checkboxRef"
             type="click"
             variant="error"
@@ -124,7 +144,7 @@ function openToastSaved() {
             size="medium"
           >
             Delete Variant
-          </Button> -->
+          </Button>
 
           <Button type="click" variant="primary" modifier="defaultPrimary" size="medium">
             <Plus class="h-4 w-4 stroke-[4px] text-white" />
@@ -239,21 +259,21 @@ function openToastSaved() {
 
                   <img
                     v-else
-                    class="h-16 w-16 rounded-large"
+                    class="h-16 w-16 rounded-large 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
                     src="/images/list-products/ListProducts-1.png"
                     alt="List product"
                   />
                 </td>
 
                 <td class="max-w-[140px] px-3 py-6 text-left text-netral-80 first:pl-3 2xl:px-6">
-                  <Select variant="relax" :select-data="colorsData" />
+                  <Select variant="relax" :select-data="colorsData" :active="showData ? 2 : 0" />
                 </td>
 
                 <td
                   class="max-w-[140px] px-3 py-6 text-left capitalize text-netral-80 first:pl-3 2xl:px-6"
                 >
                   <Body size="lg" weight="medium">
-                    <Select variant="relax" :select-data="sizesData" />
+                    <Select variant="relax" :select-data="sizesData" :active="showData ? 2 : 0" />
                   </Body>
                 </td>
 
@@ -265,6 +285,7 @@ function openToastSaved() {
                     input-type="number"
                     name="ProductDiscount"
                     placeholder="0"
+                    :value="showData ? '110' : '0'"
                   />
                 </td>
 
@@ -276,6 +297,7 @@ function openToastSaved() {
                     input-type="number"
                     name="ProductDiscount"
                     placeholder="0"
+                    :value="showData ? '12738198732' : '0'"
                   />
                 </td>
 

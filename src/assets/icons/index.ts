@@ -49,6 +49,9 @@ import FolderSimplePlus from './FolderSimplePlusIcon.vue'
 import CalendarPlus from './CalendarPlusIcon.vue'
 import Clock from './ClockIcon.vue'
 import EyeSlash from './EyeSlashIcon.vue'
+import GearSix from './GearSixIcon.vue'
+import SignOut from './SignOutIcon.vue'
+import LockKey from './LockKeyIcon.vue'
 
 export {
   Lightning,
@@ -102,4 +105,7 @@ export {
   Clock,
   EyeSlash,
   ArrowLeft,
+  GearSix,
+  SignOut,
+  LockKey,
 }

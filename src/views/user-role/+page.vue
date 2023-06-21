@@ -4,11 +4,12 @@ import { Switch } from '@headlessui/vue'
 
 import { Button, Body, Title } from '$components/atoms'
 
-import { Modal, Pagination, PageAction, Toast } from '$components/organisms'
+import { Modal, Pagination, PageAction, Toast, EmptyState } from '$components/organisms'
 
 import { DashboardLayout } from '$components/templates'
 
 import { SortAscending, Funnel, Check, UserPlus } from '$assets/icons'
+import { NoUserRolesIll } from '$assets/illustrations'
 
 /**
  * =======================
@@ -98,6 +99,15 @@ function closeToastDelete() {
   toastRef.value = false
   checkboxRef.value = false
 }
+
+/**
+ * Empty State
+ */
+const isEmptyState = ref(true)
+
+const toggleEmpty = () => {
+  isEmptyState.value = false
+}
 </script>
 
 <template>
@@ -131,8 +141,18 @@ function closeToastDelete() {
         </div>
       </div>
 
+      <!-- Empty State -->
+      <EmptyState
+        v-if="isEmptyState"
+        :toggle-empty="toggleEmpty"
+        title="No user roles list"
+        desc="The user roles you are looking for is not available."
+      >
+        <NoUserRolesIll class="h-60 w-60" />
+      </EmptyState>
+
       <!-- Table Users -->
-      <section class="TableUsers mb-6 w-full">
+      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -212,25 +232,25 @@ function closeToastDelete() {
                   </Switch>
                 </td>
 
-                <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[180px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.name }} </Body>
                 </td>
 
-                <td class="max-w-[160px] py-6 px-6 text-left text-netral-80 first:pl-3">
+                <td class="max-w-[160px] px-6 py-6 text-left text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.email }} </Body>
                 </td>
 
-                <td class="max-w-[150px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[150px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ user.role }}
                   </Body>
                 </td>
 
-                <td class="max-w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.phone }} </Body>
                 </td>
 
-                <td class="max-w-[120px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.date }} </Body>
                 </td>
               </tr>
@@ -240,7 +260,7 @@ function closeToastDelete() {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination />
+      <Pagination v-if="!isEmptyState" />
     </div>
 
     <!-- Page Action : Home -->

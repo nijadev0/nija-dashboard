@@ -339,18 +339,17 @@ const topProductsData = [
             </div>
           </div>
 
-          <div class="flex items-center gap-8">
+          <div class="flex flex-col 2xl:flex-row items-center gap-8">
             <div class="flex-shrink-0 !font-jakarta">
               <VueApexCharts
                 type="radialBar"
-              class="xl:h-64 2xl:h-80"
                 :options="radialBarData.chartOptions"
                 :series="radialBarData.series"
               ></VueApexCharts>
             </div>
 
-            <section class="space-y-4">
-              <div v-for="item in radialBarData.dummy" class="space-y-1">
+            <section class="flex 2xl:flex-col gap-8 2xl:gap-4 flex-row">
+              <div v-for="item in radialBarData.dummy" class="flex flex-col-reverse items-center 2xl:items-start 2xl:flex-col gap-1">
                 <div class="flex items-center gap-2">
                   <div class="h-2 w-2 flex-shrink-0 rounded-full" :class="item.color" />
 

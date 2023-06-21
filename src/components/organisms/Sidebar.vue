@@ -11,12 +11,33 @@ import {
   AppWindow,
   Storefront,
   UserCircle,
+  LockKey,
 } from '$assets/icons'
+// ------------------------------------------------------------------------------
+const toggle = {
+  customers: {
+    id: 1,
+    name: 'customers_sidemenu',
+  },
+  products: {
+    id: 2,
+    name: 'products_sidemenu',
+  },
+  transactions: {
+    id: 3,
+    name: 'transactions_sidemenu',
+  },
+  authentications: {
+    id: 4,
+    name: 'authentications_sidemenu',
+  },
+}
+// ------------------------------------------------------------------------------
 </script>
 
 <template>
   <aside
-    class="Sidebar flex min-h-screen w-60 flex-col items-center border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
+    class="Sidebar flex h-screen w-60 flex-col items-center overflow-y-auto border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
   >
     <div class="Logo mb-8 ml-4 flex items-start justify-start gap-2 self-start 2xl:mb-10">
       <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
@@ -31,7 +52,7 @@ import {
       </SideMenu>
 
       <!-- Customers -->
-      <SideMenuExpand>
+      <SideMenuExpand :name="toggle.customers.name">
         <template #expand>
           <Users class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
           <Body size="md" weight="medium"> Customers </Body>
@@ -49,7 +70,7 @@ import {
       </SideMenuExpand>
 
       <!-- Customers -->
-      <SideMenuExpand>
+      <SideMenuExpand :name="toggle.products.name">
         <template #expand>
           <Package class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
           <Body size="md" weight="medium"> Products </Body>
@@ -67,7 +88,7 @@ import {
       </SideMenuExpand>
 
       <!-- Transacations -->
-      <SideMenuExpand>
+      <SideMenuExpand :name="toggle.transactions.name">
         <template #expand>
           <Receipt class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
           <Body size="md" weight="medium"> Transactions </Body>
@@ -107,6 +128,40 @@ import {
         <UserCircle class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> User Role </Body>
       </SideMenu>
+
+      <!-- Authentication -->
+      <SideMenuExpand :name="toggle.authentications.name">
+        <template #expand>
+          <LockKey class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+          <Body size="md" weight="medium"> Authentication </Body>
+        </template>
+
+        <template #sub>
+          <SideMenu variant="sub" href="/auth/login">
+            <Body size="md" weight="medium"> Login </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub" href="/auth/register">
+            <Body size="md" weight="medium"> Register </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub" href="/auth/forgot-password">
+            <Body size="md" weight="medium"> Forgot </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub" href="/auth/verify-password">
+            <Body size="md" weight="medium"> Verify </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub" href="/auth/new-password">
+            <Body size="md" weight="medium"> New Password </Body>
+          </SideMenu>
+
+          <SideMenu variant="sub" href="/auth/reset-success">
+            <Body size="md" weight="medium"> Reset Success </Body>
+          </SideMenu>
+        </template>
+      </SideMenuExpand>
     </div>
   </aside>
 </template>

@@ -6,6 +6,7 @@ import { Body, Button, Heading, Input } from '$components/atoms'
 import { AuthLayout } from '$components/templates'
 
 import { Eye, EyeSlash, Check } from '$assets/icons'
+import { RouterLink } from 'vue-router'
 
 let passwordRef = ref(false)
 let inputType = ref('password')
@@ -30,19 +31,19 @@ const checkboxRef = ref(false)
   >
     <div class="container max-w-screen-sm pt-16">
       <!-- Logo -->
-      <button class="mb-16" @click="$router.push('/')">
-        <div class="Logo flex items-start justify-start gap-2 self-start">
+      <RouterLink to="/">
+        <div class="Logo mb-16 flex items-start justify-start gap-2 self-start">
           <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
           <Body size="xxl" weight="semibold" class="uppercase tracking-wide"> Nija Kit </Body>
         </div>
-      </button>
+      </RouterLink>
 
       <!-- Heading -->
       <div class="Text">
-        <Heading size="md" weight="semibold" class="mb-4"> Hi There! </Heading>
+        <Heading size="md" weight="semibold" class="mb-4"> Hello Buds! </Heading>
 
         <Body size="xl" weight="medium" class="mb-8 text-netral-60">
-          Welcome back to e-commerce dashboard
+          Want to see some georgous dashboard? register now!
         </Body>
 
         <div class="Form mb-8 space-y-6">
@@ -94,20 +95,36 @@ const checkboxRef = ref(false)
                 />
               </div>
 
-              <Body size="md" weight="regular" class="text-netral-80">Remember me</Body>
-            </Switch>
-
-            <button @click="$router.push('/auth/forgot-password')">
-              <Body size="md" weight="semibold" class="text-netral-80 underline underline-offset-4">
-                Forgot password?
+              <Body size="md" weight="regular" class="text-left text-netral-80">
+                By clicking continue, you agree to our Terms of Service and Privacy Policy.
               </Body>
-            </button>
+            </Switch>
           </div>
         </div>
 
-        <Button type="goto" link-href="/" size="big" variant="primary" modifier="defaultPrimary">
-          Login
-        </Button>
+        <div class="relative h-fit w-full">
+          <div
+            class="absolute z-10 h-full w-full cursor-auto"
+            :class="[checkboxRef ? 'hidden' : 'block']"
+          />
+          <Button type="goto" link-href="/" size="big"> Login </Button>
+        </div>
+
+        <div class="relative my-6 flex justify-center">
+          <div class="absolute inset-0 flex items-center">
+            <span class="w-full border-t" />
+          </div>
+
+          <div class="relative flex w-fit justify-center bg-netral-20 px-2 text-xs uppercase">
+            <Body size="xs" weight="regular" class="px-2 text-netral-50">Or continue with</Body>
+          </div>
+        </div>
+
+        <button
+          class="Button flex w-full items-center justify-center gap-2 rounded-large border border-netral-30 py-3 transition-all duration-300 ease-out hover:border-netral-40 hover:bg-netral-30"
+        >
+          <Body size="lg" weight="semibold" class="text-left text-netral-80"> Google </Body>
+        </button>
       </div>
     </div>
   </AuthLayout>
