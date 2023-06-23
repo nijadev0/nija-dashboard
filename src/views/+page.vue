@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import VueApexCharts from 'vue3-apexcharts'
 
-import { Body,Button, Heading, Select, Title } from '$components/atoms'
+import { Body, Button, Heading, Select, Title } from '$components/atoms'
 
 import { DashboardLayout } from '$components/templates'
 
@@ -329,7 +329,7 @@ const topProductsData = [
       </div>
 
       <div class="Content-Right col-span-4">
-        <div class="Top-Products min-h-[350px] w-full rounded-large bg-white p-6">
+        <div class="Top-Products min-h-[350px] w-full rounded-large bg-white p-6 pb-12">
           <!-- Heading -->
           <div class="Heading mb-6 flex items-center justify-between">
             <Title variant="default"> Product </Title>
@@ -339,17 +339,22 @@ const topProductsData = [
             </div>
           </div>
 
-          <div class="flex flex-col 2xl:flex-row items-center gap-8">
-            <div class="flex-shrink-0 !font-jakarta">
+          <div class="flex flex-col items-center gap-8">
+            <div class="flex-1 flex-shrink-0 !font-jakarta">
               <VueApexCharts
                 type="radialBar"
+                width="320px"
+                height="320px"
                 :options="radialBarData.chartOptions"
                 :series="radialBarData.series"
               ></VueApexCharts>
             </div>
 
-            <section class="flex 2xl:flex-col gap-8 2xl:gap-4 flex-row">
-              <div v-for="item in radialBarData.dummy" class="flex flex-col-reverse items-center 2xl:items-start 2xl:flex-col gap-1">
+            <section class="flex flex-row items-center justify-center gap-8">
+              <div
+                v-for="item in radialBarData.dummy"
+                class="flex flex-col-reverse items-center gap-1"
+              >
                 <div class="flex items-center gap-2">
                   <div class="h-2 w-2 flex-shrink-0 rounded-full" :class="item.color" />
 
