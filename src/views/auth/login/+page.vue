@@ -28,7 +28,7 @@ const checkboxRef = ref(false)
     image-banner="/images/accounts/account-baby-photo.png"
     alt-banner="Baby Account Photo"
   >
-    <div class="container max-w-screen-sm pt-16">
+    <div class="container mx-auto max-w-screen-sm px-12 pt-16 2xl:max-w-screen-md 2xl:px-10">
       <!-- Logo -->
       <button class="mb-16" @click="$router.push('/')">
         <div class="Logo flex items-start justify-start gap-2 self-start">

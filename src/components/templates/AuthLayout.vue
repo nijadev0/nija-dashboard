@@ -9,7 +9,7 @@ const { imageBanner, altBanner } = defineProps<AuthLayoutProps>()
 
 <template>
   <!-- Layout: Auth Layout -->
-  <div class="AuthLayout grid grid-cols-12 gap-5">
+  <div class="AuthLayout grid grid-cols-12">
     <!-- Photo -->
     <div class="Banner relative col-span-7">
       <div class="Wrap sticky inset-0 z-10 h-screen">

@@ -9,7 +9,6 @@ import { EmptyState, Modal, PageAction, Pagination, Toast } from '$components/or
 import { NoProductsIll } from '$assets/illustrations'
 import { Funnel, SortAscending, Plus, Check } from '$assets/icons'
 
-
 /**
  * ============================
  * Dummy Data - List Products
@@ -161,13 +160,15 @@ const toggleEmpty = () => {
           </Button>
         </div>
       </div>
-      
-      <div class="flex justify-center w-full items-center">
-        <div class="max-w-2xl mx-autoo">
 
-          <EmptyState v-if="isEmptyState" :toggle-empty="toggleEmpty" title="No Variant Available" desc="Product variety refers to the number and range of products (differentiated by
-            specifications) offered by sellers. And also product variety is beneficial for consumers
-            because they can choose from a variety of alternatives."
+      <div class="flex w-full items-center justify-center">
+        <div class="mx-auto max-w-2xl">
+          <EmptyState
+            v-if="isEmptyState"
+            btn-label="Add Product"
+            title="No products found"
+            :toggle-empty="toggleEmpty"
+            desc="The product you are looking for is not available"
           >
             <NoProductsIll class="h-60 w-60" />
           </EmptyState>
@@ -339,7 +340,7 @@ const toggleEmpty = () => {
         title="Draft Category"
         description="Are you sure want to Draft this category? Category which already Draftd can not be recovered."
       />
-      
+
       <Modal
         variant="delete"
         :modal-ref="modalRef"

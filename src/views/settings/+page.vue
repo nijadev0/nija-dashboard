@@ -136,6 +136,22 @@ function closeToastChange() {
 
         <div class="flex items-start justify-between border-b border-netral-20 py-7">
           <div class="flex w-64 flex-col items-start gap-2">
+            <Body size="lg" weight="semibold"> Name </Body>
+          </div>
+
+          <div class="w-full max-w-xl 2xl:max-w-4xl">
+            <Input
+              variant="base"
+              input-type="text"
+              name="Name"
+              placeholder="Enter your role"
+              value="Marvin McKinney"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-start justify-between border-b border-netral-20 py-7">
+          <div class="flex w-64 flex-col items-start gap-2">
             <Body size="lg" weight="semibold"> Role </Body>
           </div>
 
@@ -192,17 +208,15 @@ function closeToastChange() {
             <Body size="lg" weight="semibold"> Email </Body>
           </div>
 
-          <div class="flex w-full max-w-xl items-center justify-between 2xl:max-w-4xl">
-            <div class="w-96 2xl:w-[28rem]">
-              <Input
-                variant="base"
-                input-type="email"
-                name="Email"
-                placeholder="Enter your email"
-                value="samantalegend@mail.com"
-                is-disabled
-              />
-            </div>
+          <div class="flex w-full max-w-xl items-center justify-between gap-4 2xl:max-w-4xl">
+            <Input
+              variant="base"
+              input-type="email"
+              name="Email"
+              placeholder="Enter your email"
+              value="samantalegend@mail.com"
+              is-disabled
+            />
 
             <Button type="click" variant="primary" size="medium" modifier="outlinePrimary">
               Change Email
@@ -215,17 +229,15 @@ function closeToastChange() {
             <Body size="lg" weight="semibold"> Password </Body>
           </div>
 
-          <div class="flex w-full max-w-xl items-center justify-between 2xl:max-w-4xl">
-            <div class="w-96 2xl:w-[28rem]">
-              <Input
-                variant="base"
-                input-type="password"
-                name="Password"
-                placeholder="Enter password"
-                value="halooooo"
-                is-disabled
-              />
-            </div>
+          <div class="flex w-full max-w-xl items-center justify-between gap-4 2xl:max-w-4xl">
+            <Input
+              variant="base"
+              input-type="password"
+              name="Password"
+              placeholder="Enter password"
+              value="halooooo"
+              is-disabled
+            />
 
             <Button
               @click="openModalChange"

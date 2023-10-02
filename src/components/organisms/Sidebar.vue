@@ -38,14 +38,14 @@ const toggle = {
 <template>
   <aside
     id="sidebar"
-    class="Sidebar flex h-screen w-60 flex-col items-center overflow-y-auto border-r border-netral-20 bg-white px-5 py-8 shadow-sm 2xl:w-72"
+    class="Sidebar h-screen w-64 overflow-y-auto overflow-x-hidden border border-netral-20 bg-white px-6 py-4 pt-8 shadow-sm 2xl:w-72 2xl:pt-10"
   >
-    <div class="Logo mb-8 ml-4 flex items-start justify-start gap-2 self-start 2xl:mb-10">
+    <div class="Logo mb-8 flex items-center gap-3 2xl:mb-10">
       <img src="/nija.svg" alt="Nija Logo" class="h-7 w-7 2xl:h-8 2xl:w-8" />
       <Body size="xxl" weight="semibold" class="uppercase tracking-wide"> Nija Kit </Body>
     </div>
 
-    <div class="Menu flex flex-col gap-2.5 2xl:gap-3">
+    <div class="Menu mt-10 flex w-full flex-col items-start gap-3">
       <!-- Dashboard -->
       <SideMenu variant="default" href="/">
         <HouseSimple class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
@@ -60,13 +60,15 @@ const toggle = {
         </template>
 
         <template #sub>
-          <SideMenu variant="sub" href="/customers/users">
-            <Body size="md" weight="medium"> Users </Body>
-          </SideMenu>
+          <div class="flex w-full flex-col items-start justify-end gap-2 pl-9">
+            <SideMenu variant="sub" href="/customers/users">
+              <Body size="md" weight="medium"> Users </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/customers/buyers">
-            <Body size="md" weight="medium"> Buyers </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/customers/buyers">
+              <Body size="md" weight="medium"> Buyers </Body>
+            </SideMenu>
+          </div>
         </template>
       </SideMenuExpand>
 
@@ -78,13 +80,15 @@ const toggle = {
         </template>
 
         <template #sub>
-          <SideMenu variant="sub" href="/products/list-products">
-            <Body size="md" weight="medium"> List Products </Body>
-          </SideMenu>
+          <div class="flex w-full flex-col items-start justify-end gap-2 pl-9">
+            <SideMenu variant="sub" href="/products/list-products">
+              <Body size="md" weight="medium"> Products List </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/products/categories">
-            <Body size="md" weight="medium"> Categories </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/products/categories">
+              <Body size="md" weight="medium"> Categories </Body>
+            </SideMenu>
+          </div>
         </template>
       </SideMenuExpand>
 
@@ -96,13 +100,15 @@ const toggle = {
         </template>
 
         <template #sub>
-          <SideMenu variant="sub" href="/transactions/manage-transactions">
-            <Body size="md" weight="medium"> Manage Transactions </Body>
-          </SideMenu>
+          <div class="flex w-full flex-col items-start justify-end gap-2 pl-9">
+            <SideMenu variant="sub" href="/transactions/manage-transactions">
+              <Body size="md" weight="medium"> Manage Transactions </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/transactions/returns">
-            <Body size="md" weight="medium"> Returns </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/transactions/returns">
+              <Body size="md" weight="medium"> Manage Returns </Body>
+            </SideMenu>
+          </div>
         </template>
       </SideMenuExpand>
 
@@ -138,29 +144,31 @@ const toggle = {
         </template>
 
         <template #sub>
-          <SideMenu variant="sub" href="/auth/login">
-            <Body size="md" weight="medium"> Login </Body>
-          </SideMenu>
+          <div class="flex w-full flex-col items-start justify-end gap-2 pl-9">
+            <SideMenu variant="sub" href="/auth/login">
+              <Body size="md" weight="medium"> Login </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/auth/register">
-            <Body size="md" weight="medium"> Register </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/auth/register">
+              <Body size="md" weight="medium"> Register </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/auth/forgot-password">
-            <Body size="md" weight="medium"> Forgot </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/auth/forgot-password">
+              <Body size="md" weight="medium"> Forgot </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/auth/verify-password">
-            <Body size="md" weight="medium"> Verify </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/auth/verify-password">
+              <Body size="md" weight="medium"> Verify </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/auth/new-password">
-            <Body size="md" weight="medium"> New Password </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/auth/new-password">
+              <Body size="md" weight="medium"> New Password </Body>
+            </SideMenu>
 
-          <SideMenu variant="sub" href="/auth/reset-success">
-            <Body size="md" weight="medium"> Reset Success </Body>
-          </SideMenu>
+            <SideMenu variant="sub" href="/auth/reset-success">
+              <Body size="md" weight="medium"> Reset Success </Body>
+            </SideMenu>
+          </div>
         </template>
       </SideMenuExpand>
     </div>

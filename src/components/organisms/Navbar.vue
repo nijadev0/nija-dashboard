@@ -79,9 +79,9 @@ import {
 
                   <div class="max-w-[240px]">
                     <Body size="lg" weight="semibold" class="mb-0.5"> New Order </Body>
-                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
-                      >There is a new order, check the order details now</Body
-                    >
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50">
+                      There is a new order, check the order details now
+                    </Body>
                     <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
                   </div>
                 </a>
@@ -98,10 +98,12 @@ import {
                   </div>
 
                   <div class="max-w-[240px]">
-                    <Body size="lg" weight="semibold" class="mb-0.5"> Order Refund </Body>
-                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
-                      >There is a returned order, check refund status</Body
-                    >
+                    <Body size="lg" weight="semibold" class="mb-0.5"> Order Returns </Body>
+
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50">
+                      There is a returned order, check refund status
+                    </Body>
+
                     <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
                   </div>
                 </a>
@@ -118,10 +120,12 @@ import {
                   </div>
 
                   <div class="max-w-[240px]">
-                    <Body size="lg" weight="semibold" class="mb-0.5"> Order Refund </Body>
-                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50"
-                      >There is a returned order, check refund status</Body
-                    >
+                    <Body size="lg" weight="semibold" class="mb-0.5"> Update Stock </Body>
+
+                    <Body size="md" weight="regular" class="mb-1 truncate text-netral-50">
+                      There are several stock product updates, please check
+                    </Body>
+
                     <Body size="sm" weight="medium" class="text-netral-60"> 1h ago </Body>
                   </div>
                 </a>

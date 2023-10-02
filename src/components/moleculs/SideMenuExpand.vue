@@ -25,7 +25,7 @@ const toggleSideMenu = () => {
       class="SideMenu Expand flex w-full min-w-[180px] justify-between rounded-large p-3 hover:bg-netral-20 2xl:min-w-[192px]"
       :class="[sideMenuRef ? 'text-primary-main' : 'text-netral-50']"
     >
-      <div class="Menu flex items-center gap-3">
+      <div class="Menu flex items-center gap-3 text-left">
         <slot name="expand" />
       </div>
 
@@ -34,10 +34,11 @@ const toggleSideMenu = () => {
         :class="[sideMenuRef ? 'rotate-180' : 'rotate-0']"
       />
     </button>
+
     <Transition>
       <section
         v-if="sideMenuRef"
-        class="SidebarExpandPanel relative flex w-full flex-col items-end justify-end gap-3"
+        class="SidebarExpandPanel relative flex w-full flex-col items-start justify-start gap-3 text-left"
       >
         <div class="absolute left-5 top-0 h-full w-px bg-netral-30" />
 

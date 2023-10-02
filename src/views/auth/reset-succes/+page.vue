@@ -10,7 +10,7 @@ import { ArrowLeft, Check } from '$assets/icons'
     image-banner="/images/accounts/account-baby-photo.png"
     alt-banner="Baby Account Photo"
   >
-    <div class="container max-w-screen-sm pt-16">
+    <div class="container mx-auto max-w-screen-sm px-12 pt-16 2xl:max-w-screen-md 2xl:px-10">
       <!-- Logo -->
       <div class="mb-16 flex items-center gap-4">
         <button @click="$router.go(-1)">

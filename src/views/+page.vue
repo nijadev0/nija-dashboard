@@ -1,13 +1,8 @@
 <script lang="ts" setup>
 import VueApexCharts from 'vue3-apexcharts'
 
-import { Body,Button, Heading, Select, Title } from '$components/atoms'
-
 import { DashboardLayout } from '$components/templates'
-
-import HomeYellowPattern from '$assets/patterns/HomeYellowPattern.svg'
-import HomePurplePattern from '$assets/patterns/HomePurplePattern.svg'
-import HomeGreenPattern from '$assets/patterns/HomeGreenPattern.svg'
+import { Body, Button, Heading, Select, Title } from '$components/atoms'
 
 import { ArrowUpRight, ArrowDownRight, DownloadSimple } from '$assets/icons'
 
@@ -206,8 +201,9 @@ const topProductsData = [
         class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
-          class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
-          :src="HomeYellowPattern"
+          class="absolute inset-0 -z-0 h-full w-full object-cover"
+          src="/images/home/pattern-home-1.png"
+          alt="Pattern Home 1"
         />
         <div class="relative z-10">
           <Body size="lg" weight="medium" class="mb-3.5 uppercase text-netral-60">
@@ -228,8 +224,9 @@ const topProductsData = [
         class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
-          class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
-          :src="HomePurplePattern"
+          class="absolute inset-0 -z-0 h-full w-full object-cover"
+          src="/images/home/pattern-home-2.png"
+          alt="Pattern Home 2"
         />
         <div class="relative z-10">
           <Body size="lg" weight="medium" class="mb-3.5 uppercase text-netral-60">
@@ -250,8 +247,9 @@ const topProductsData = [
         class="Card relative w-full overflow-hidden rounded-large bg-white px-6 py-5 2xl:px-8 2xl:py-6"
       >
         <img
-          class="absolute inset-0 -z-0 h-full w-full scale-110 object-cover"
-          :src="HomeGreenPattern"
+          class="absolute inset-0 -z-0 h-full w-full object-cover"
+          src="/images/home/pattern-home-3.png"
+          alt="Pattern Home 3"
         />
         <div class="relative z-10">
           <Body size="lg" weight="medium" class="mb-3.5 uppercase text-netral-60">
@@ -270,9 +268,9 @@ const topProductsData = [
     </section>
 
     <section class="Content mt-8 grid grid-cols-12 gap-6">
-      <div class="Content-Left col-span-8">
+      <div class="Content-Left col-span-8 space-y-5">
         <!-- BEGIN: Sales -->
-        <div class="Sales mb-6 min-h-[576px] w-full rounded-large bg-white p-6">
+        <div class="Sales space-y-6 rounded-[10px] bg-white p-6 2xl:min-h-[576px]">
           <!-- Heading -->
           <div class="Heading flex w-full items-center justify-between">
             <Title variant="default"> Sales </Title>
@@ -289,20 +287,17 @@ const topProductsData = [
             </Button>
           </div>
 
-          <div class="!font-jakarta">
-            <VueApexCharts
-              width="100%"
-              type="area"
-              :options="splineAreaData.chartOptions"
-              :series="splineAreaData.series"
-            ></VueApexCharts>
-          </div>
+          <VueApexCharts
+            type="area"
+            width="100%"
+            :options="splineAreaData.chartOptions"
+            :series="splineAreaData.series"
+          />
         </div>
-
         <!-- END: Sales -->
 
         <!-- BEGIN: Outlet -->
-        <div class="Outlet min-h-[600px] w-full rounded-large bg-white p-6 !font-jakarta">
+        <div class="Outlet w-full rounded-large bg-white p-6 !font-jakarta 2xl:min-h-[600px]">
           <!-- Heading -->
           <div class="Heading flex w-full items-center justify-between">
             <Title variant="default"> Outlet </Title>
@@ -320,10 +315,10 @@ const topProductsData = [
 
           <VueApexCharts
             type="bar"
-            height="100%"
+            width="100%"
             :options="barData.chartOptions"
             :series="barData.series"
-          ></VueApexCharts>
+          />
         </div>
         <!-- END: Outlet -->
       </div>
@@ -339,17 +334,21 @@ const topProductsData = [
             </div>
           </div>
 
-          <div class="flex flex-col 2xl:flex-row items-center gap-8">
-            <div class="flex-shrink-0 !font-jakarta">
+          <div class="flex flex-col flex-wrap items-center gap-0 2xl:flex-row 2xl:gap-2">
+            <div class="h-72 flex-shrink-0 !font-jakarta 2xl:h-80">
               <VueApexCharts
                 type="radialBar"
+                height="100%"
                 :options="radialBarData.chartOptions"
                 :series="radialBarData.series"
-              ></VueApexCharts>
+              />
             </div>
 
-            <section class="flex 2xl:flex-col gap-8 2xl:gap-4 flex-row">
-              <div v-for="item in radialBarData.dummy" class="flex flex-col-reverse items-center 2xl:items-start 2xl:flex-col gap-1">
+            <section class="flex flex-row gap-8 2xl:flex-col 2xl:gap-4">
+              <div
+                v-for="item in radialBarData.dummy"
+                class="flex flex-col-reverse items-center gap-1 2xl:flex-col 2xl:items-start"
+              >
                 <div class="flex items-center gap-2">
                   <div class="h-2 w-2 flex-shrink-0 rounded-full" :class="item.color" />
 
@@ -401,11 +400,13 @@ const topProductsData = [
                       :alt="product.name ?? 'List Product'"
                     />
                   </div>
+
                   <Body size="lg" weight="semibold" class="w-32">
                     {{ product.name ?? "T-Men's UA Storm Armour Down 2.0 Jacket" }}
                   </Body>
                 </div>
               </div>
+
               <div class="Col-Sold col-span-3">
                 <Body size="lg" weight="semibold"> {{ product.sold ?? '123' }} </Body>
               </div>
