@@ -47,7 +47,7 @@ function closeToastSaved() {
             variant="base"
             name="Name"
             input-type="email"
-            label="Email"
+            label="Email Address"
             placeholder="johndoe@gmail.com"
           />
 

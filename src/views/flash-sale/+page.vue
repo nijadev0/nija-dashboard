@@ -206,11 +206,11 @@ const toggleEmpty = () => {
 </script>
 
 <template>
-  <DashboardLayout title="Products">
+  <DashboardLayout title="Flash Sale">
     <div class="Products min-h-[480px] w-full rounded-large bg-white p-6">
       <!-- Heading -->
       <div class="Heading mb-6 flex w-full flex-col items-start justify-between gap-8 2xl:mb-8">
-        <Title variant="default"> List Products </Title>
+        <Title variant="default"> Flash Sale </Title>
 
         <div class="Action flex w-full justify-between">
           <!-- Search -->
@@ -386,10 +386,7 @@ const toggleEmpty = () => {
                 </td>
 
                 <td class="max-w-[100px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <button
-                    class="text-primary-main"
-                    @click="$router.push('/products/list-products/update')"
-                  >
+                  <button class="text-primary-main">
                     <Body size="lg" weight="semibold"> Detail </Body>
                   </button>
                 </td>

@@ -21,7 +21,9 @@ const { title = 'Test' } = defineProps<{ title?: string }>()
     </div>
 
     <!-- Main Content -->
-    <main className="relative z-0 w-full min-h-screen bg-netral-20/50 pl-64 pt-20 2xl:pl-72">
+    <main
+      className="relative z-0 w-full min-h-screen bg-netral-20/50 pl-64 pt-14 2xl:pt-20 2xl:pl-72"
+    >
       <!-- Content -->
       <div class="Content relative w-full rounded-large p-8">
         <div v-if="title" class="TitleLayout">

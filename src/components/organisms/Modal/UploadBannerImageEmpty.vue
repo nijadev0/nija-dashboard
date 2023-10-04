@@ -18,7 +18,7 @@ const typesData = [
   { id: 1, name: 'Select Type', disable: true },
   { id: 2, name: 'Banner Hero Section' },
   { id: 3, name: 'Banner Best Seller Collection' },
-  { id: 4, name: 'Banner Best Seller Collection' },
+  { id: 4, name: 'Banner Popular Collection' },
 ]
 </script>
 
@@ -37,7 +37,7 @@ const typesData = [
         <div class="fixed inset-0 bg-black/25" />
       </TransitionChild>
 
-      <div class="z-[9999999999999]s fixed inset-0">
+      <div class="fixed inset-0 z-[9999999999999]">
         <div class="flex min-h-full items-center justify-center p-4 text-center">
           <TransitionChild
             as="template"

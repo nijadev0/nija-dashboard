@@ -115,32 +115,32 @@ const toggle = {
       <!-- Flash Sale -->
       <SideMenu variant="default" href="/flash-sale">
         <Tag class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-        <Body size="md" weight="medium"> Flash Sale </Body>
+        <Body size="md" weight="medium"> Flash Sales </Body>
       </SideMenu>
 
       <!-- Banner -->
       <SideMenu variant="default" href="/banners">
         <AppWindow class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-        <Body size="md" weight="medium"> Banner </Body>
+        <Body size="md" weight="medium"> Banners </Body>
       </SideMenu>
 
       <!-- Outlet -->
       <SideMenu variant="default" href="/outlets">
         <Storefront class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-        <Body size="md" weight="medium"> Outlet </Body>
+        <Body size="md" weight="medium"> Outlets </Body>
       </SideMenu>
 
       <!-- User Role -->
       <SideMenu variant="default" href="/user-role">
         <UserCircle class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-        <Body size="md" weight="medium"> User Role </Body>
+        <Body size="md" weight="medium"> Users Role </Body>
       </SideMenu>
 
       <!-- Authentication -->
       <SideMenuExpand :name="toggle.authentications.name">
         <template #expand>
           <LockKey class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
-          <Body size="md" weight="medium"> Authentication </Body>
+          <Body size="md" weight="medium"> Authentications </Body>
         </template>
 
         <template #sub>

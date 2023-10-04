@@ -168,7 +168,7 @@ function closeToastChange() {
 
         <div class="flex items-start justify-between border-b border-netral-20 py-7">
           <div class="flex w-64 flex-col items-start gap-2">
-            <Body size="lg" weight="semibold"> Invoice </Body>
+            <Body size="lg" weight="semibold"> Phone Number </Body>
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">

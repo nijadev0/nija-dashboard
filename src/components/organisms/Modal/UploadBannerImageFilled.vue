@@ -17,7 +17,7 @@ const typesData = [
   { id: 1, name: 'Select Type', disable: true },
   { id: 2, name: 'Banner Hero Section' },
   { id: 3, name: 'Banner Best Seller Collection' },
-  { id: 4, name: 'Banner Best Seller Collection' },
+  { id: 4, name: 'Banner Popular Collection' },
 ]
 </script>
 

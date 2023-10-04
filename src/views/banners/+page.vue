@@ -27,7 +27,7 @@ const bannersData = [
   },
   {
     image: '/images/banners/banner-photo-2.png',
-    type: 'Banner Best Seller Collection',
+    type: 'Banner Popular Collection',
     createdAt: '29-11-2022',
   },
 ]
@@ -230,7 +230,13 @@ const toggleEmpty = () => {
 
                 <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="Action flex gap-3 2xl:gap-4">
-                    <Button type="goto" variant="plain" size="medium" modifier="defaultPlain">
+                    <Button
+                      type="click"
+                      :on-click="() => {}"
+                      variant="plain"
+                      size="medium"
+                      modifier="defaultPlain"
+                    >
                       <Pencil class="h-5 w-5 stroke-[2.5px] text-netral-80" />
                     </Button>
 
