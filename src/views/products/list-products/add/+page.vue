@@ -177,7 +177,13 @@ const toggleUploader = () => {
             >
               <UploadSimple class="h-8 w-8 stroke-[2px] text-netral-40" />
 
-              <Button type="click" variant="primary" modifier="defaultPrimary" size="small" @click="toggleUploader">
+              <Button
+                type="click"
+                variant="primary"
+                modifier="defaultPrimary"
+                size="small"
+                @click="toggleUploader"
+              >
                 Add Image
               </Button>
 
@@ -189,21 +195,24 @@ const toggleUploader = () => {
                 or drop image to upload
               </Body>
             </div>
-            
+
             <div
               v-for="item in [1, 2, 3, 4]"
               v-if="isShowUploader"
-              class="relative group flex w-fit flex-col items-center justify-center rounded-large overflow-hidden"
+              class="group relative flex w-fit flex-col items-center justify-center overflow-hidden rounded-large"
             >
-              <img class="w-full h-full object-cover relative z-0" src="/images/list-products/ListProducts-1.png"/>
+              <img
+                class="relative z-0 h-full w-full object-cover"
+                src="/images/list-products/ListProducts-1.png"
+              />
 
-              <div class="absolute flex justify-center gap-2 items-center opacity-0 group-hover:opacity-100 group-hover:bg-black/25 rounded-large w-full h-full z-10 bg-black/0">
-                <Button type="click" size="small" variant="primary">
-                  Edit
-                </Button>
+              <div
+                class="absolute z-10 flex h-full w-full items-center justify-center gap-2 rounded-large bg-black/0 opacity-0 group-hover:bg-black/25 group-hover:opacity-100"
+              >
+                <Button type="click" size="small" variant="primary"> Edit </Button>
 
                 <Button type="click" size="small" variant="error" modifier="defaultError">
-                  <Trash class="w-3.5 h-3.5 stroke-[3px] stroke-white" />
+                  <Trash class="h-3.5 w-3.5 stroke-white stroke-[3px]" />
                 </Button>
               </div>
             </div>
@@ -219,10 +228,7 @@ const toggleUploader = () => {
 
         <div class="flex items-start justify-between border-y border-netral-20 py-7">
           <div class="flex w-64 flex-col items-start gap-2">
-            <Body size="lg" weight="semibold"> Set Discount </Body>
-            <Body size="md" weight="regular" class="text-netral-50">
-              Please fill in how many discounts you will give for this products.
-            </Body>
+            <Body size="lg" weight="semibold"> Price </Body>
           </div>
 
           <div class="w-full max-w-xl 2xl:max-w-4xl">

@@ -214,10 +214,10 @@ const toggleEmpty = () => {
 
         <div class="Action flex w-full justify-between">
           <!-- Search -->
-          <nav class="Search relative">
+          <nav class="Search relative w-72 2xl:w-96">
             <input
               type="text"
-              class="w-[16rem] rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
+              class="w-full rounded-large bg-netral-20 px-3.5 py-2.5 pl-11 text-base outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main"
               placeholder="Search"
             />
 

@@ -2,14 +2,12 @@
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 
+import { NoUserRolesIll } from '$assets/illustrations'
+import { DashboardLayout } from '$components/templates'
 import { Button, Body, Title } from '$components/atoms'
-
 import { Modal, Pagination, PageAction, Toast, EmptyState } from '$components/organisms'
 
-import { DashboardLayout } from '$components/templates'
-
-import { SortAscending, Funnel, Check, UserPlus, MagnifyingGlass, Storefront } from '$assets/icons'
-import { NoUserRolesIll } from '$assets/illustrations'
+import { Check, MagnifyingGlass, Plus, UserPlus } from '$assets/icons'
 
 /**
  * =======================
@@ -114,7 +112,7 @@ const toggleEmpty = () => {
   <DashboardLayout title="User Role">
     <div class="Customers min-h-[480px] w-full rounded-large bg-white p-6">
       <div class="Heading mb-6 space-y-8 2xl:mb-8">
-        <Title variant="default"> Outlet List </Title>
+        <Title variant="default"> User Role </Title>
 
         <div class="Action flex items-end justify-between">
           <!-- Search -->
@@ -133,13 +131,13 @@ const toggleEmpty = () => {
           <!-- Cta -->
           <Button
             type="goto"
-            link-href="/outlets/add"
+            link-href="/user-role/add"
             variant="primary"
             modifier="defaultPrimary"
             href
           >
-            <Storefront class="h-4 w-4 stroke-[2.5px] text-white 2xl:h-5 2xl:w-5" />
-            Add Outlet
+            <UserPlus class="h-4 w-4 stroke-[2.5px] text-white 2xl:h-5 2xl:w-5" />
+            Add User Role
           </Button>
         </div>
       </div>

@@ -25,13 +25,15 @@ import {
 
 <template>
   <!-- Navbar -->
-  <header class="Navbar w-full border-b border-netral-20 bg-white px-8 py-3 shadow-sm">
+  <header
+    class="Navbar flex h-20 w-full items-center border-b border-netral-20 bg-white px-8 py-3 shadow-sm"
+  >
     <div class="Wrapper mx-auto flex w-full items-center justify-between">
       <!-- Search -->
       <nav class="Search relative">
         <input
           type="text"
-          class="w-[18rem] rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-xs outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11 2xl:text-sm"
+          class="w-[18rem] rounded-large bg-netral-20 px-3.5 py-2 pl-10 text-base outline-none placeholder:text-netral-50 focus-visible:ring-2 focus-visible:ring-primary-main 2xl:w-[21.25rem] 2xl:py-3 2xl:pl-11"
           placeholder="What are you looking for"
         />
 
@@ -148,7 +150,7 @@ import {
 
         <Menu>
           <MenuButton class="User flex items-center">
-            <Avatar size="small" />
+            <Avatar size="medium" />
 
             <div class="ml-2 mr-7 space-y-0.5 text-left 2xl:space-y-1">
               <Body size="md" weight="medium" class="text-netral-80"> Marvin McKinney </Body>
@@ -167,7 +169,7 @@ import {
                 to="/settings"
                 class="flex items-center gap-2.5 rounded-lg px-3 py-1.5 hover:bg-netral-20 2xl:gap-4 2xl:py-2"
               >
-                <GearSix class="h-5 w-5 stroke-netral-60 stroke-[1.5px] 2xl:h-6 2xl:w-6" />
+                <GearSix class="h-5 w-5 stroke-netral-60 stroke-2 2xl:h-6 2xl:w-6" />
                 <Body size="md" weight="medium"> Settings </Body>
               </RouterLink>
             </MenuItem>

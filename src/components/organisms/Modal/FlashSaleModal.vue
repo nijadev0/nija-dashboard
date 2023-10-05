@@ -54,7 +54,7 @@ const date = ref(new Date())
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="-mt-16 flex w-full max-w-2xl transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24 2xl:max-w-4xl"
+              class="-mt-16 flex w-full max-w-6xl transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all 2xl:-mt-24"
             >
               <DialogTitle as="div" class="mb-6 flex w-full items-start justify-between">
                 <Title variant="default"> Add Flash Sale </Title>
@@ -95,7 +95,7 @@ const date = ref(new Date())
                 </div>
 
                 <div
-                  class="Line absolute top-1/3 -z-0 h-0.5 w-10/12 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-main"
+                  class="Line absolute left-1/2 top-1/3 -z-0 h-0.5 w-10/12 -translate-x-1/2 -translate-y-1/2 bg-primary-main"
                 />
               </div>
 

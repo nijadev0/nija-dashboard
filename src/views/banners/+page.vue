@@ -240,7 +240,13 @@ const toggleEmpty = () => {
                       <Pencil class="h-5 w-5 stroke-[2.5px] text-netral-80" />
                     </Button>
 
-                    <Button type="goto" variant="plain" size="medium" modifier="defaultPlain">
+                    <Button
+                      type="click"
+                      :on-click="() => {}"
+                      variant="plain"
+                      size="medium"
+                      modifier="defaultPlain"
+                    >
                       <Trash class="h-5 w-5 stroke-[2.5px] text-error-main" />
                     </Button>
                   </div>
