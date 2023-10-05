@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { Body, Input, Title } from '$components/atoms'
+import { Body, Input, Select, Title } from '$components/atoms'
 
 import { DashboardLayout } from '$components/templates'
 import { RejectReasonModal } from '$components/organisms/Modal'
@@ -127,6 +127,12 @@ function openToastReject() {
 function closeToastReject() {
   toastRejectRef.value = false
 }
+
+const status = [
+  { name: 'Process', color: 'bg-netral-80' },
+  { name: 'Waiting', color: 'bg-warning-main' },
+  { name: 'Success', color: 'bg-success-main' },
+]
 </script>
 
 <template>
@@ -225,14 +231,16 @@ function closeToastReject() {
         </div>
 
         <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
+          <!-- <Input
             variant="status"
             input-type="text"
             name="ProductName"
             placeholder="Enter product name"
             value="8723781236"
             status="Processed"
-          />
+          /> -->
+
+          <Select variant="relax" type="status" :select-data="status" />
         </div>
       </div>
     </section>
@@ -370,7 +378,7 @@ function closeToastReject() {
                 v-for="product in listProductsData"
                 class="border-b border-netral-20 last:border-netral-30"
               >
-                <td class="max-w-[270px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[270px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div class="flex w-full max-w-[270px] items-center gap-3 2xl:gap-4">
                     <img
                       class="h-16 w-16 2xl:h-20 2xl:w-20"
@@ -383,17 +391,17 @@ function closeToastReject() {
                   </div>
                 </td>
 
-                <td class="max-w-[140px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.sku }} </Body>
                 </td>
 
-                <td class="max-w-[64px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[64px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.size }} </Body>
                 </td>
 
-                <td class="max-w-[100px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[100px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <div
-                    class="Color flex w-fit items-center gap-2 rounded-md bg-netral-20 py-1.5 px-2"
+                    class="Color flex w-fit items-center gap-2 rounded-md bg-netral-20 px-2 py-1.5"
                   >
                     <div
                       class="Background h-5 w-5 rounded"
@@ -403,15 +411,15 @@ function closeToastReject() {
                   </div>
                 </td>
 
-                <td class="max-w-[64px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[64px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.qty }} </Body>
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.price }} </Body>
                 </td>
 
-                <td class="max-w-[80px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[80px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ product.total }} </Body>
                 </td>
               </tr>

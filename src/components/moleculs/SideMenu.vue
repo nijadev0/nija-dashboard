@@ -6,16 +6,20 @@ import { CaretDown } from '$assets/icons'
 interface SideMenuProps {
   variant: 'default' | 'expand' | 'sub'
   href?: string
+  exact?: boolean
 }
 
-const { variant, href } = defineProps<SideMenuProps>()
+const { variant, href, exact = false } = defineProps<SideMenuProps>()
 
 const sideMenu = ref(null)
-// const activeSidebar = sideMenu?.getAttribute('data-headlessui-state')
 
 const getActiveSidebar = () => {
   console.log('ok')
 }
+
+import { useRoute } from 'vue-router'
+const currentActive = useRoute().fullPath
+
 </script>
 
 <template>
@@ -37,7 +41,7 @@ const getActiveSidebar = () => {
     v-if="variant === 'default'"
     :to="`${href}`"
     class="SideMenu Default flex w-full min-w-[180px] items-center gap-3 rounded-large p-3 text-left text-netral-50 hover:bg-netral-20 focus:text-primary-main"
-    active-class="Active"
+    :class="[exact ? (href === currentActive ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50') : (currentActive.includes(`${href}`) ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50')]"
   >
     <slot />
   </router-link>
@@ -47,7 +51,7 @@ const getActiveSidebar = () => {
     v-if="variant === 'sub'"
     :to="`${href}`"
     class="SideMenu Sub flex w-full items-center gap-3 rounded-large p-3 text-left text-netral-50 hover:bg-netral-20 focus:bg-netral-20 focus:text-primary-main"
-    active-class="Active"
+
   >
     <slot />
   </router-link>

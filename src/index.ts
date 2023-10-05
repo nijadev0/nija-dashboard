@@ -242,7 +242,16 @@ const router = createRouter({
       name: 'Edit User Role',
       component: () => import('$views/user-role/edit/+page.vue'),
     },
-
+     /**
+     * ========================================
+     * Illustrations
+     * ========================================
+     */
+     {
+      path: '/illustrations',
+      name: 'Illustrations',
+      component: () => import('$views/illustrations/+page.vue'),
+    },
     /**
      * ========================================
      * Sandbox Pages

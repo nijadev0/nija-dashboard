@@ -4,6 +4,7 @@ import { SideMenu, SideMenuExpand } from '$components/moleculs'
 
 import {
   HouseSimple,
+  Images,
   Users,
   Package,
   Receipt,
@@ -47,7 +48,7 @@ const toggle = {
 
     <div class="Menu mt-10 flex w-full flex-col items-start gap-3">
       <!-- Dashboard -->
-      <SideMenu variant="default" href="/">
+      <SideMenu variant="default" href="/" exact>
         <HouseSimple class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> Dashboard </Body>
       </SideMenu>
@@ -134,6 +135,12 @@ const toggle = {
       <SideMenu variant="default" href="/user-role">
         <UserCircle class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
         <Body size="md" weight="medium"> Users Role </Body>
+      </SideMenu>
+
+      <!-- Illustrations -->
+      <SideMenu variant="default" href="/illustrations">
+        <Images class="h-5 w-5 stroke-2 2xl:h-6 2xl:w-6" />
+        <Body size="md" weight="medium"> Illustrations </Body>
       </SideMenu>
 
       <!-- Authentication -->

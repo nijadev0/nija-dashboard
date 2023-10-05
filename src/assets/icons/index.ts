@@ -1,3 +1,4 @@
+import Images from './ImagesIcon.vue'
 import ArrowLeft from './ArrowLeftIcon.vue'
 import Lightning from './LightningIcon.vue'
 import Circle from './CircleIcon.vue'
@@ -55,6 +56,7 @@ import LockKey from './LockKeyIcon.vue'
 
 export {
   Lightning,
+  Images,
   Pencil,
   Circle,
   Heart,

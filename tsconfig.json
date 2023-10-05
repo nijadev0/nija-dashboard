@@ -17,10 +17,11 @@
       "$assets/*": ["./src/assets/*"],
       "$components/*": ["./src/components/*"],
       "$stores/*": ["./src/stores/*"],
-      "$views/*": ["./src/views/*"],
+      "$views/*": ["./src/views/*"]
       // "$utilities/*": ["./src/utilities/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": [".next"]
 }

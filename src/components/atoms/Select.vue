@@ -10,9 +10,10 @@ interface SelectProps {
   selectData: any
   variant: 'tight' | 'relax'
   active?: number
+  type?: 'base' | 'status' | string
 }
 
-const { selectData, variant = 'relax', active } = defineProps<SelectProps>()
+const { selectData, variant = 'relax', active, type = 'base' } = defineProps<SelectProps>()
 
 const selectRef = ref(selectData[active || 0])
 
@@ -32,12 +33,24 @@ const categoriesData = [
     <div class="ListBox relative">
       <ListboxButton
         class="relative flex w-full items-center justify-between rounded-large text-sm leading-[22px] text-netral-80 outline-none focus-within:ring-4 focus-within:ring-primary-surface focus-visible:ring-primary-surface 2xl:text-base"
-        :class="
-          (variant === 'tight' && 'p-3 font-semibold') ||
-          (variant === 'relax' && 'border border-netral-30 p-3 2xl:p-3.5')
-        "
+        :class="{
+          'p-3 font-semibold': variant === 'tight',
+          'border border-netral-30 p-3 2xl:p-3.5': variant === 'relax',
+          'px-3 py-2': type === 'status',
+        }"
       >
-        <Body size="lg" weight="regular">
+        <div
+          v-if="type === 'status'"
+          className="flex w-fit flex-row items-center gap-2 rounded-full bg-netral-20 px-2 py-1.5"
+        >
+          <span class="h-4 w-4 rounded-full" :class="selectRef.color || 'bg-netral-80'" />
+
+          <span class="block truncate text-left text-sm text-netral-80">
+            {{ selectRef.name }}
+          </span>
+        </div>
+
+        <Body v-else size="lg" weight="regular">
           {{ selectRef.name }}
         </Body>
 

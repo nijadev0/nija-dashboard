@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import Body from './Body.vue'
 
 import { CalendarPlus, CaretDown, Clock, CurrencyDollar, Eye, EyeSlash } from '$assets/icons'
@@ -31,14 +31,13 @@ const isShowPassword = ref(inputType)
 const passwordValue = ref('')
 
 const togglePassword = () => {
-  console.log({isShowPassword, passwordValue})
-  if(isShowPassword.value === 'password') {
+  console.log({ isShowPassword, passwordValue })
+  if (isShowPassword.value === 'password') {
     isShowPassword.value = 'text'
     passwordValue.value = value!
   } else {
     isShowPassword.value = 'password'
     passwordValue.value = value!
-  
   }
 }
 </script>
@@ -259,12 +258,12 @@ const togglePassword = () => {
         v-model="passwordValue"
       />
 
-      <div class="absolute right-3.5 z-10 top-1/2 -translate-y-1/3">
-        <button type="button" v-if=" isShowPassword === 'password'" @click="togglePassword">
-          <Eye class="h-4 w-4 stroke-netral-50 stroke-[3px]" />  
+      <div class="absolute right-3.5 top-1/2 z-10 -translate-y-1/3">
+        <button type="button" v-if="isShowPassword === 'password'" @click="togglePassword">
+          <Eye class="h-4 w-4 stroke-netral-50 stroke-[3px]" />
         </button>
 
-        <button type="button" v-if=" isShowPassword === 'text'" @click="togglePassword">
+        <button type="button" v-if="isShowPassword === 'text'" @click="togglePassword">
           <EyeSlash class="h-4 w-4 stroke-netral-50 stroke-[3px]" />
         </button>
       </div>
