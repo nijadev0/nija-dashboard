@@ -3,9 +3,8 @@ import { ref } from 'vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Body, Button, Title } from '$components/atoms'
-import { Pagination, EmptyState } from '$components/organisms'
+import { Pagination } from '$components/organisms'
 
-import { NoBuyersIll } from '$assets/illustrations'
 import { Funnel, SortAscending } from '$assets/icons'
 /**
  * =======================
@@ -56,15 +55,6 @@ const buyersData = [
     lastTransaction: 'August 2, 2013',
   },
 ]
-
-/**
- * Empty State
- */
- const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -88,13 +78,10 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <EmptyState v-if="isEmptyState" :toggle-empty="toggleEmpty" title="No users list" desc="The users you are looking for is not available.">
-        <NoBuyersIll class="w-60 h-60"/>
-      </EmptyState>
 
 
       <!-- Table : Buyers -->
-      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
+      <section  class="TableUsers mb-6 w-full">
         <!-- Table Buyers -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -177,7 +164,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
   </DashboardLayout>
 </template>

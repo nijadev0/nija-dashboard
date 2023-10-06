@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 
-import { EmptyState, Pagination } from '$components/organisms'
+import { Pagination } from '$components/organisms'
 import { DashboardLayout } from '$components/templates'
 import { Badge, Button, Input, Title, Body, Select } from '$components/atoms'
 
@@ -16,7 +16,6 @@ import {
   UploadSimple,
 } from '$assets/icons'
 
-import { NoProductsIll } from '$assets/illustrations'
 
 /**
  * Dummy data - Manage Returns
@@ -105,16 +104,6 @@ function openModalFilter() {
 
 function closeModalFilter() {
   isOpenFilter.value = false
-}
-
-/** ================
- *  Empty Ref
- *  ================
- */
-const isEmptyRef = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyRef.value = false
 }
 </script>
 
@@ -340,17 +329,9 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <EmptyState
-        v-if="isEmptyRef"
-        :toggle-empty="toggleEmpty"
-        title="No transaction list"
-        desc="The transaction you are looking for is not available"
-      >
-        <NoProductsIll class="h-60 w-60" />
-      </EmptyState>
 
       <!-- Table Categories -->
-      <section v-else class="TableListProducts mb-6 w-full">
+      <section class="TableListProducts mb-6 w-full">
         <!-- Table Categories -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-fixed">
@@ -465,7 +446,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination -->
-      <Pagination v-if="!isEmptyRef" />
+      <Pagination />
     </section>
   </DashboardLayout>
 </template>

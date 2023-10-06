@@ -4,9 +4,8 @@ import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Body, Button, Title } from '$components/atoms'
-import { EmptyState, Modal, PageAction, Pagination, Toast } from '$components/organisms'
+import {  Modal, PageAction, Pagination, Toast } from '$components/organisms'
 
-import { NoUsersIll } from '$assets/illustrations'
 import { SortAscending, Funnel, Check } from '$assets/icons'
 
 /**
@@ -97,15 +96,6 @@ function closeToastDelete() {
   toastRef.value = false
   checkboxRef.value = false
 }
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -128,13 +118,9 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <!-- Empty State -->
-      <EmptyState v-if="isEmptyState" :toggle-empty="toggleEmpty" title="No users list" desc="The users you are looking for is not available.">
-        <NoUsersIll class="w-60 h-60"/>
-      </EmptyState>
 
       <!-- Table Users -->
-      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
+      <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -251,7 +237,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
 
     <!-- Page Action : Home -->

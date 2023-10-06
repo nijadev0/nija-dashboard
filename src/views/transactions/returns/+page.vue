@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { EmptyState, Pagination } from '$components/organisms'
+import { Pagination } from '$components/organisms'
 import { DashboardLayout } from '$components/templates'
 import { Badge, Body, Button, Input, Title } from '$components/atoms'
 
 import { Funnel, MagnifyingGlass, SortAscending, UploadSimple } from '$assets/icons'
-import { NoReturnsIll } from '$assets/illustrations'
 
 /**
  * Dummy data - Manage Returns
@@ -76,15 +75,6 @@ const manageReturnsData = [
     status: 'reject',
   },
 ]
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -125,17 +115,9 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <EmptyState
-        v-if="isEmptyState"
-        :toggle-empty="toggleEmpty"
-        title="No return list"
-        desc="The return you are looking for is not available."
-      >
-        <NoReturnsIll class="h-60 w-60" />
-      </EmptyState>
 
       <!-- Table Categories -->
-      <section v-if="!isEmptyState" class="TableListProducts mb-6 w-full">
+      <section class="TableListProducts mb-6 w-full">
         <!-- Table Categories -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-fixed">
@@ -262,7 +244,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </section>
   </DashboardLayout>
 </template>

@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 
 import { DashboardLayout } from '$components/templates'
-import { EmptyState, Pagination, Toast } from '$components/organisms'
+import { Pagination, Toast } from '$components/organisms'
 import { Body, Button, Title, Toggle } from '$components/atoms'
 import { UploadBannerImageEmpty, UploadBannerImageFilled } from '$components/organisms/Modal'
 
 import { MagnifyingGlass, FolderSimplePlus, Trash, Pencil } from '$assets/icons'
-import { NoBannersIll } from '$assets/illustrations'
 
 /**
  * =======================
@@ -95,15 +94,6 @@ function openSavedToast() {
 function closeSavedToast() {
   savedToastRef.value = false
 }
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -139,17 +129,7 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <!-- Empty State -->
-      <EmptyState
-        v-if="isEmptyState"
-        :toggle-empty="toggleEmpty"
-        title="No banners list"
-        desc="The banners you are looking for is not available."
-      >
-        <NoBannersIll class="h-60 w-60" />
-      </EmptyState>
-
-      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
+      <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -258,7 +238,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
 
     <!-- Modal -->

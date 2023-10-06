@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { Body, Button, Input, TextArea, Title } from '$components/atoms'
+import { Body, Button, Input, Select, TextArea, Title } from '$components/atoms'
 
 import { DashboardLayout } from '$components/templates'
 import { RejectReasonModal } from '$components/organisms/Modal'
@@ -129,6 +129,12 @@ function openToastReject() {
 function closeToastReject() {
   toastRejectRef.value = false
 }
+
+const status = [
+  { name: 'Process', color: 'bg-netral-80' },
+  { name: 'Waiting', color: 'bg-warning-main' },
+  { name: 'Success', color: 'bg-success-main' },
+]
 </script>
 
 <template>
@@ -227,14 +233,16 @@ function closeToastReject() {
         </div>
 
         <div class="w-full max-w-xl 2xl:max-w-4xl">
-          <Input
+          <!-- <Input
             variant="status"
             input-type="text"
             name="ProductName"
             placeholder="Enter product name"
             value="8723781236"
             status="Waiting"
-          />
+          /> -->
+
+          <Select variant="relax" type="status" :select-data="status" />
         </div>
       </div>
     </section>
@@ -282,6 +290,7 @@ function closeToastReject() {
                 </button>
               </div>
             </div>
+
             <img
               class="h-full w-full rounded-large object-cover"
               :src="'/images/manage-return/manage-return-image-' + item + '.png'"

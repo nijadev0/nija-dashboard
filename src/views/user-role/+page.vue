@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 
-import { NoUserRolesIll } from '$assets/illustrations'
 import { DashboardLayout } from '$components/templates'
 import { Button, Body, Title } from '$components/atoms'
-import { Modal, Pagination, PageAction, Toast, EmptyState } from '$components/organisms'
+import { Modal, Pagination, PageAction, Toast } from '$components/organisms'
 
-import { Check, MagnifyingGlass, Plus, UserPlus } from '$assets/icons'
+import { Check, MagnifyingGlass, UserPlus } from '$assets/icons'
 
 /**
  * =======================
@@ -97,15 +96,6 @@ function closeToastDelete() {
   toastRef.value = false
   checkboxRef.value = false
 }
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -141,18 +131,10 @@ const toggleEmpty = () => {
           </Button>
         </div>
       </div>
-      <!-- Empty State -->
-      <EmptyState
-        v-if="isEmptyState"
-        :toggle-empty="toggleEmpty"
-        title="No user roles list"
-        desc="The user roles you are looking for is not available."
-      >
-        <NoUserRolesIll class="h-60 w-60" />
-      </EmptyState>
+
 
       <!-- Table Users -->
-      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
+      <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -260,7 +242,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
 
     <!-- Page Action : Home -->

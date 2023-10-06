@@ -6,8 +6,6 @@ import { DashboardLayout } from '$components/templates'
 import { Button, Body, Title } from '$components/atoms'
 
 import { Check, MagnifyingGlass, Storefront } from '$assets/icons'
-import { EmptyState } from '$components/organisms'
-import { NoOutletsIll } from '$assets/illustrations'
 
 /**
  * =======================
@@ -65,15 +63,6 @@ const outletsData = [
  * =======================
  */
 const checkboxRef = ref(false)
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -110,17 +99,7 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <!-- Empty State -->
-      <EmptyState
-        v-if="isEmptyState"
-        :toggle-empty="toggleEmpty"
-        title="No banners list"
-        desc="The banners you are looking for is not available."
-      >
-        <NoOutletsIll class="h-60 w-60" />
-      </EmptyState>
-
-      <section v-if="!isEmptyState" class="TableUsers mb-6 w-full">
+      <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrapper relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">

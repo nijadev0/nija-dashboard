@@ -4,9 +4,8 @@ import { Switch, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui
 
 import { DashboardLayout } from '$components/templates'
 import { Badge, Body, Button, Title } from '$components/atoms'
-import { EmptyState, Modal, PageAction, Pagination, Toast } from '$components/organisms'
+import { Modal, PageAction, Pagination, Toast } from '$components/organisms'
 
-import { NoCategoriesIll } from '$assets/illustrations'
 import { Funnel, Plus, SortAscending, SquaresFour, List, Check, ArrowUpRight } from '$assets/icons'
 
 /**
@@ -124,15 +123,6 @@ function closeToastDraft() {
   toastDraftRef.value = false
   checkboxRef.value = false
 }
-
-/**
- * Empty State
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -179,11 +169,9 @@ const toggleEmpty = () => {
             </div>
           </div>
         </TabList>
-        <EmptyState v-if="isEmptyState" :toggle-empty="toggleEmpty" title="No category found" desc="The product category you are looking for is not available." btn-label="Add Category">
-          <NoCategoriesIll class="w-60 h-60"/>
-        </EmptyState>
 
-        <TabPanels v-if="!isEmptyState">
+
+        <TabPanels>
           <!-- List Card -->
           <TabPanel>
             <section
@@ -386,7 +374,7 @@ const toggleEmpty = () => {
       </TabGroup>
 
       <!-- Pagination -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
 
     <!-- Page Action : Home -->

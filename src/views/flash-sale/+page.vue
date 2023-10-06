@@ -4,7 +4,7 @@ import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Badge, Body, Button, Title } from '$components/atoms'
-import { EmptyState, Modal, PageAction, Pagination, Toast } from '$components/organisms'
+import { Modal, PageAction, Pagination, Toast } from '$components/organisms'
 
 import {
   FlashSaleModal,
@@ -12,7 +12,6 @@ import {
   FlashSaleModalConfirmation,
 } from '$components/organisms/Modal'
 
-import { NoFlashSaleIll } from '$assets/illustrations'
 import { Funnel, SortAscending, Lightning, Check, MagnifyingGlass } from '$assets/icons'
 
 /**
@@ -192,17 +191,6 @@ function closeToastSaved() {
     toastSavedtRef.value = false
   }, 2000)
 }
-
-/**
- * =================
- * Empty State
- * =================
- */
-const isEmptyRef = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyRef.value = false
-}
 </script>
 
 <template>
@@ -250,17 +238,8 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <EmptyState
-        v-if="isEmptyRef"
-        :toggle-empty="toggleEmpty"
-        title="No flash sale list"
-        desc="The flash sale you are looking for is not available."
-      >
-        <NoFlashSaleIll class="h-60 w-60" />
-      </EmptyState>
-
       <!-- Table Users -->
-      <section v-else class="TableListProducts mb-6 w-full">
+      <section class="TableListProducts mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -397,7 +376,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination v-if="!isEmptyRef" />
+      <Pagination />
     </div>
 
     <!-- Page Action : Home -->

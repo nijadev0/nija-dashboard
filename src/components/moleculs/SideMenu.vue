@@ -41,8 +41,9 @@ const currentActive = useRoute().fullPath
     v-if="variant === 'default'"
     :to="`${href}`"
     class="SideMenu Default flex w-full min-w-[180px] items-center gap-3 rounded-large p-3 text-left text-netral-50 hover:bg-netral-20 focus:text-primary-main"
-    :class="[exact ? (href === currentActive ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50') : (currentActive.includes(`${href}`) ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50')]"
-  >
+    :class="[exact ? `${href === currentActive ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50'}` : `${currentActive?.includes(`${href}`) ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50'}`]"
+    >
+    <!-- :class="[exact ? `${(href === currentActive ? "" : "")}` : `${(currentActive?.includes(`${href}`) ? "" : "")}`]" -->
     <slot />
   </router-link>
 
@@ -51,14 +52,9 @@ const currentActive = useRoute().fullPath
     v-if="variant === 'sub'"
     :to="`${href}`"
     class="SideMenu Sub flex w-full items-center gap-3 rounded-large p-3 text-left text-netral-50 hover:bg-netral-20 focus:bg-netral-20 focus:text-primary-main"
-
+    :class="[currentActive.includes(`${href}`) ? 'bg-netral-20 text-primary-main' : 'bg-white text-netral-50']"
   >
     <slot />
   </router-link>
 </template>
 
-<style scoped lang="postcss">
-.Active {
-  @apply bg-netral-20 text-primary-main;
-}
-</style>

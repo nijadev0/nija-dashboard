@@ -4,9 +4,8 @@ import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Badge, Body, Button, Title } from '$components/atoms'
-import { EmptyState, Modal, PageAction, Pagination, Toast } from '$components/organisms'
+import { Modal, PageAction, Pagination, Toast } from '$components/organisms'
 
-import { NoProductsIll } from '$assets/illustrations'
 import { Funnel, SortAscending, Plus, Check } from '$assets/icons'
 
 /**
@@ -117,17 +116,6 @@ function closeToastDraft() {
   toastDraftRef.value = false
   checkboxRef.value = false
 }
-
-/**
- * =================
- * Empty state
- * =================
- */
-const isEmptyState = ref(true)
-
-const toggleEmpty = () => {
-  isEmptyState.value = false
-}
 </script>
 
 <template>
@@ -161,22 +149,8 @@ const toggleEmpty = () => {
         </div>
       </div>
 
-      <div class="flex w-full items-center justify-center">
-        <div class="mx-auto max-w-2xl">
-          <EmptyState
-            v-if="isEmptyState"
-            btn-label="Add Product"
-            title="No products found"
-            :toggle-empty="toggleEmpty"
-            desc="The product you are looking for is not available"
-          >
-            <NoProductsIll class="h-60 w-60" />
-          </EmptyState>
-        </div>
-      </div>
-
       <!-- Table Users -->
-      <section v-if="!isEmptyState" class="TableListProducts mb-6 w-full">
+      <section  class="TableListProducts mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -316,7 +290,7 @@ const toggleEmpty = () => {
       </section>
 
       <!-- Pagination : Home -->
-      <Pagination v-if="!isEmptyState" />
+      <Pagination />
     </div>
 
     <!-- Page Action : Home -->
