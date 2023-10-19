@@ -66,7 +66,7 @@ const usersData = ref([
 
 /**
  * =======================
- * Checkbox Ref
+ * Checkbox
  * =======================
  */
 const isSelectAll = ref(false)

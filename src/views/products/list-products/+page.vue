@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
@@ -13,7 +13,7 @@ import { Funnel, SortAscending, Plus, Check } from '$assets/icons'
  * Dummy Data - List Products
  * ============================
  */
-const listProductsData = [
+const listProductsData = ref([
   {
     productName: "T-Men's UA Storm Armour Down 2.0 Jacket",
     productImage: '/images/list-products/ListProducts-1.png',
@@ -21,6 +21,7 @@ const listProductsData = [
     status: 'active',
     stock: 401,
     price: '$178',
+    checked: false,
   },
   {
     productName: 'Windproof Handbell Oversized Long Coat',
@@ -29,6 +30,7 @@ const listProductsData = [
     status: 'scheduled',
     stock: 738,
     price: '$178',
+    checked: false,
   },
   {
     productName: "Women's Stripe Sweater",
@@ -37,6 +39,7 @@ const listProductsData = [
     status: 'active',
     stock: 432,
     price: '$178',
+    checked: false,
   },
   {
     productName: "Women's Turtleneck Sweater",
@@ -45,6 +48,7 @@ const listProductsData = [
     status: 'draft',
     stock: 0,
     price: '$178',
+    checked: false,
   },
   {
     productName: 'One Set - Casual Hoodie with Buttons',
@@ -53,15 +57,25 @@ const listProductsData = [
     status: 'active',
     stock: 334,
     price: '$178',
+    checked: false,
   },
-]
+])
 
 /**
  * =======================
- * Checkbox Ref
+ * Checkbox
  * =======================
  */
-const checkboxRef = ref(false)
+const isSelectAll = ref(false)
+watch(isSelectAll, (value) => {
+  listProductsData.value = listProductsData.value.map((item) => ({
+    ...item,
+    checked: value,
+  }))
+})
+const isSelecting = computed(() => {
+  return listProductsData.value.filter((item) => item.checked).length > 0
+})
 
 /**
  * =================
@@ -102,7 +116,7 @@ function openToastDelete() {
 
 function closeToastDelete() {
   toastDeleteRef.value = false
-  checkboxRef.value = false
+  isSelectAll.value = false
 }
 
 const toastDraftRef = ref(false)
@@ -114,7 +128,7 @@ function openToastDraft() {
 
 function closeToastDraft() {
   toastDraftRef.value = false
-  checkboxRef.value = false
+  isSelectAll.value = false
 }
 </script>
 
@@ -150,7 +164,7 @@ function closeToastDraft() {
       </div>
 
       <!-- Table Users -->
-      <section  class="TableListProducts mb-6 w-full">
+      <section class="TableListProducts mb-6 w-full">
         <!-- Table Users -->
         <div class="Wrap relative w-full overflow-x-auto">
           <table class="Table w-full table-auto">
@@ -161,18 +175,18 @@ function closeToastDraft() {
                   class="w-px py-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6 2xl:py-4"
                 >
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="isSelectAll"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="isSelectAll ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -220,18 +234,20 @@ function closeToastDraft() {
               >
                 <td class="w-px py-4 text-left capitalize text-netral-80 first:pl-3 2xl:px-6">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="product.checked"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        product.checked
+                          ? 'border-primary-border bg-primary-main'
+                          : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="product.checked ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -296,9 +312,9 @@ function closeToastDraft() {
     <!-- Page Action : Home -->
     <template #PageAction>
       <PageAction
-        v-if="checkboxRef"
+        v-if="isSelecting"
         variant="deleteDraft"
-        :is-selected="checkboxRef"
+        :is-selected="isSelecting"
         :open-modal="openModalDelete"
         :open-modal-draft="openModalDraft"
       />
