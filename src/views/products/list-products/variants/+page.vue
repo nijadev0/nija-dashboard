@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
@@ -14,36 +14,20 @@ import { Check, Plus } from '$assets/icons'
  * Dummy Data - Users
  * =======================
  */
-const usersData = [
+const variants = ref([
   {
-    name: 'Samanta Legend',
-    email: 'samanta@mail.com',
-    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-    createAt: 'Orange',
-    date: 'May 6, 2012',
+    checked: false,
   },
   {
-    name: 'Samanta Legend',
-    email: 'samanta@mail.com',
-    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-    createAt: 'Orange',
-    date: 'May 6, 2012',
+    checked: false,
   },
   {
-    name: 'Samanta Legend',
-    email: 'samanta@mail.com',
-    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-    createAt: 'Orange',
-    date: 'May 6, 2012',
+    checked: false,
   },
   {
-    name: 'Samanta Legend',
-    email: 'samanta@mail.com',
-    address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-    createAt: 'Orange',
-    date: 'May 6, 2012',
+    checked: false,
   },
-]
+])
 
 /**
  * =================
@@ -72,10 +56,19 @@ const sizesData = [
 
 /**
  * =======================
- * Checkbox Ref
+ * Checkbox
  * =======================
  */
-const checkboxRef = ref(false)
+const isSelectAll = ref(false)
+watch(isSelectAll, (value) => {
+  variants.value = variants.value.map((item) => ({
+    ...item,
+    checked: value,
+  }))
+})
+const isSelecting = computed(() => {
+  return variants.value.filter((item) => item.checked).length > 0
+})
 
 /**
  * ==========================
@@ -137,7 +130,7 @@ function openToastSaved() {
 
         <div class="Cta flex gap-3">
           <Button
-            v-if="checkboxRef"
+            v-if="isSelecting"
             type="click"
             variant="error"
             modifier="outlineError"
@@ -165,18 +158,18 @@ function openToastSaved() {
                   class="w-px py-3 pr-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6 2xl:py-4"
                 >
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="isSelectAll"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="isSelectAll ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -227,23 +220,28 @@ function openToastSaved() {
 
             <!-- Table Users: Body -->
             <tbody class="TableBody relative w-full">
-              <tr v-for="user in usersData" class="border-b border-netral-20 last:border-netral-30">
+              <tr
+                v-for="variant in variants"
+                class="border-b border-netral-20 last:border-netral-30"
+              >
                 <td
                   class="w-px py-3 pr-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6 2xl:py-4"
                 >
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="variant.checked"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        variant.checked
+                          ? 'border-primary-border bg-primary-main'
+                          : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="variant.checked ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
