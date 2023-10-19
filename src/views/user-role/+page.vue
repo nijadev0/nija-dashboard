@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
@@ -13,13 +13,14 @@ import { Check, MagnifyingGlass, UserPlus } from '$assets/icons'
  * Dummy Data - Users
  * =======================
  */
-const usersData = [
+const usersData = ref([
   {
     name: 'Samanta Legend',
     email: 'samanta@mail.com',
     role: 'Super Admin',
     phone: '(603) 555-0123',
     date: 'May 6, 2012',
+    checked: false,
   },
   {
     name: 'Annette Black',
@@ -27,6 +28,7 @@ const usersData = [
     role: 'Admin',
     phone: '(239) 555-0108',
     date: 'April 28, 2016',
+    checked: false,
   },
   {
     name: 'Dianne Russell',
@@ -34,6 +36,7 @@ const usersData = [
     role: 'Cashier',
     phone: '(208) 555-0112',
     date: 'November 16, 2014',
+    checked: false,
   },
   {
     name: 'Devon Lane',
@@ -41,6 +44,7 @@ const usersData = [
     role: 'Admin',
     phone: '(219) 555-0114',
     date: 'March 23, 2013',
+    checked: false,
   },
   {
     name: 'Marvin McKinney',
@@ -48,6 +52,7 @@ const usersData = [
     role: 'Cashier',
     phone: '(208) 555-0112',
     date: 'November 16, 2014',
+    checked: false,
   },
   {
     name: 'Jerome Bell',
@@ -55,15 +60,25 @@ const usersData = [
     role: 'Cashier',
     phone: '(704) 555-0127',
     date: 'March 23, 2013',
+    checked: false,
   },
-]
+])
 
 /**
  * =======================
- * Checkbox Ref
+ * Checkbox
  * =======================
  */
-const checkboxRef = ref(false)
+const isSelectAll = ref(false)
+watch(isSelectAll, (value) => {
+  usersData.value = usersData.value.map((item) => ({
+    ...item,
+    checked: value,
+  }))
+})
+const isSelecting = computed(() => {
+  return usersData.value.filter((item) => item.checked).length > 0
+})
 
 /**
  * =================
@@ -94,7 +109,7 @@ function openToastDelete() {
 
 function closeToastDelete() {
   toastRef.value = false
-  checkboxRef.value = false
+  isSelectAll.value = false
 }
 </script>
 
@@ -132,7 +147,6 @@ function closeToastDelete() {
         </div>
       </div>
 
-
       <!-- Table Users -->
       <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
@@ -143,18 +157,18 @@ function closeToastDelete() {
               <tr>
                 <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="isSelectAll"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="isSelectAll ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -197,18 +211,18 @@ function closeToastDelete() {
               <tr v-for="user in usersData" class="border-b border-netral-20 last:border-netral-30">
                 <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="user.checked"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        user.checked ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="user.checked ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -248,7 +262,7 @@ function closeToastDelete() {
     <!-- Page Action : Home -->
     <!-- v-if="checkboxRef" -->
     <template #PageAction>
-      <PageAction :is-selected="checkboxRef" variant="deleteOnly" :open-modal="openModalDelete" />
+      <PageAction :is-selected="isSelecting" variant="deleteOnly" :open-modal="openModalDelete" />
     </template>
 
     <!-- Modal Delete : Home -->
