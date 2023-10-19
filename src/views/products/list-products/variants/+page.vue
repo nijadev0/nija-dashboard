@@ -16,15 +16,19 @@ import { Check, Plus } from '$assets/icons'
  */
 const variants = ref([
   {
+    image: '/images/variants/variant-1.png',
     checked: false,
   },
   {
+    image: '/images/variants/variant-2.png',
     checked: false,
   },
   {
+    image: '/images/variants/variant-3.png',
     checked: false,
   },
   {
+    image: '/images/variants/variant-4.png',
     checked: false,
   },
 ])
@@ -218,7 +222,7 @@ function openToastSaved() {
               </tr>
             </thead>
 
-            <!-- Table Users: Body -->
+            <!-- Table Variants: Body -->
             <tbody class="TableBody relative w-full">
               <tr
                 v-for="variant in variants"
@@ -258,7 +262,7 @@ function openToastSaved() {
                   <img
                     v-else
                     class="h-16 w-16 rounded-large 2xl:h-20 2xl:w-20 2xl:max-w-[80px]"
-                    src="/images/list-products/ListProducts-1.png"
+                    :src="variant.image"
                     alt="List product"
                   />
                 </td>
