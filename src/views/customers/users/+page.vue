@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Body, Button, Title } from '$components/atoms'
-import {  Modal, PageAction, Pagination, Toast } from '$components/organisms'
+import { Modal, PageAction, Pagination, Toast } from '$components/organisms'
 
 import { SortAscending, Funnel, Check } from '$assets/icons'
 
@@ -13,13 +13,14 @@ import { SortAscending, Funnel, Check } from '$assets/icons'
  * Dummy Data - Users
  * =======================
  */
-const usersData = [
+const usersData = ref([
   {
     name: 'Samanta Legend',
     email: 'samanta@mail.com',
     address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
     createAt: 'Orange',
     date: 'May 6, 2012',
+    checked: false,
   },
   {
     name: 'Annette Black',
@@ -27,6 +28,7 @@ const usersData = [
     address: '3517 W. Gray St. Utica, Pennsylvania 57867',
     createAt: 'Toledo',
     date: 'April 28, 2016',
+    checked: false,
   },
   {
     name: 'Dianne Russell',
@@ -34,6 +36,7 @@ const usersData = [
     address: '8502 Preston Rd. Inglewood, Maine 98380',
     createAt: 'Naperville',
     date: 'November 16, 2014',
+    checked: false,
   },
   {
     name: 'Devon Lane',
@@ -41,6 +44,7 @@ const usersData = [
     address: '2464 Royal Ln. Mesa, New Jersey 45463',
     createAt: 'Fairfield',
     date: 'March 23, 2013',
+    checked: false,
   },
   {
     name: 'Marvin McKinney',
@@ -48,6 +52,7 @@ const usersData = [
     address: '3891 Ranchview Dr. Richardson, California 62639',
     createAt: 'Austin',
     date: 'November 16, 2014',
+    checked: false,
   },
   {
     name: 'Jerome Bell',
@@ -55,15 +60,25 @@ const usersData = [
     address: '8502 Preston Rd. Inglewood, Maine 98380',
     createAt: 'Orange',
     date: 'March 23, 2013',
+    checked: false,
   },
-]
+])
 
 /**
  * =======================
  * Checkbox Ref
  * =======================
  */
-const checkboxRef = ref(false)
+const isSelectAll = ref(false)
+watch(isSelectAll, (value) => {
+  usersData.value = usersData.value.map((item) => ({
+    ...item,
+    checked: value,
+  }))
+})
+const isSelecting = computed(() => {
+  return usersData.value.filter((item) => item.checked).length > 0
+})
 
 /**
  * =================
@@ -94,7 +109,7 @@ function openToastDelete() {
 
 function closeToastDelete() {
   toastRef.value = false
-  checkboxRef.value = false
+  isSelectAll.value = false
 }
 </script>
 
@@ -118,7 +133,6 @@ function closeToastDelete() {
         </div>
       </div>
 
-
       <!-- Table Users -->
       <section class="TableUsers mb-6 w-full">
         <!-- Table Users -->
@@ -129,18 +143,18 @@ function closeToastDelete() {
               <tr>
                 <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="isSelectAll"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="isSelectAll ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -183,46 +197,46 @@ function closeToastDelete() {
               <tr v-for="user in usersData" class="border-b border-netral-20 last:border-netral-30">
                 <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="user.checked"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        user.checked ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="user.checked ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
                 </td>
 
-                <td class="min-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="min-w-[180px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.name }} </Body>
                 </td>
 
-                <td class="min-w-[160px] py-6 px-6 text-left text-netral-80 first:pl-3">
+                <td class="min-w-[160px] px-6 py-6 text-left text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.email }} </Body>
                 </td>
 
-                <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[180px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium">
                     {{ user.address }}
                   </Body>
                 </td>
 
-                <td class="max-w-[130px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[130px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.createAt }} </Body>
                 </td>
 
-                <td class="max-w-[180px] py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="max-w-[180px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <Body size="lg" weight="medium"> {{ user.date }} </Body>
                 </td>
 
-                <td class="w-px py-6 px-6 text-left capitalize text-netral-80 first:pl-3">
+                <td class="w-px px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
                   <button
                     class="text-primary-main"
                     @click="$router.push('/customers/users/detail')"
@@ -241,9 +255,9 @@ function closeToastDelete() {
     </div>
 
     <!-- Page Action : Home -->
-    <!-- v-if="checkboxRef" -->
+    <!-- v-if="isSelecting" -->
     <template #PageAction>
-      <PageAction :is-selected="checkboxRef" variant="deleteOnly" :open-modal="openModalDelete" />
+      <PageAction :is-selected="isSelecting" variant="deleteOnly" :open-modal="openModalDelete" />
     </template>
 
     <!-- Modal Delete : Home -->
