@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
@@ -12,13 +12,14 @@ import { Check, MagnifyingGlass, Storefront } from '$assets/icons'
  * Dummy Data - Outlets
  * =======================
  */
-const outletsData = [
+const outletsData = ref([
   {
     name: 'Brand Here Delaware',
     address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
     phone: '(603) 555-0123',
     managerBranch: 'Arlene McCoy',
     totalTransaction: '$5392',
+    checked: false,
   },
   {
     name: 'Brand Here Kentucky',
@@ -26,6 +27,7 @@ const outletsData = [
     phone: '(684) 555-0102',
     managerBranch: 'Courtney Henry',
     totalTransaction: '$7890',
+    checked: false,
   },
   {
     name: 'Brand Here Maine',
@@ -33,6 +35,7 @@ const outletsData = [
     phone: '(480) 555-0103',
     managerBranch: 'Jerome Bell',
     totalTransaction: '$6499',
+    checked: false,
   },
   {
     name: 'Brand Here Pennsylvania',
@@ -40,6 +43,7 @@ const outletsData = [
     phone: '(704) 555-0127',
     managerBranch: 'Kathryn Murphy',
     totalTransaction: '$7239',
+    checked: false,
   },
   {
     name: 'Brand Here Hawaii',
@@ -47,6 +51,7 @@ const outletsData = [
     phone: '(316) 555-0116',
     managerBranch: 'Theresa Webb',
     totalTransaction: '$3473',
+    checked: false,
   },
   {
     name: 'Brand Here Connecticut',
@@ -54,15 +59,22 @@ const outletsData = [
     phone: '(808) 555-0111',
     managerBranch: 'Floyd Miles',
     totalTransaction: '$7438',
+    checked: false,
   },
-]
+])
 
 /**
  * =======================
- * Checkbox Ref
+ * Checkbox
  * =======================
  */
-const checkboxRef = ref(false)
+const isSelectAll = ref(false)
+watch(isSelectAll, (value) => {
+  outletsData.value = outletsData.value.map((item) => ({
+    ...item,
+    checked: value,
+  }))
+})
 </script>
 
 <template>
@@ -108,18 +120,18 @@ const checkboxRef = ref(false)
               <tr>
                 <th class="w-px px-6 py-3 text-left capitalize text-netral-80 first:pl-3 2xl:py-4">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="isSelectAll"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="isSelectAll ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
@@ -169,18 +181,20 @@ const checkboxRef = ref(false)
               >
                 <td class="w-px px-6 py-4 text-left capitalize text-netral-80 first:pl-3">
                   <Switch
-                    v-model="checkboxRef"
+                    v-model="outlet.checked"
                     class="Checkbox flex items-center gap-2 outline-none"
                   >
                     <div
                       class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
                       :class="
-                        checkboxRef ? 'border-primary-border bg-primary-main' : 'border-netral-60'
+                        outlet.checked
+                          ? 'border-primary-border bg-primary-main'
+                          : 'border-netral-60'
                       "
                     >
                       <Check
                         class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="checkboxRef ? 'block' : 'hidden'"
+                        :class="outlet.checked ? 'block' : 'hidden'"
                       />
                     </div>
                   </Switch>
