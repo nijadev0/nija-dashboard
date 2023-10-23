@@ -2,8 +2,23 @@
 import { ref } from 'vue'
 
 import { Input, Title } from '$components/atoms'
-import { PageAction, Toast } from '$components/organisms'
+import { Modal, PageAction, Toast } from '$components/organisms'
 import { DashboardLayout } from '$components/templates'
+
+/**
+ * =================
+ * Modal
+ * =================
+ */
+const modalRef = ref(false)
+
+function openModalEdit() {
+  modalRef.value = true
+}
+
+function closeModalEdit() {
+  modalRef.value = false
+}
 
 /**
  * =================
@@ -13,6 +28,7 @@ import { DashboardLayout } from '$components/templates'
 const toastRef = ref(false)
 
 function openToastSaved() {
+  modalRef.value = false
   toastRef.value = true
 }
 
@@ -63,7 +79,18 @@ function closeToastSaved() {
         v-if="true"
         variant="saveDiscard"
         :is-selected="true"
-        :open-modal="openToastSaved"
+        :open-modal="openModalEdit"
+      />
+    </template>
+
+    <template #Modal>
+      <Modal
+        variant="approve"
+        :modal-ref="modalRef"
+        :close-modal="closeModalEdit"
+        :open-toast="openToastSaved"
+        title="Update User"
+        description="Are you sure want to update this user?"
       />
     </template>
 
