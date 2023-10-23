@@ -7,6 +7,7 @@ import { Body, Button, Title, Toggle } from '$components/atoms'
 import { UploadBannerImageEmpty, UploadBannerImageFilled } from '$components/organisms/Modal'
 
 import { MagnifyingGlass, FolderSimplePlus, Trash, Pencil } from '$assets/icons'
+import Modal from '$components/organisms/Modal.vue'
 
 /**
  * =======================
@@ -71,6 +72,22 @@ function closeModalFilled() {
 
 /**
  * =======================
+ * Modal - Edit
+ * =======================
+ */
+
+const modalEditRef = ref(false)
+
+function openModalEdit() {
+  modalEditRef.value = true
+}
+
+function closeModalEdit() {
+  modalEditRef.value = false
+}
+
+/**
+ * =======================
  * Toast Saved
  * =======================
  */
@@ -93,6 +110,63 @@ function openSavedToast() {
 
 function closeSavedToast() {
   savedToastRef.value = false
+}
+
+/**
+ * =======================
+ * Toast Saved
+ * =======================
+ */
+
+const editSavedToastRef = ref(false)
+
+function openEditSavedToast() {
+  setTimeout(() => {
+    closeModalEdit()
+  }, 500)
+
+  setTimeout(() => {
+    editSavedToastRef.value = true
+  }, 750)
+
+  setTimeout(() => {
+    closeEditSavedToast()
+  }, 2500)
+}
+
+function closeEditSavedToast() {
+  editSavedToastRef.value = false
+}
+
+/**
+ * =================
+ * Modal - Delete
+ * =================
+ */
+const modalRef = ref(false)
+
+function openModalDelete() {
+  modalRef.value = true
+}
+
+function closeModalDelete() {
+  modalRef.value = false
+}
+
+/**
+ * =================
+ * Toast Delete
+ * =================
+ */
+const toastRef = ref(false)
+
+function openToastDelete() {
+  modalRef.value = false
+  toastRef.value = true
+}
+
+function closeToastDelete() {
+  toastRef.value = false
 }
 </script>
 
@@ -212,7 +286,7 @@ function closeSavedToast() {
                   <div class="Action flex gap-3 2xl:gap-4">
                     <Button
                       type="click"
-                      :on-click="() => {}"
+                      :on-click="openModalEdit"
                       variant="plain"
                       size="medium"
                       modifier="defaultPlain"
@@ -222,7 +296,7 @@ function closeSavedToast() {
 
                     <Button
                       type="click"
-                      :on-click="() => {}"
+                      :on-click="openModalDelete"
                       variant="plain"
                       size="medium"
                       modifier="defaultPlain"
@@ -254,6 +328,21 @@ function closeSavedToast() {
         :closeModal="closeModalEmpty"
         :nextClick="openSavedToast"
       />
+
+      <UploadBannerImageFilled
+        :isOpenRef="modalEditRef"
+        :closeModal="closeModalEdit"
+        :nextClick="openEditSavedToast"
+      />
+
+      <Modal
+        variant="delete"
+        :modal-ref="modalRef"
+        :close-modal="closeModalDelete"
+        :open-toast="openToastDelete"
+        title="Delete Banner"
+        description="Are you sure want to delete this banner? Banner which already deleted can not be recovered."
+      />
     </template>
 
     <!-- Toast -->
@@ -264,6 +353,20 @@ function closeSavedToast() {
         variant="saved"
         heading="Banner added successfully"
         description="Banner successfully added, you can edit or replace the banner in the action column."
+      />
+      <Toast
+        :toastRef="editSavedToastRef"
+        :closeToast="closeEditSavedToast"
+        variant="saved"
+        heading="Banner updated successfully"
+        description="Banner successfully updated."
+      />
+      <Toast
+        variant="delete"
+        :toast-ref="toastRef"
+        :close-toast="closeToastDelete"
+        heading="Banner has been deleted"
+        description="Banner which already deleted can not be recovered."
       />
     </template>
   </DashboardLayout>
