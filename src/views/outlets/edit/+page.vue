@@ -8,6 +8,7 @@ import { PageAction, Toast } from '$components/organisms'
 import { UploadImageEmpty, UploadImageSingleFilled } from '$components/organisms/Modal'
 
 import { UploadSimple, Pencil, Trash } from '$assets/icons'
+import Modal from '$components/organisms/Modal.vue'
 
 /**
  * Empty -> Upload State
@@ -45,12 +46,30 @@ const closeModalUploadFilled = () => {
 }
 
 /**
+ * =================
+ * Modal Confirmation
+ * =================
+ */
+
+const modalUpdateConfirmationRef = ref(false)
+
+function openModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = true
+}
+
+function closeModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = false
+}
+
+/**
  * Toast Ref
  */
 
 const toastRefSaved = ref(false)
 
 function openToastSaved() {
+  closeModalUpdateConfirmation()
+
   setTimeout(() => {
     uploadFilledRef.value = false
   }, 500)
@@ -163,7 +182,11 @@ function closeToastSaved() {
     </div>
 
     <template #PageAction>
-      <PageAction variant="saveDiscard" :isSelected="true" :openModal="openToastSaved" />
+      <PageAction
+        variant="saveDiscard"
+        :isSelected="true"
+        :openModal="openModalUpdateConfirmation"
+      />
     </template>
 
     <template #Modal>
@@ -177,6 +200,14 @@ function closeToastSaved() {
         :isOpenRef="uploadFilledRef"
         :closeModal="closeModalUploadFilled"
         :nextClick="openToastSaved"
+      />
+      <Modal
+        variant="approve"
+        :modal-ref="modalUpdateConfirmationRef"
+        :close-modal="closeModalUpdateConfirmation"
+        :open-toast="openToastSaved"
+        title="Update Outlet"
+        description="Are you sure want to update this outlet?"
       />
     </template>
 
