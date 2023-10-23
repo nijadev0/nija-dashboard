@@ -176,6 +176,11 @@ const router = createRouter({
       name: 'Flash Sale',
       component: () => import('$views/flash-sale/+page.vue'),
     },
+    {
+      path: '/flash-sale/detail',
+      name: 'Detail Flash Sale',
+      component: () => import('$views/flash-sale/detail/+page.vue'),
+    },
 
     /**
      * ========================================
@@ -242,12 +247,12 @@ const router = createRouter({
       name: 'Edit User Role',
       component: () => import('$views/user-role/edit/+page.vue'),
     },
-     /**
+    /**
      * ========================================
      * Illustrations
      * ========================================
      */
-     {
+    {
       path: '/illustrations',
       name: 'Illustrations',
       component: () => import('$views/illustrations/+page.vue'),

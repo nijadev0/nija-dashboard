@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
-import { Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
 import { Badge, Body, Button, Title } from '$components/atoms'
@@ -12,76 +11,45 @@ import {
   FlashSaleModalConfirmation,
 } from '$components/organisms/Modal'
 
-import { Funnel, SortAscending, Lightning, Check, MagnifyingGlass } from '$assets/icons'
+import { Funnel, SortAscending, Lightning, MagnifyingGlass, Pencil, Trash } from '$assets/icons'
 
 /**
  * ============================
  * Dummy Data - List Products
  * ============================
  */
-const listProductsData = ref([
+const listData = ref([
   {
-    productName: "T-Men's UA Storm Armour Down 2.0 Jacket",
-    productImage: '/images/list-products/ListProducts-1.png',
-    category: 'outer',
-    status: 'active',
-    stock: 401,
-    price: '$178',
-    checked: false,
+    startDate: '20-11-2022, 16.30',
+    endDate: '21-11-2022, 16.30',
+    totalProducts: 65,
+    status: 'upcoming',
   },
   {
-    productName: 'Windproof Handbell Oversized Long Coat',
-    productImage: '/images/list-products/ListProducts-2.png',
-    category: 'outer',
-    status: 'scheduled',
-    stock: 738,
-    price: '$178',
-    checked: false,
+    startDate: '12-12-2022, 00.00',
+    endDate: '12-12-2022, 12.00',
+    totalProducts: 44,
+    status: 'ongoing',
   },
   {
-    productName: "Women's Stripe Sweater",
-    productImage: '/images/list-products/ListProducts-3.png',
-    category: 'sweater',
-    status: 'active',
-    stock: 432,
-    price: '$178',
-    checked: false,
+    startDate: '11-11-2022, 00.00',
+    endDate: '11-11-2022, 12.00',
+    totalProducts: 32,
+    status: 'expired',
   },
   {
-    productName: "Women's Turtleneck Sweater",
-    productImage: '/images/list-products/ListProducts-4.png',
-    category: 'sweater',
-    status: 'draft',
-    stock: 0,
-    price: '$178',
-    checked: false,
+    startDate: '11-11-2022, 00.00',
+    endDate: '11-11-2022, 12.00',
+    totalProducts: 54,
+    status: 'expired',
   },
   {
-    productName: 'One Set - Casual Hoodie with Buttons',
-    productImage: '/images/list-products/ListProducts-5.png',
-    category: 'kids',
-    status: 'active',
-    stock: 334,
-    price: '$178',
-    checked: false,
+    startDate: '11-11-2022, 00.00',
+    endDate: '11-11-2022, 12.00',
+    totalProducts: 76,
+    status: 'expired',
   },
 ])
-
-/**
- * =======================
- * Checkbox
- * =======================
- */
-const isSelectAll = ref(false)
-watch(isSelectAll, (value) => {
-  listProductsData.value = listProductsData.value.map((item) => ({
-    ...item,
-    checked: value,
-  }))
-})
-const isSelecting = computed(() => {
-  return listProductsData.value.filter((item) => item.checked).length > 0
-})
 
 /**
  * =================
@@ -127,7 +95,6 @@ function openToastDelete() {
 
 function closeToastDelete() {
   toastRef.value = false
-  isSelectAll.value = false
 }
 
 /**
@@ -261,51 +228,25 @@ function closeToastSaved() {
             <thead class="TableHead w-full rounded-lg bg-[#FAFAFA] 2xl:rounded-large">
               <tr>
                 <th
-                  class="w-px py-3 text-left capitalize text-netral-80 first:pl-3 2xl:px-6 2xl:py-4"
-                >
-                  <Switch
-                    v-model="isSelectAll"
-                    class="Checkbox flex items-center gap-2 outline-none"
-                  >
-                    <div
-                      class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
-                      :class="
-                        isSelectAll ? 'border-primary-border bg-primary-main' : 'border-netral-60'
-                      "
-                    >
-                      <Check
-                        class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="isSelectAll ? 'block' : 'hidden'"
-                      />
-                    </div>
-                  </Switch>
-                </th>
-
-                <th
                   class="max-w-[270px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Product </Body>
+                  <Body size="md" weight="medium"> Start Date </Body>
                 </th>
 
                 <th
                   class="min-w-[140px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Category </Body>
+                  <Body size="md" weight="medium"> End Date </Body>
                 </th>
                 <th
                   class="max-w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Status</Body>
+                  <Body size="md" weight="medium"> Total Products</Body>
                 </th>
                 <th
                   class="max-w-[64px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
                 >
-                  <Body size="md" weight="medium"> Stock </Body>
-                </th>
-                <th
-                  class="max-w-[120px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
-                >
-                  <Body size="md" weight="medium"> Price </Body>
+                  <Body size="md" weight="medium"> Status </Body>
                 </th>
                 <th
                   class="max-w-[100px] whitespace-nowrap px-6 py-3 text-left uppercase text-netral-50 first:pl-3 2xl:py-4"
@@ -317,73 +258,57 @@ function closeToastSaved() {
 
             <!-- Table Users: Body -->
             <tbody class="TableBody relative w-full">
-              <tr
-                v-for="product in listProductsData"
-                class="border-b border-netral-20 last:border-netral-30"
-              >
-                <td class="w-px py-4 text-left capitalize text-netral-80 first:pl-3 2xl:px-6">
-                  <Switch
-                    v-model="product.checked"
-                    class="Checkbox flex items-center gap-2 outline-none"
-                  >
-                    <div
-                      class="Wrapper relative flex h-4 w-4 items-center justify-between gap-2.5 rounded-md border outline-none 2xl:h-5 2xl:w-5"
-                      :class="
-                        product.checked
-                          ? 'border-primary-border bg-primary-main'
-                          : 'border-netral-60'
-                      "
-                    >
-                      <Check
-                        class="Icon absolute z-10 h-full w-full stroke-[2.5px] text-white 2xl:stroke-2"
-                        :class="product.checked ? 'block' : 'hidden'"
-                      />
-                    </div>
-                  </Switch>
-                </td>
-
-                <td class="max-w-[270px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <div class="flex w-full max-w-[270px] items-center gap-3 2xl:gap-4">
-                    <img
-                      class="h-16 w-16 2xl:h-20 2xl:w-20"
-                      :src="product.productImage"
-                      :alt="product.productName"
-                    />
-                    <Body size="lg" weight="medium">
-                      {{ product.productName }}
-                    </Body>
-                  </div>
+              <tr v-for="item in listData" class="border-b border-netral-20 last:border-netral-30">
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
+                  <Body size="lg" weight="medium"> {{ item.startDate }} </Body>
                 </td>
 
                 <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> {{ product.category }} </Body>
+                  <Body size="lg" weight="medium"> {{ item.endDate }} </Body>
+                </td>
+
+                <td class="max-w-[140px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
+                  <Body size="lg" weight="medium"> {{ item.totalProducts }} </Body>
                 </td>
 
                 <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Badge v-if="product.status === 'active'" variant="success">
-                    {{ product.status }}
+                  <Badge v-if="item.status === 'ongoing'" variant="success">
+                    {{ item.status }}
                   </Badge>
-                  <Badge v-if="product.status === 'scheduled'" variant="info">
-                    {{ product.status }}
+                  <Badge v-if="item.status === 'upcoming'" variant="neutral">
+                    {{ item.status }}
                   </Badge>
 
-                  <Badge v-if="product.status === 'draft'" variant="warning">
-                    {{ product.status }}
+                  <Badge v-if="item.status === 'expired'" variant="warning">
+                    {{ item.status }}
                   </Badge>
-                </td>
-
-                <td class="max-w-[64px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> {{ product.stock }} </Body>
-                </td>
-
-                <td class="max-w-[120px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <Body size="lg" weight="medium"> {{ product.price }} </Body>
                 </td>
 
                 <td class="max-w-[100px] px-6 py-6 text-left capitalize text-netral-80 first:pl-3">
-                  <button class="text-primary-main">
+                  <div class="Action flex gap-3 2xl:gap-4">
+                    <Button
+                      type="click"
+                      :on-click="() => $router.push('/flash-sale/detail')"
+                      variant="plain"
+                      size="medium"
+                      modifier="defaultPlain"
+                    >
+                      <Pencil class="h-5 w-5 stroke-[2.5px] text-netral-80" />
+                    </Button>
+
+                    <Button
+                      type="click"
+                      :on-click="openModalDelete"
+                      variant="plain"
+                      size="medium"
+                      modifier="defaultPlain"
+                    >
+                      <Trash class="h-5 w-5 stroke-[2.5px] text-error-main" />
+                    </Button>
+                  </div>
+                  <!-- <button class="text-primary-main" @click="$router.push('/flash-sale/detail')">
                     <Body size="lg" weight="semibold"> Detail </Body>
-                  </button>
+                  </button> -->
                 </td>
               </tr>
             </tbody>
@@ -395,34 +320,16 @@ function closeToastSaved() {
       <Pagination />
     </div>
 
-    <!-- Page Action : Home -->
-    <template #PageAction>
-      <PageAction
-        v-if="isSelecting"
-        variant="deleteOnly"
-        :is-selected="isSelecting"
-        :open-modal="openModalDelete"
-      />
-    </template>
-
     <!-- Modal Delete : Home -->
     <template #Modal>
       <Modal
-        variant="draft"
+        variant="delete"
         :modal-ref="modalRef"
         :close-modal="closeModalDelete"
         :open-toast="openToastDelete"
-        title="Delete Category"
-        description="Are you sure want to delete this category? Category which already deleted can not be recovered."
+        title="Delete Flash Sale"
+        description="Are you sure want to delete this flash sale? Flash sale which already deleted can not be recovered."
       />
-      <!-- <Modal
-        variant="delete"
-        :modal-ref="modalDraftRef"
-        :close-modal="closeModalDraft"
-        :open-toast="openToastDraft"
-        title="Delete Category"
-        description="Are you sure want to delete this category? Category which already deleted can not be recovered."
-      /> -->
 
       <FlashSaleModal
         :close-modal="closeModalFlashSale"
@@ -448,8 +355,8 @@ function closeToastSaved() {
         variant="delete"
         :toast-ref="toastRef"
         :close-toast="closeToastDelete"
-        heading="Users has been deleted"
-        description="User which already deleted can not be recovered."
+        heading="Flash sale has been deleted"
+        description="Flash sale which already deleted can not be recovered."
       />
 
       <Toast
