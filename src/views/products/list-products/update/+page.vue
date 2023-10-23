@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { TabGroup, TabList, Tab, TabPanels, TabPanel, Switch } from '@headlessui/vue'
 
 import { DashboardLayout } from '$components/templates'
-import { PageAction, Toast } from '$components/organisms'
+import { Modal, PageAction, Toast } from '$components/organisms'
 import { UploadImageEmpty, UploadImageFilled } from '$components/organisms/Modal'
 import { Body, Button, Input, Select, TextArea, Title, Toggle } from '$components/atoms'
 
@@ -137,6 +137,22 @@ function closeModalFilled() {
 }
 
 /**
+ * =================
+ * Modal Confirmation
+ * =================
+ */
+
+const modalUpdateConfirmationRef = ref(false)
+
+function openModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = true
+}
+
+function closeModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = false
+}
+
+/**
  * =======================
  * Checkbox Ref
  * =======================
@@ -153,6 +169,23 @@ function openToastSaved() {
 
   toastSavedRef.value = true
   showData.value = true
+}
+
+/**
+ * =======================
+ * Checkbox Updated Product Ref
+ * =======================
+ */
+const toastSavedProductRef = ref(false)
+
+function closeToastSavedProduct() {
+  toastSavedProductRef.value = false
+}
+
+function openToastSavedProduct() {
+  modalUpdateConfirmationRef.value = false
+
+  toastSavedProductRef.value = true
 }
 </script>
 
@@ -572,7 +605,7 @@ function openToastSaved() {
         v-if="true"
         variant="saveDiscard"
         :is-selected="true"
-        go-to="/products/list-products/empty-variants"
+        :open-modal="openModalUpdateConfirmation"
       />
     </template>
 
@@ -588,6 +621,14 @@ function openToastSaved() {
         :closeModal="closeModalFilled"
         :next-click="openToastSaved"
       />
+      <Modal
+        variant="approve"
+        :modal-ref="modalUpdateConfirmationRef"
+        :close-modal="closeModalUpdateConfirmation"
+        :open-toast="openToastSavedProduct"
+        title="Update User"
+        description="Are you sure want to update this product?"
+      />
     </template>
 
     <template #Toast>
@@ -597,6 +638,13 @@ function openToastSaved() {
         variant="saved"
         heading="Image has been uploaded"
         description="You have successfully added an image for your product variant."
+      />
+      <Toast
+        :toast-ref="toastSavedProductRef"
+        :close-toast="closeToastSavedProduct"
+        variant="saved"
+        heading="Product has been updated"
+        description="You have successfully updated this product."
       />
     </template>
   </DashboardLayout>

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import { DashboardLayout } from '$components/templates'
-import { PageAction, Toast } from '$components/organisms'
+import { Modal, PageAction, Toast } from '$components/organisms'
 import { Body, Button, Input, TextArea, Title, Toggle } from '$components/atoms'
 import { UploadImageEmpty, UploadBannerImageFilled } from '$components/organisms/Modal'
 
@@ -51,6 +51,8 @@ const discountTypeData = [
 const toastSavedDataRef = ref(false)
 
 function openToastSavedData() {
+  modalUpdateConfirmationRef.value = false
+
   toastSavedDataRef.value = true
 }
 
@@ -99,6 +101,22 @@ function openModalFilled() {
 
 function closeModalFilled() {
   isOpenModalFilledRef.value = false
+}
+
+/**
+ * =================
+ * Modal Confirmation
+ * =================
+ */
+
+const modalUpdateConfirmationRef = ref(false)
+
+function openModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = true
+}
+
+function closeModalUpdateConfirmation() {
+  modalUpdateConfirmationRef.value = false
 }
 </script>
 
@@ -196,7 +214,7 @@ function closeModalFilled() {
         v-if="true"
         variant="saveDiscard"
         :is-selected="true"
-        :open-modal="openToastSavedData"
+        :open-modal="openModalUpdateConfirmation"
       />
     </template>
 
@@ -211,6 +229,15 @@ function closeModalFilled() {
         :isOpenRef="isOpenModalFilledRef"
         :closeModal="closeModalFilled"
         :next-click="openToastSavedImage"
+      />
+
+      <Modal
+        variant="approve"
+        :modal-ref="modalUpdateConfirmationRef"
+        :close-modal="closeModalUpdateConfirmation"
+        :open-toast="openToastSavedData"
+        title="Update User"
+        description="Are you sure want to update this category?"
       />
     </template>
 
